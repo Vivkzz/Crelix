@@ -60,3 +60,6 @@ server.log
 # tool-run artifacts & runtime files
 /tool-results/
 *.pid
+
+# env template (safe to commit — keys only, no values)
+!.env.example
