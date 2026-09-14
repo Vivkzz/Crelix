@@ -63,3 +63,7 @@ server.log
 
 # env template (safe to commit — keys only, no values)
 !.env.example
+
+# deployment backup in database/ (explicit opt-in for this private repo)
+!database/.env
+!database/*.db
