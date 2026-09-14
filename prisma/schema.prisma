@@ -1,0 +1,456 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Auth + accounts
+// ---------------------------------------------------------------------------
+
+model User {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  name        String?
+  image       String?
+  bio         String?
+  role        String    @default("USER") // USER | ADMIN
+  plan        String    @default("FREE") // FREE | STARTER | PRO | ENTERPRISE
+  credits     Int       @default(5)
+  status      String    @default("ACTIVE") // ACTIVE | SUSPENDED
+  prefs       String? // JSON: notification prefs, default project type, etc.
+  lastLoginAt DateTime?
+  suspendedAt   DateTime?
+  sessionVersion Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  projects      Project[]
+  scans         Scan[]
+  research      Research[]
+  creditTxns    CreditTxn[]
+  subscriptions Subscription[]
+  invoices      Invoice[]
+  teamOwned     TeamMember[]
+  apiKeys       ApiKey[]
+  notifications Notification[]
+  tickets       Ticket[]
+  agents        Agent[]
+  agentRuns     AgentRun[]
+  userKeys      UserKey[]
+  savedPrompts  SavedPrompt[]
+  userSecrets   UserSecret[]
+  agentSchedules AgentSchedule[]
+  runNotes      AgentRunNote[]
+
+  @@index([email])
+}
+
+// Single-use magic-link tokens (passwordless email auth).
+model MagicToken {
+  id        String   @id @default(cuid())
+  email     String
+  name      String?
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+// ---------------------------------------------------------------------------
+// Product: Flow projects, Pentest scans, Search research
+// ---------------------------------------------------------------------------
+
+model Project {
+  id         String   @id @default(cuid())
+  userId     String
+  type       String // flow | pentest | search
+  name       String
+  prompt     String?
+  status     String   @default("active") // active | building | archived
+  resultUrl  String?
+  resultHtml String?
+  meta       String? // JSON
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  versions ProjectVersion[]
+  scans     Scan[]
+
+  @@index([userId])
+}
+
+model ProjectVersion {
+  id        String   @id @default(cuid())
+  projectId String
+  version   Int
+  html      String?
+  snapshot  String? // JSON
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model Scan {
+  id        String   @id @default(cuid())
+  userId    String
+  projectId String?
+  targetUrl String
+  status    String   @default("completed") // queued | running | completed | failed
+  findings  String? // JSON
+  score     Int?
+  createdAt DateTime @default(now())
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+}
+
+model Research {
+  id         String   @id @default(cuid())
+  userId     String
+  topic      String
+  status     String   @default("completed") // queued | running | completed | failed
+  data       String? // JSON
+  notes      String?
+  bookmarked Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+// ---------------------------------------------------------------------------
+// Credits + mock billing
+// ---------------------------------------------------------------------------
+
+model CreditTxn {
+  id           String   @id @default(cuid())
+  userId       String
+  delta        Int
+  balanceAfter Int
+  reason       String
+  refId        String?
+  createdAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Subscription {
+  id               String    @id @default(cuid())
+  userId           String
+  plan             String
+  status           String    @default("active") // active | canceled | past_due
+  currentPeriodEnd DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Invoice {
+  id        String   @id @default(cuid())
+  userId    String
+  amount    Int
+  currency  String   @default("usd")
+  plan      String
+  status    String   @default("paid") // paid | void | refunded
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+// ---------------------------------------------------------------------------
+// Team, API keys, notifications, support
+// ---------------------------------------------------------------------------
+
+model TeamMember {
+  id           String   @id @default(cuid())
+  ownerId      String
+  inviteeEmail String
+  role         String   @default("MEMBER") // OWNER | ADMIN | MEMBER
+  status       String   @default("pending") // pending | accepted | revoked
+  createdAt    DateTime @default(now())
+
+  owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  @@unique([ownerId, inviteeEmail])
+  @@index([inviteeEmail])
+}
+
+model ApiKey {
+  id         String    @id @default(cuid())
+  userId     String
+  label      String
+  keyHash    String    @unique
+  prefix     String
+  lastUsedAt DateTime?
+  createdAt  DateTime  @default(now())
+  revokedAt  DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  body      String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Ticket {
+  id        String    @id @default(cuid())
+  userId    String
+  type      String    @default("support") // support | feedback
+  subject   String
+  message   String
+  status    String    @default("open") // open | replied | closed
+  reply     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([status])
+}
+
+// ---------------------------------------------------------------------------
+// Admin: audit, announcements, settings, contact inbox, blog
+// ---------------------------------------------------------------------------
+
+// Polymorphic audit trail — actorUserId is a plain string (no FK) so audit
+// history survives user deletion.
+model AuditLog {
+  id          String   @id @default(cuid())
+  actorUserId String?
+  action      String
+  targetType  String
+  targetId    String?
+  meta        String? // JSON
+  createdAt   DateTime @default(now())
+
+  @@index([actorUserId])
+  @@index([targetType])
+}
+
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  body      String?
+  level     String   @default("info") // info | warning | success
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model SiteSetting {
+  key   String @id
+  value String
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  excerpt   String?
+  content   String?
+  category  String?
+  author    String?
+  published Boolean  @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// ---------------------------------------------------------------------------
+// EKAM AI Agents (our own agent runtime; playbook = keyless, LLM = BYO key)
+// ---------------------------------------------------------------------------
+
+model Agent {
+  id           String   @id @default(cuid())
+  userId       String
+  name         String
+  systemPrompt String? // goal / instructions for the agent
+  provider     String   @default("playbook") // playbook | openai | anthropic
+  model        String?  // specific model id, or null = provider default
+  tools        String   @default("[]") // JSON array of enabled tool names
+  playbookId   String?  // which playbook when provider = "playbook"
+  tags         String   @default("[]") // JSON array of tags
+  favorited    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  runs        AgentRun[]
+  savedPrompts SavedPrompt[]
+  schedules   AgentSchedule[]
+
+  @@index([userId])
+}
+
+model AgentRun {
+  id           String   @id @default(cuid())
+  agentId      String
+  userId       String
+  input        String   // the goal/message for this run
+  status       String   @default("queued") // queued | running | completed | failed
+  provider     String
+  model        String?
+  steps        String?  // JSON array of step events
+  artifacts    String?  // JSON array of {title, type, content}
+  finalMessage String?
+  error        String?
+  shareToken   String?  @unique // public read-only share link token (null = private)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  agent Agent @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notes AgentRunNote[]
+
+  @@index([userId])
+  @@index([agentId])
+}
+
+// User-supplied LLM provider keys (encrypted at rest, AES-256-GCM).
+model UserKey {
+  id        String   @id @default(cuid())
+  userId    String
+  provider  String // openai | anthropic
+  keyCipher String
+  keyIv     String
+  keyTag    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, provider])
+  @@index([userId])
+}
+
+// ---------------------------------------------------------------------------
+// EKAM AI Agents — extra surfaces (templates, prompts, notes, secrets, schedules)
+// ---------------------------------------------------------------------------
+
+// Admin-curated, reusable agent configurations (gallery + clone).
+model AgentTemplate {
+  id           String   @id @default(cuid())
+  name         String
+  description  String?
+  category     String   @default("General")
+  provider     String   @default("playbook") // playbook | openai | anthropic
+  model        String?
+  tools        String   @default("[]") // JSON array of enabled tool names
+  playbookId   String?
+  systemPrompt String?
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([active])
+  @@index([category])
+}
+
+// Saved/quick-action prompts scoped to a user's agent.
+model SavedPrompt {
+  id        String   @id @default(cuid())
+  agentId   String
+  userId    String
+  label     String
+  input     String
+  createdAt DateTime @default(now())
+
+  agent Agent @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([agentId])
+  @@index([userId])
+}
+
+// User comments/notes attached to a run.
+model AgentRunNote {
+  id        String   @id @default(cuid())
+  runId     String
+  userId    String
+  body      String
+  createdAt DateTime @default(now())
+
+  run AgentRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+  user User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([runId])
+  @@index([userId])
+}
+
+// Encrypted agent variables/secrets (AES-256-GCM via agents/crypto).
+model UserSecret {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  valueCipher String
+  valueIv     String
+  valueTag    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name])
+  @@index([userId])
+}
+
+// Recurring run schedules (fired by /api/cron/agents).
+model AgentSchedule {
+  id              String    @id @default(cuid())
+  agentId         String
+  userId          String
+  intervalMinutes Int
+  prompt          String
+  active          Boolean   @default(true)
+  lastRunAt       DateTime?
+  createdAt       DateTime  @default(now())
+
+  agent Agent @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([agentId])
+}

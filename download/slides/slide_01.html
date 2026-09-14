@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EKAM AI — Cover</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  @keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.45;transform:scale(.7);} }
+  .pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+  .cover-glow {
+    position:absolute; top:-220px; right:-220px;
+    width:720px; height:720px; border-radius:50%;
+    background: radial-gradient(circle at 35% 35%, rgba(145,229,0,0.32), rgba(18,188,255,0.22) 38%, rgba(47,68,255,0.16) 62%, rgba(130,0,223,0.10) 85%, transparent 100%);
+    filter: blur(70px);
+    opacity:.55;
+  }
+  .cover-glow-2 {
+    position:absolute; bottom:-260px; left:-180px;
+    width:560px; height:560px; border-radius:50%;
+    background: radial-gradient(circle, rgba(130,0,223,0.18), rgba(47,68,255,0.10) 60%, transparent 100%);
+    filter: blur(80px);
+  }
+  .grid-bg {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(circle at 30% 40%, black 0%, transparent 75%);
+  }
+  .display-headline { font-size: 80px; line-height: 0.98; letter-spacing: -0.035em; font-weight: 800; }
+  .accent-rule { width: 56px; height: 3px; background: var(--gradient-spectrum); border-radius: 9999px; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="grid-bg" data-decor aria-hidden="true"></div>
+  <div class="cover-glow" data-decor aria-hidden="true"></div>
+  <div class="cover-glow-2" data-decor aria-hidden="true"></div>
+
+  <!-- Brand mark -->
+  <div class="brand-mark">ekam</div>
+
+  <!-- Slide number -->
+  <div class="slide-num">01 / 16</div>
+
+  <!-- Main content -->
+  <div class="slide-canvas flex flex-col justify-center" style="padding-top:24px;">
+    <div style="max-width: 880px;">
+
+      <!-- Pill -->
+      <div class="pill" style="margin-bottom: 28px;">
+        <span class="dot dot-1 pulse-dot"></span>
+        EKAM AI — AI Platform
+      </div>
+
+      <!-- Massive headline -->
+      <h1 class="display-headline" style="color: var(--primary);">
+        Launch your site.<br>
+        <span class="spectrum-text">Scan before go-live.</span>
+      </h1>
+
+      <!-- Accent rule -->
+      <div class="accent-rule" style="margin-top: 32px; margin-bottom: 24px;"></div>
+
+      <!-- Subtitle -->
+      <p style="font-size: 18px; line-height: 1.55; color: var(--primary-muted); max-width: 720px;">
+        The AI platform that turns a prompt into a deployed launch page — then runs an authorized pre-launch security scan.
+      </p>
+
+      <!-- Bottom row: company + domain -->
+      <div style="margin-top: 56px; display: flex; align-items: center; gap: 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; color: var(--primary-muted); text-transform: uppercase;">
+        <span>EKAM INNOVATIONS LLP</span>
+        <span style="color: var(--primary-subtle);">·</span>
+        <span style="color: var(--accent-1);">ekamai.in</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative corner mark -->
+  <div data-decor aria-hidden="true" style="position:absolute; bottom:32px; left:64px; font-family: var(--font-mono); font-size: 11px; letter-spacing:0.08em; color: var(--primary-subtle); text-transform: uppercase;">
+    Pitch Deck · 2026
+  </div>
+</div>
+
+<aside data-notes class="hidden">
+Welcome to EKAM AI. We're an AI platform built by EKAM INNOVATIONS LLP that helps founders launch their sites and scan them for security issues before going live. Today I'll walk you through our three suites — Flow, Pentest, and Search — our architecture, traction, and how we're building the execution layer for AI-powered product launches. The thesis is simple: launching a product should not require a fragmented toolchain, and security should never be an afterthought. We turn a single prompt into a deployed, scannable, shippable product — all inside one workflow. Let's start with the problem we see in the market today.
+</aside>
+</body>
+</html>

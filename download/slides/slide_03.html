@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EKAM AI — The Solution</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .glow-bg {
+    position:absolute; bottom:-220px; left:-200px;
+    width:520px; height:520px; border-radius:50%;
+    background: radial-gradient(circle, rgba(145,229,0,0.16), rgba(18,188,255,0.10) 60%, transparent 80%);
+    filter: blur(80px); opacity:.6;
+  }
+  .key-row {
+    display:flex; align-items:flex-start; gap:14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .key-row:last-child { border-bottom: none; }
+  .key-dot {
+    width:10px; height:10px; border-radius:50%; flex-shrink:0;
+    margin-top: 6px;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.04);
+  }
+  .terminal-card {
+    background: linear-gradient(180deg, #11111a 0%, #0d0d14 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6), 0 0 80px -20px rgba(18,188,255,0.18);
+  }
+  .term-header {
+    display:flex; align-items:center; gap:8px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+  }
+  .term-dot { width:10px; height:10px; border-radius:50%; }
+  .blink { animation: blink 1.1s steps(2,start) infinite; }
+  @keyframes blink { to { opacity:0; } }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="glow-bg" data-decor aria-hidden="true"></div>
+
+  <div class="brand-mark">ekam</div>
+  <div class="slide-num">03 / 16</div>
+
+  <div class="slide-canvas grid" style="grid-template-columns: 60% 40%; gap: 40px; padding-top: 24px; align-items: center;">
+
+    <!-- LEFT COLUMN -->
+    <div>
+      <div class="pill" style="margin-bottom: 18px;">
+        <span class="dot dot-1"></span>
+        The Solution
+      </div>
+      <h1 style="font-size: 40px; line-height: 1.08; letter-spacing: -0.025em; font-weight: 700;">
+        One platform. Prompt to live.<br>
+        <span class="spectrum-text">Scan before go-live.</span>
+      </h1>
+      <p style="font-size: 15.5px; line-height: 1.6; color: var(--primary-muted); margin-top: 18px; max-width: 600px;">
+        EKAM AI is the AI platform that turns a prompt into a deployed launch page — then runs an authorized pre-launch security scan so you ship with confidence. No coding, no DevOps, no waitlist.
+      </p>
+
+      <!-- 3 key points -->
+      <div style="margin-top: 28px;">
+        <div class="key-row">
+          <span class="key-dot" style="background: var(--accent-1);"></span>
+          <div>
+            <div style="font-size: 14.5px; font-weight: 600; color: var(--primary);">Prompt-based generation</div>
+            <div style="font-size: 13px; color: var(--primary-muted); margin-top:2px;">Describe what you need, get a live URL.</div>
+          </div>
+        </div>
+        <div class="key-row">
+          <span class="key-dot" style="background: var(--accent-2);"></span>
+          <div>
+            <div style="font-size: 14.5px; font-weight: 600; color: var(--primary);">Pre-launch security scan</div>
+            <div style="font-size: 13px; color: var(--primary-muted); margin-top:2px;">12 specialist agents, 11 vulnerability classes.</div>
+          </div>
+        </div>
+        <div class="key-row">
+          <span class="key-dot" style="background: var(--accent-3);"></span>
+          <div>
+            <div style="font-size: 14.5px; font-weight: 600; color: var(--primary);">One workflow</div>
+            <div style="font-size: 13px; color: var(--primary-muted); margin-top:2px;">No tool-switching, no context loss.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN — Terminal mock -->
+    <div class="terminal-card">
+      <div class="term-header">
+        <span class="term-dot" style="background:#ff5f57;"></span>
+        <span class="term-dot" style="background:#febc2e;"></span>
+        <span class="term-dot" style="background:#28c840;"></span>
+        <span style="font-family: var(--font-mono); font-size: 11px; color: var(--primary-subtle); margin-left:8px; letter-spacing:0.06em; text-transform:uppercase;">ekam — flow</span>
+      </div>
+
+      <div style="padding: 22px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--primary-subtle); margin-bottom: 10px; letter-spacing:0.06em; text-transform:uppercase;">Prompt</div>
+        <div style="font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; color: var(--primary);">
+          <span style="color: var(--accent-1);">$</span> Build a launch page for an AI note-taking app<span class="blink" style="color: var(--accent-1);">_</span>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--primary-subtle); margin-top: 10px; line-height:1.5;">
+          → planner · designer · engineer · deployer
+        </div>
+
+        <!-- progress -->
+        <div style="margin-top: 18px; display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:10px; font-family: var(--font-mono); font-size: 11px; color: var(--primary-muted);">
+            <span class="material-icons" style="font-size:12px; color: var(--accent-1);">check_circle</span>
+            spec generated
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; font-family: var(--font-mono); font-size: 11px; color: var(--primary-muted);">
+            <span class="material-icons" style="font-size:12px; color: var(--accent-1);">check_circle</span>
+            design + copy
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; font-family: var(--font-mono); font-size: 11px; color: var(--primary-muted);">
+            <span class="material-icons" style="font-size:12px; color: var(--accent-1);">check_circle</span>
+            frontend + backend
+          </div>
+        </div>
+
+        <!-- status -->
+        <div style="margin-top: 18px; padding: 12px 14px; border:1px solid rgba(145,229,0,0.3); background: rgba(145,229,0,0.06); border-radius:10px; display:flex; align-items:center; gap:10px;">
+          <span class="material-icons" style="font-size:16px; color: var(--accent-1);">rocket_launch</span>
+          <span style="font-family: var(--font-mono); font-size: 12.5px; color: var(--accent-1); font-weight:600;">live URL ready — 47 seconds</span>
+        </div>
+      </div>
+
+      <!-- spectrum bar at bottom -->
+      <div class="spectrum-bar"></div>
+    </div>
+  </div>
+</div>
+
+<aside data-notes class="hidden">
+EKAM AI is one platform that solves the entire launch problem. You describe your project in a prompt, and our agent team generates the design, copy, code, and deploys it live. Then, without leaving the workflow, you run a pre-launch security scan with 12 specialist agents covering 11 vulnerability classes. No coding, no DevOps, no waitlist. It's not another AI wrapper — it's the execution layer that orchestrates specialized agents as one coordinated team. The terminal mock on the right shows a typical Flow run: a single prompt, four agents coordinating in sequence, and a live URL in under a minute. From there, Pentest takes over before you announce.
+</aside>
+</body>
+</html>

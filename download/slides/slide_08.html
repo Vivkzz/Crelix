@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Architecture — EKAM AI</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  .layer-bar {
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .layer-top {
+    background: #f2f1f1;
+    color: #0a0a0f;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .layer-mid {
+    background: rgba(22,22,32,0.85);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(18,188,255,0.18), 0 0 0 1px rgba(255,255,255,0.04);
+    transform: scale(1.04);
+    z-index: 2;
+  }
+  .layer-mid::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:14px;
+    padding:1.5px;
+    background: var(--gradient-spectrum);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events:none;
+  }
+  .layer-bottom {
+    background: #91e500;
+    color: #0a0a0f;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .dashed-conn {
+    height: 18px;
+    width: 2px;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.4) 50%, transparent 50%);
+    background-size: 2px 6px;
+    background-repeat: repeat-y;
+  }
+  .gradient-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--gradient-spectrum);
+    background-size: 200% auto;
+    flex-shrink: 0;
+  }
+  .vendor-logo {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.08);
+    color: #0a0a0f;
+  }
+  .pillar-card {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.025);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin-loader { animation: spin 2.4s linear infinite; }
+  @media (prefers-reduced-motion: reduce) { .spin-loader { animation: none; } }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div data-decor aria-hidden="true" class="glow glow-2" style="width:380px;height:380px;top:-140px;left:30%;opacity:0.35;"></div>
+  <div data-decor aria-hidden="true" class="glow glow-1" style="width:300px;height:300px;bottom:-120px;left:-80px;opacity:0.4;"></div>
+
+  <div class="brand-mark">ekam</div>
+  <div class="slide-num">08 / 16</div>
+
+  <div class="slide-canvas grid" style="grid-template-columns: 1.05fr 0.95fr; gap:48px; padding-top:8px;">
+    <!-- Left column: header + 3-layer stack -->
+    <div class="flex flex-col">
+      <div class="pill" style="margin-bottom:14px;align-self:flex-start;">
+        <span class="dot dot-2"></span>
+        The Architecture
+      </div>
+      <h1 style="font-family:var(--font-heading);font-weight:800;font-size:40px;line-height:1.08;letter-spacing:-0.025em;margin-bottom:10px;">
+        EKAM AI is <span style="color:var(--primary-muted);font-weight:600;">not</span> a model
+      </h1>
+      <p style="font-size:15px;line-height:1.55;color:var(--primary-muted);max-width:560px;margin-bottom:22px;">
+        An execution layer that turns AI intelligence into structured workflows, deployed systems, and real business outcomes.
+      </p>
+
+      <!-- 3-layer stack -->
+      <div style="max-width:580px;">
+        <!-- Top layer -->
+        <div class="layer-bar layer-top">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(10,10,15,0.55);margin-bottom:4px;">Layer 03</div>
+            <div style="font-family:var(--font-heading);font-weight:700;font-size:17px;letter-spacing:-0.01em;">Running Systems</div>
+            <div style="font-size:12px;color:rgba(10,10,15,0.65);margin-top:2px;">Deployed pages, apps, and scans</div>
+          </div>
+          <span class="material-icons spin-loader" style="color:#0a0a0f;font-size:24px;">refresh</span>
+        </div>
+
+        <div class="dashed-conn" data-decor aria-hidden="true"></div>
+
+        <!-- Middle layer (elevated) -->
+        <div class="layer-bar layer-mid">
+          <div class="flex items-center" style="gap:14px;">
+            <div class="gradient-circle" data-decor aria-hidden="true"></div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--primary-subtle);margin-bottom:4px;">Layer 02 · Core</div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:17px;letter-spacing:-0.01em;color:var(--primary);">EKAM Execution Layer</div>
+              <div style="font-size:12px;color:var(--primary-muted);margin-top:2px;">Orchestration • workflows • agents</div>
+            </div>
+          </div>
+          <span class="material-icons" style="color:#91e500;font-size:22px;">hub</span>
+        </div>
+
+        <div class="dashed-conn" data-decor aria-hidden="true"></div>
+
+        <!-- Bottom layer -->
+        <div class="layer-bar layer-bottom">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(10,10,15,0.55);margin-bottom:4px;">Layer 01</div>
+            <div style="font-family:var(--font-heading);font-weight:700;font-size:17px;letter-spacing:-0.01em;">AI models</div>
+            <div style="font-size:12px;color:rgba(10,10,15,0.7);margin-top:2px;">Leading frontier models</div>
+          </div>
+          <div class="flex items-center" style="gap:6px;">
+            <span class="vendor-logo">OpenAI</span>
+            <span class="vendor-logo">Anthropic</span>
+            <span class="vendor-logo">Google</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column: 3 pillar points -->
+    <div class="flex flex-col justify-end" style="padding-bottom:8px;">
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--primary-subtle);margin-bottom:14px;">Why this matters</div>
+
+      <div class="flex flex-col" style="gap:14px;">
+        <div class="pillar-card">
+          <div class="flex items-start" style="gap:12px;">
+            <span class="material-icons" style="color:#91e500;font-size:22px;margin-top:2px;">hub</span>
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:16px;letter-spacing:-0.01em;color:var(--primary);margin-bottom:4px;">Orchestrated, not chat</div>
+              <div style="font-size:13px;line-height:1.5;color:var(--primary-muted);">Agents coordinate as one team</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="flex items-start" style="gap:12px;">
+            <span class="material-icons" style="color:#12bcff;font-size:22px;margin-top:2px;">description</span>
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:16px;letter-spacing:-0.01em;color:var(--primary);margin-bottom:4px;">Structured workflows</div>
+              <div style="font-size:13px;line-height:1.5;color:var(--primary-muted);">Evidence, not prose</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="flex items-start" style="gap:12px;">
+            <span class="material-icons" style="color:#2f44ff;font-size:22px;margin-top:2px;">rocket_launch</span>
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:16px;letter-spacing:-0.01em;color:var(--primary);margin-bottom:4px;">Real business outcomes</div>
+              <div style="font-size:13px;line-height:1.5;color:var(--primary-muted);">Live URL, not a demo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside data-notes class="hidden">
+EKAM AI is not a model. We don't train our own LLM. Instead, we're an execution layer that sits between frontier AI models and running systems. At the bottom, we orchestrate the best models from OpenAI, Anthropic, and Google. In the middle, the EKAM Execution Layer coordinates specialized agents — planner, designer, engineer, tester, deployer, security — as one team. At the top, running systems: deployed pages, apps, and scans that you can actually use. This is what sets us apart. We're not another chatbot wrapper. We're the infrastructure that turns AI intelligence into real business outcomes.
+</aside>
+</body>
+</html>

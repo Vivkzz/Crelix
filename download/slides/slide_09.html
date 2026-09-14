@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>How It Works — EKAM AI</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  .step-card {
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.025);
+    padding: 22px 20px;
+    height: 268px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .step-card .accent-glow {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .step-num-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-subtle);
+  }
+  .step-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+  }
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-spectrum);
+    background-size: 200% auto;
+    border-radius: 9999px;
+    z-index: 1;
+  }
+  .step-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    position: absolute;
+    top: -7px;
+    left: 24px;
+    z-index: 2;
+  }
+  .flow-pill {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div data-decor aria-hidden="true" class="glow glow-1" style="width:300px;height:300px;top:-120px;left:-80px;opacity:0.4;"></div>
+  <div data-decor aria-hidden="true" class="glow glow-3" style="width:340px;height:340px;bottom:-140px;right:-100px;opacity:0.45;"></div>
+
+  <div class="brand-mark">ekam</div>
+  <div class="slide-num">09 / 16</div>
+
+  <div class="slide-canvas flex flex-col" style="padding-top:8px;">
+    <!-- Header -->
+    <div style="margin-bottom:30px;">
+      <div class="pill" style="margin-bottom:14px;">
+        <span class="dot dot-1"></span>
+        How It Works
+      </div>
+      <h1 style="font-family:var(--font-heading);font-weight:800;font-size:36px;line-height:1.1;letter-spacing:-0.02em;">
+        Built for the public launch moment
+      </h1>
+    </div>
+
+    <!-- 4 step cards in a horizontal row -->
+    <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap:18px; position:relative; padding-top:18px;">
+      <!-- Spectrum line connecting cards -->
+      <div class="timeline-line" data-decor aria-hidden="true"></div>
+
+      <!-- Step 01 — lime -->
+      <div class="step-card" style="border-color:rgba(145,229,0,0.25);">
+        <div class="accent-glow" data-decor aria-hidden="true" style="background:rgba(145,229,0,0.5);"></div>
+        <div class="step-dot" style="background:#91e500;" data-decor aria-hidden="true"></div>
+
+        <div class="flex items-center justify-between" style="margin-bottom:18px;">
+          <div class="step-icon-wrap" style="border-color:rgba(145,229,0,0.3);">
+            <span class="material-icons" style="color:#91e500;">edit_note</span>
+          </div>
+          <span class="step-num-tag" style="color:#cfe98a;">Step 01</span>
+        </div>
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:18px;line-height:1.2;letter-spacing:-0.01em;color:var(--primary);margin-bottom:8px;">
+          Describe your project
+        </div>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--primary-muted);">
+          Share what you are building, who it is for, and the angle. No coding required.
+        </p>
+      </div>
+
+      <!-- Step 02 — cyan -->
+      <div class="step-card" style="border-color:rgba(18,188,255,0.25);">
+        <div class="accent-glow" data-decor aria-hidden="true" style="background:rgba(18,188,255,0.5);"></div>
+        <div class="step-dot" style="background:#12bcff;" data-decor aria-hidden="true"></div>
+
+        <div class="flex items-center justify-between" style="margin-bottom:18px;">
+          <div class="step-icon-wrap" style="border-color:rgba(18,188,255,0.3);">
+            <span class="material-icons" style="color:#12bcff;">upload</span>
+          </div>
+          <span class="step-num-tag" style="color:#9fdcff;">Step 02</span>
+        </div>
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:18px;line-height:1.2;letter-spacing:-0.01em;color:var(--primary);margin-bottom:8px;">
+          Add references &amp; assets
+        </div>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--primary-muted);">
+          Drop in screenshots, brand colors, or Figma links. Agents match your vision.
+        </p>
+      </div>
+
+      <!-- Step 03 — blue -->
+      <div class="step-card" style="border-color:rgba(47,68,255,0.3);">
+        <div class="accent-glow" data-decor aria-hidden="true" style="background:rgba(47,68,255,0.55);"></div>
+        <div class="step-dot" style="background:#2f44ff;" data-decor aria-hidden="true"></div>
+
+        <div class="flex items-center justify-between" style="margin-bottom:18px;">
+          <div class="step-icon-wrap" style="border-color:rgba(47,68,255,0.35);">
+            <span class="material-icons" style="color:#2f44ff;">security</span>
+          </div>
+          <span class="step-num-tag" style="color:#9fb0ff;">Step 03</span>
+        </div>
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:18px;line-height:1.2;letter-spacing:-0.01em;color:var(--primary);margin-bottom:8px;">
+          Pair launch &amp; security
+        </div>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--primary-muted);">
+          Create the page, iterate, then run a pre-launch scan — without leaving EKAM AI.
+        </p>
+      </div>
+
+      <!-- Step 04 — purple -->
+      <div class="step-card" style="border-color:rgba(130,0,223,0.3);">
+        <div class="accent-glow" data-decor aria-hidden="true" style="background:rgba(130,0,223,0.55);"></div>
+        <div class="step-dot" style="background:#8200df;" data-decor aria-hidden="true"></div>
+
+        <div class="flex items-center justify-between" style="margin-bottom:18px;">
+          <div class="step-icon-wrap" style="border-color:rgba(130,0,223,0.35);">
+            <span class="material-icons" style="color:#8200df;">rocket_launch</span>
+          </div>
+          <span class="step-num-tag" style="color:#c79bff;">Step 04</span>
+        </div>
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:18px;line-height:1.2;letter-spacing:-0.01em;color:var(--primary);margin-bottom:8px;">
+          Go live with one click
+        </div>
+        <p style="font-size:13.5px;line-height:1.55;color:var(--primary-muted);">
+          Publish, redeploy edits, and hand the live URL to Pentest. Hosting included.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom: spectrum bar + flow text -->
+    <div style="margin-top:36px;">
+      <div class="spectrum-bar" style="margin-bottom:18px;"></div>
+      <div class="flex items-center justify-center">
+        <div class="flow-pill">
+          <span class="material-icons" style="font-size:14px;color:var(--primary-subtle);">play_arrow</span>
+          <span style="font-family:var(--font-mono);font-size:14px;letter-spacing:0.08em;" class="spectrum-text">plan → code → deploy → scan → launch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside data-notes class="hidden">
+The workflow is four steps. First, describe your project — what you're building, who it's for, the angle. Second, add references — screenshots, brand colors, Figma links. The agents match your vision. Third, pair launch and security — create the page, iterate on copy and visuals, then run a pre-launch scan without leaving the EKAM AI workflow. Fourth, go live with one click — publish, redeploy edits, and hand the live URL to Pentest. Hosting is included. The entire process takes an afternoon, not a sprint, and every step happens inside one cohesive platform.
+</aside>
+</body>
+</html>

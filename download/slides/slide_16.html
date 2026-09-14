@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Get Started — EKAM AI</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  .pulse-dot-cover {
+    box-shadow: 0 0 0 0 rgba(145, 229, 0, 0.7);
+    animation: pulse-cover 2s infinite;
+  }
+  @keyframes pulse-cover {
+    0% { box-shadow: 0 0 0 0 rgba(145, 229, 0, 0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(145, 229, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(145, 229, 0, 0); }
+  }
+  .cta-secondary {
+    color: var(--primary-muted);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 14px 8px;
+    transition: color 0.2s;
+  }
+  .cta-secondary:hover { color: var(--primary); }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="brand-mark">ekam</div>
+  <div class="slide-num">16 / 16</div>
+
+  <!-- Background glow -->
+  <div data-decor class="glow glow-1" style="width: 720px; height: 720px; top: -260px; right: -200px; filter: blur(120px); opacity: 0.5;"></div>
+  <div data-decor class="glow glow-3" style="width: 600px; height: 600px; bottom: -200px; left: -180px; filter: blur(120px); opacity: 0.4;"></div>
+  <div data-decor class="glow glow-2" style="width: 400px; height: 400px; top: 40%; left: 50%; transform: translate(-50%, -50%); filter: blur(140px); opacity: 0.25;"></div>
+
+  <div class="slide-canvas" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; position: relative; z-index: 1;">
+
+    <!-- Pill -->
+    <span class="pill">
+      <span class="dot dot-1 pulse-dot-cover"></span>
+      Get started
+    </span>
+
+    <!-- Headline -->
+    <h1 style="font-size: 52px; font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; max-width: 1000px;">
+      Create your account and start<br>
+      <span class="spectrum-text">using EKAM AI today.</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p style="font-size: 18px; line-height: 1.55; color: var(--primary-muted); max-width: 700px;">
+      No waitlist, no delays. Spin up a launch page, run a pre-launch scan, and ship — all in one workflow.
+    </p>
+
+    <!-- CTAs -->
+    <div style="display: flex; align-items: center; gap: 20px; margin-top: 8px;">
+      <a class="cta-btn" href="#" style="font-size: 16px; padding: 16px 32px;">
+        Create account
+        <span class="material-icons" style="font-size: 18px;">arrow_forward</span>
+      </a>
+      <a class="cta-secondary" href="#">Talk to us →</a>
+    </div>
+
+    <!-- Micro -->
+    <div style="font-size: 11px; color: var(--primary-subtle); margin-top: 6px;">
+      By continuing you agree to our Terms &amp; Privacy Policy.
+    </div>
+
+    <!-- Contact row -->
+    <div style="display: flex; align-items: center; gap: 14px; font-family: var(--font-mono); font-size: 13px; color: var(--primary-muted); margin-top: 14px;">
+      <span>ekamai.in</span>
+      <span style="color: var(--primary-subtle);">·</span>
+      <span>contact@ekamai.in</span>
+      <span style="color: var(--primary-subtle);">·</span>
+      <span>@ekam_ai</span>
+    </div>
+  </div>
+
+  <!-- Bottom footer -->
+  <div style="position: absolute; bottom: 28px; left: 0; right: 0; text-align: center; font-family: var(--font-mono); font-size: 11px; color: var(--primary-subtle); letter-spacing: 0.1em; text-transform: uppercase;">
+    EKAM INNOVATIONS LLP · ekamai.in
+  </div>
+
+  <aside data-notes class="hidden">That's EKAM AI. One platform, three suites, zero waitlist. You can create your account today at ekamai.in, spin up a launch page with Flow in minutes, run a pre-launch scan with Pentest, and ship — all in one workflow without leaving the platform. If you want to talk to us, email contact@ekamai.in or find us at @ekam_ai on social. We are EKAM INNOVATIONS LLP, a registered entity, and we are building the execution layer for AI-powered product launches. Thank you for your time today — we look forward to seeing what you ship.</aside>
+</div>
+</body>
+</html>

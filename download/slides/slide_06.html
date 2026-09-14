@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EKAM AI — Search</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .blue-glow {
+    position:absolute; top:60px; right:-160px;
+    width:520px; height:520px; border-radius:50%;
+    background: radial-gradient(circle, rgba(47,68,255,0.22), rgba(130,0,223,0.10) 60%, transparent 80%);
+    filter: blur(80px);
+  }
+  .feat-row {
+    display:flex; align-items:flex-start; gap:14px;
+    padding: 11px 0;
+  }
+  .feat-row + .feat-row { border-top: 1px solid var(--border); }
+  .search-card {
+    background: linear-gradient(180deg, #0d1019 0%, #0a0c14 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6), 0 0 100px -20px rgba(47,68,255,0.30);
+  }
+  .data-row {
+    display:flex; align-items:center; gap:12px;
+    padding: 13px 18px;
+    border-top: 1px solid var(--border);
+  }
+  .data-row:first-of-type { border-top: none; }
+  .data-val {
+    margin-left:auto; font-family: var(--font-mono); font-size: 12.5px;
+    color: var(--primary);
+  }
+  .blue-pill {
+    display:inline-flex; align-items:center; gap:6px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    border:1px solid rgba(47,68,255,0.35);
+    background: rgba(47,68,255,0.10);
+    font-size: 12px;
+    color: #6b85ff;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+  .free-badge {
+    display:inline-flex; align-items:center; gap:4px;
+    padding: 3px 9px;
+    border-radius: 9999px;
+    background: var(--accent-3);
+    color:#fff;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    letter-spacing:0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .highlight-box {
+    border:1px solid rgba(47,68,255,0.4);
+    background: linear-gradient(135deg, rgba(47,68,255,0.10), rgba(130,0,223,0.06));
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blue-glow" data-decor aria-hidden="true"></div>
+
+  <div class="brand-mark">ekam</div>
+  <div class="slide-num">06 / 16</div>
+
+  <div class="slide-canvas" style="padding-top: 16px;">
+
+    <!-- Header -->
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom: 14px;">
+      <div class="pill" style="border-color: rgba(47,68,255,0.3); background: rgba(47,68,255,0.08); color: #6b85ff;">
+        <span class="dot dot-3"></span>
+        Suite 03 — Search
+      </div>
+      <span class="free-badge">Free</span>
+    </div>
+    <h1 style="font-size: 36px; line-height: 1.1; letter-spacing: -0.025em; font-weight: 700;">
+      Market research that feeds <span style="color: #6b85ff;">your launch</span>
+    </h1>
+
+    <!-- Two-column body -->
+    <div class="grid" style="grid-template-columns: 55% 45%; gap: 36px; margin-top: 26px;">
+
+      <!-- LEFT -->
+      <div>
+        <p style="font-size: 14.5px; line-height: 1.6; color: var(--primary-muted); margin-bottom: 18px;">
+          Explore markets, competitors, customer pain points, and launch angles before you build. Free for all EKAM AI users.
+        </p>
+
+        <!-- 4 features -->
+        <div style="margin-top: 8px;">
+          <div class="feat-row">
+            <span class="material-icons" style="color: #6b85ff; font-size:20px; margin-top:1px;">search</span>
+            <span style="font-size: 14px; line-height:1.45;">Audience signals from real forums and review sites</span>
+          </div>
+          <div class="feat-row">
+            <span class="material-icons" style="color: #6b85ff; font-size:20px; margin-top:1px;">search</span>
+            <span style="font-size: 14px; line-height:1.45;">Competitor map — who ships what, where the gap is</span>
+          </div>
+          <div class="feat-row">
+            <span class="material-icons" style="color: #6b85ff; font-size:20px; margin-top:1px;">search</span>
+            <span style="font-size: 14px; line-height:1.45;">Three positioning drafts, ranked by strength</span>
+          </div>
+          <div class="feat-row">
+            <span class="material-icons" style="color: #6b85ff; font-size:20px; margin-top:1px;">search</span>
+            <span style="font-size: 14px; line-height:1.45;">Page-ready headline + subhead + bullets</span>
+          </div>
+        </div>
+
+        <!-- Free pill -->
+        <div style="margin-top: 22px;">
+          <span class="blue-pill">
+            <span class="material-icons" style="font-size:14px;">bolt</span>
+            Free for all paid plans
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT — Research output card -->
+      <div class="search-card">
+        <div style="display:flex; align-items:center; gap:8px; padding: 14px 18px; border-bottom:1px solid var(--border); background: rgba(255,255,255,0.02);">
+          <span style="width:8px; height:8px; border-radius:50%; background:#ff5f57;"></span>
+          <span style="width:8px; height:8px; border-radius:50%; background:#febc2e;"></span>
+          <span style="width:8px; height:8px; border-radius:50%; background:#28c840;"></span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--primary-subtle); margin-left:8px; letter-spacing:0.06em; text-transform:uppercase;">ekam — search</span>
+        </div>
+
+        <div style="padding: 12px 0 4px;">
+          <div class="data-row">
+            <span class="dot dot-3"></span>
+            <span style="font-family: var(--font-mono); font-size: 12.5px; color: var(--primary);">Audience signals</span>
+            <span class="data-val">127 sources</span>
+          </div>
+          <div class="data-row">
+            <span class="dot dot-3"></span>
+            <span style="font-family: var(--font-mono); font-size: 12.5px; color: var(--primary);">Competitor map</span>
+            <span class="data-val">8 mapped</span>
+          </div>
+          <div class="data-row">
+            <span class="dot dot-3"></span>
+            <span style="font-family: var(--font-mono); font-size: 12.5px; color: var(--primary);">Pricing research</span>
+            <span class="data-val">$4–12/mo range</span>
+          </div>
+        </div>
+
+        <!-- Highlight box -->
+        <div style="padding: 14px 18px;">
+          <div class="highlight-box">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom: 8px;">
+              <span class="material-icons" style="font-size:16px; color: #6b85ff;">auto_awesome</span>
+              <span style="font-family: var(--font-mono); font-size: 10.5px; color: #6b85ff; text-transform: uppercase; letter-spacing:0.08em; font-weight: 600;">Strongest angle</span>
+            </div>
+            <p style="font-size: 13px; line-height: 1.55; color: var(--primary);">
+              <span style="font-weight: 600;">"Notes that find themselves."</span> Auto-tagging + semantic search. Targets Obsidian users who want zero-config structure.
+            </p>
+          </div>
+        </div>
+
+        <div class="spectrum-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside data-notes class="hidden">
+Search is our third suite, and it's free for all paid users. Before you build anything, you can run market research — audience signals from real forums, competitor maps, pricing research, and three positioning drafts ranked by strength. The output is page-ready: a headline, subhead, and feature bullets you can hand directly to Flow as your starting prompt. It bridges the gap between research and execution. The card on the right shows a typical output: 127 audience sources, 8 competitors mapped, a $4–12 pricing range, and the strongest positioning angle — "Notes that find themselves." That output becomes the seed prompt for Flow.
+</aside>
+</body>
+</html>

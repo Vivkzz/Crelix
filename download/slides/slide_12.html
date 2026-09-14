@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pricing — EKAM AI</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  .price-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px 20px;
+    height: 100%;
+    position: relative;
+  }
+  .price-card .plan-name {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary-muted);
+  }
+  .price-card .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-top: 2px;
+  }
+  .price-card .price {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+  }
+  .price-card .period {
+    font-size: 13px;
+    color: var(--primary-muted);
+    font-family: var(--font-mono);
+  }
+  .price-card .desc {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--primary-muted);
+    min-height: 56px;
+  }
+  .price-card .feat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 4px;
+  }
+  .price-card .feat {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 12.5px;
+    color: var(--primary);
+    line-height: 1.4;
+  }
+  .price-card .feat .material-icons {
+    font-size: 14px;
+    color: var(--accent-1);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .price-card.pro {
+    background: linear-gradient(var(--bg-elevated), var(--bg-elevated)) padding-box,
+                var(--gradient-spectrum) border-box;
+    border: 1.5px solid transparent;
+    box-shadow: 0 0 32px rgba(145, 229, 0, 0.08);
+    transform: translateY(-6px);
+  }
+  .price-card.pro .badge {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-spectrum);
+    color: var(--bg);
+    font-size: 9.5px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .price-card.pro .plan-name {
+    color: var(--accent-1);
+  }
+  .price-card.pro .feat .material-icons {
+    background: var(--gradient-spectrum);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="brand-mark">ekam</div>
+  <div class="slide-num">12 / 16</div>
+
+  <div data-decor class="glow glow-1" style="width: 380px; height: 380px; top: -120px; right: -120px; opacity: 0.4;"></div>
+
+  <div class="slide-canvas">
+    <div style="margin-top: 4px;">
+      <span class="pill"><span class="dot dot-1"></span>Pricing</span>
+    </div>
+    <h1 style="font-size: 36px; font-weight: 700; margin-top: 12px; letter-spacing: -0.02em; line-height: 1.1;">Start free. Scale when you ship.</h1>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; align-items: stretch;">
+
+      <!-- Free Trial -->
+      <div class="card price-card">
+        <div class="plan-name">Free Trial</div>
+        <div class="price-row"><span class="price">$0</span><span class="period">/14 days</span></div>
+        <div class="desc">Every suite, 5 generations. No card required.</div>
+        <div class="divider"></div>
+        <div class="feat-list">
+          <div class="feat"><span class="material-icons">check</span><span>Full access 14 days</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Every suite</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>5 generations</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Community support</span></div>
+        </div>
+      </div>
+
+      <!-- Starter -->
+      <div class="card price-card">
+        <div class="plan-name">Starter</div>
+        <div class="price-row"><span class="price">$29</span><span class="period">/month</span></div>
+        <div class="desc">Ship one polished landing site or MVP per month.</div>
+        <div class="divider"></div>
+        <div class="feat-list">
+          <div class="feat"><span class="material-icons">check</span><span>Flow access</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>75 credits/mo</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>2 team members</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Custom domain</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Email support</span></div>
+        </div>
+      </div>
+
+      <!-- Pro -->
+      <div class="price-card pro">
+        <div class="badge">Most chosen</div>
+        <div class="plan-name">Pro</div>
+        <div class="price-row"><span class="price spectrum-text">$99</span><span class="period">/month</span></div>
+        <div class="desc">Build and iterate a full product or run agency work.</div>
+        <div class="divider"></div>
+        <div class="feat-list">
+          <div class="feat"><span class="material-icons">check</span><span>Flow — pages + apps</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>350 credits/mo</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>10 team members</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Deploy to production</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Priority support</span></div>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="card price-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="price-row"><span class="price">$299</span><span class="period">/month</span></div>
+        <div class="desc">Run Flow + Pentest + Search with unlimited seats.</div>
+        <div class="divider"></div>
+        <div class="feat-list">
+          <div class="feat"><span class="material-icons">check</span><span>Flow + Pentest + Search</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>1,200 credits/mo</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Unlimited seats</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Pre-launch scans</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Dedicated support</span></div>
+          <div class="feat"><span class="material-icons">check</span><span>Custom integrations</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 22px; text-align: center; font-size: 12.5px; color: var(--primary-muted); font-family: var(--font-mono); letter-spacing: 0.02em;">
+      Top up with credit packs: <span style="color: var(--primary);">25 credits ($15)</span> · <span style="color: var(--primary);">100 credits ($49)</span> · <span style="color: var(--primary);">400 credits ($159)</span>
+    </div>
+  </div>
+
+  <aside data-notes class="hidden">Our pricing is simple and scales with you. A 14-day free trial gives you full access to every suite with 5 generations — no credit card required. Starter is 29 euros per month for founders shipping one landing page or small MVP, with 75 credits and two team seats. Pro is 99 euros — our most popular plan — with 350 credits, 10 team members, and production deploys. Enterprise is 299 euros and includes all three suites, 1,200 credits, unlimited seats, pre-launch scans, and dedicated support. You can also top up with one-time credit packs at 25, 100, or 400 credits. Monthly credits don't roll over, but one-time packs stay until used.</aside>
+</div>
+</body>
+</html>

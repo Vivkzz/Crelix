@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Why EKAM AI? — EKAM AI</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  .why-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 26px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card .ghost-num {
+    position: absolute;
+    right: -10px;
+    bottom: -40px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 180px;
+    line-height: 1;
+    color: rgba(255,255,255,0.025);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+  }
+  .why-card .icon-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .why-card .icon-circle {
+    width: 48px;
+    height: 48px;
+  }
+  .why-card .icon-circle .material-icons {
+    font-size: 24px;
+  }
+  .why-card .title {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--primary);
+  }
+  .why-card .text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--primary-muted);
+    position: relative;
+    z-index: 1;
+  }
+  .ic-1 { color: var(--accent-1); border-color: rgba(145,229,0,0.35); background: rgba(145,229,0,0.08); }
+  .ic-2 { color: var(--accent-2); border-color: rgba(18,188,255,0.35); background: rgba(18,188,255,0.08); }
+  .ic-3 { color: var(--accent-3); border-color: rgba(47,68,255,0.35); background: rgba(47,68,255,0.08); }
+  .ic-4 { color: var(--accent-4); border-color: rgba(130,0,223,0.35); background: rgba(130,0,223,0.08); }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="brand-mark">ekam</div>
+  <div class="slide-num">13 / 16</div>
+
+  <div data-decor class="glow glow-2" style="width: 360px; height: 360px; top: -120px; left: -120px; opacity: 0.3;"></div>
+
+  <div class="slide-canvas">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+      <div>
+        <span class="pill"><span class="dot dot-1"></span>Why EKAM AI?</span>
+        <h1 style="font-size: 36px; font-weight: 700; margin-top: 12px; letter-spacing: -0.02em; line-height: 1.1;">What sets us apart</h1>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--primary-subtle); text-transform: uppercase; letter-spacing: 0.1em; padding-bottom: 8px;">
+        04 differentiators
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; margin-top: 24px; height: 432px;">
+
+      <div class="card why-card">
+        <span class="ghost-num">01</span>
+        <div class="icon-row">
+          <div class="icon-circle ic-1"><span class="material-icons">hub</span></div>
+          <div class="title">Orchestrated, not chat</div>
+        </div>
+        <div class="text">Multiple specialized agents coordinate as a single team — planning, coding, design, testing, deployment. You don't glue pieces together.</div>
+      </div>
+
+      <div class="card why-card">
+        <span class="ghost-num">02</span>
+        <div class="icon-row">
+          <div class="icon-circle ic-2"><span class="material-icons">description</span></div>
+          <div class="title">Structured workflows</div>
+        </div>
+        <div class="text">Every run produces evidence: deploy logs, scan findings, file diffs. Outcomes you can read, hand off, and act on — not just prose.</div>
+      </div>
+
+      <div class="card why-card">
+        <span class="ghost-num">03</span>
+        <div class="icon-row">
+          <div class="icon-circle ic-3"><span class="material-icons">rocket_launch</span></div>
+          <div class="title">Real business outcomes</div>
+        </div>
+        <div class="text">From prompt to a live URL you can share, scan, and iterate on. Built for the launch moment, not the demo moment.</div>
+      </div>
+
+      <div class="card why-card">
+        <span class="ghost-num">04</span>
+        <div class="icon-row">
+          <div class="icon-circle ic-4"><span class="material-icons">enterprise</span></div>
+          <div class="title">Scale from day one</div>
+        </div>
+        <div class="text">Built on enterprise patterns — from Kubernetes to distributed systems. Startups deserve enterprise-grade tools.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside data-notes class="hidden">Four things set EKAM AI apart. First, we're orchestrated, not chat — multiple specialized agents coordinate as a team across planning, coding, design, testing, and deployment, so you don't have to glue pieces together. Second, structured workflows — every run produces real evidence: deploy logs, scan findings, file diffs, not just prose. Third, real business outcomes — you get a live URL you can share, scan, and iterate on, built for the launch moment, not the demo moment. Fourth, scale from day one — we're built on enterprise patterns from Kubernetes to distributed systems, because startups deserve enterprise-grade infrastructure from day one.</aside>
+</div>
+</body>
+</html>
