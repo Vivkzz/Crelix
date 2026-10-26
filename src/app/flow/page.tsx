@@ -9,6 +9,7 @@ import { Reveal } from "@/components/shared/reveal";
 import { FinalCTA } from "@/components/shared/final-cta";
 import { FAQAccordion } from "@/components/shared/faq";
 import { suites } from "@/lib/data/site";
+import { AGENTS } from "@/components/site/home/agents";
 
 const flowSuite = suites.find((s) => s.slug === "flow")!;
 
@@ -74,6 +75,7 @@ const flowFAQs = [
 export default function FlowPage() {
   return (
     <SiteLayout>
+      <div className="ek-suite-flow">
       <SuiteHero suite={flowSuite} />
 
       <Section id="inside">
@@ -99,17 +101,18 @@ export default function FlowPage() {
           title={<>What you can build.</>}
           desc="Flow handles everything from a single landing page to a full multi-tenant SaaS, same workspace, same prompt."
         />
-        <Reveal className="mt-14">
-          <div className="ek-numlist">
-            {projectTypes.map((p, i) => (
-              <div key={p.name} className="ek-numlist-item">
-                <span className="n">{String(i + 1).padStart(2, "0")}</span>
-                <span className="t">{p.name}</span>
-                <span className="d">{p.desc}</span>
+        <div className="ek-types mt-14">
+          {projectTypes.map((p, i) => (
+            <Reveal key={p.name} delay={(i % 3) * 70} className="h-full">
+              <div className="ek-type">
+                <TypeGlyph kind={i} />
+                <span className="ek-type-idx">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{p.name}</h3>
+                <p>{p.desc}</p>
               </div>
-            ))}
-          </div>
-        </Reveal>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <Section>
@@ -157,13 +160,80 @@ export default function FlowPage() {
         primary={{ label: "Start free trial", href: "/signup" }}
         secondary={{ label: "See pricing", href: "/pricing" }}
       />
+      </div>
     </SiteLayout>
+  );
+}
+
+/* miniature wireframes, one per project type; strokes in the suite hue */
+function TypeGlyph({ kind }: { kind: number }) {
+  const box = { fill: "none", stroke: "currentColor", strokeWidth: 1.5 } as const;
+  const fill = { fill: "currentColor", opacity: 0.18 } as const;
+  const solid = { fill: "currentColor" } as const;
+  return (
+    <svg className="ek-type-glyph" viewBox="0 0 120 72" aria-hidden="true">
+      <rect x="1" y="1" width="118" height="70" rx="8" {...box} opacity={0.35} />
+      {kind === 0 && (
+        <>
+          <rect x="12" y="10" width="22" height="4" rx="2" {...solid} />
+          <rect x="12" y="22" width="56" height="8" rx="3" {...solid} />
+          <rect x="12" y="34" width="40" height="4" rx="2" {...fill} />
+          <rect x="12" y="44" width="20" height="8" rx="4" {...solid} />
+          <rect x="76" y="20" width="32" height="34" rx="6" {...fill} />
+        </>
+      )}
+      {kind === 1 && (
+        <>
+          <rect x="8" y="8" width="22" height="56" rx="4" {...fill} />
+          <rect x="38" y="10" width="40" height="5" rx="2" {...solid} />
+          <rect x="38" y="22" width="34" height="18" rx="4" {...fill} />
+          <rect x="76" y="22" width="34" height="18" rx="4" {...fill} />
+          <rect x="38" y="46" width="72" height="16" rx="4" {...box} opacity={0.6} />
+        </>
+      )}
+      {kind === 2 && (
+        <>
+          <rect x="10" y="10" width="30" height="20" rx="4" {...fill} />
+          <rect x="45" y="10" width="30" height="20" rx="4" {...fill} />
+          <rect x="80" y="10" width="30" height="20" rx="4" {...fill} />
+          <polyline points="12,58 30,46 48,52 66,38 84,44 108,30" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      )}
+      {kind === 3 && (
+        <>
+          <circle cx="24" cy="22" r="9" {...fill} />
+          <rect x="38" y="16" width="40" height="5" rx="2" {...solid} />
+          <rect x="38" y="25" width="26" height="3" rx="1.5" {...fill} />
+          <rect x="12" y="40" width="30" height="22" rx="4" {...fill} />
+          <rect x="45" y="40" width="30" height="22" rx="4" {...fill} />
+          <rect x="78" y="40" width="30" height="22" rx="4" {...fill} />
+        </>
+      )}
+      {kind === 4 && (
+        <>
+          <text x="12" y="24" fontFamily="ui-monospace, monospace" fontSize="10" fill="currentColor">GET /v1/notes</text>
+          <rect x="12" y="32" width="96" height="30" rx="5" {...fill} />
+          <rect x="20" y="40" width="50" height="3" rx="1.5" {...solid} />
+          <rect x="28" y="47" width="40" height="3" rx="1.5" {...solid} opacity={0.6} />
+          <rect x="20" y="54" width="30" height="3" rx="1.5" {...solid} opacity={0.4} />
+        </>
+      )}
+      {kind === 5 && (
+        <>
+          <rect x="44" y="6" width="32" height="60" rx="7" {...box} />
+          <rect x="49" y="14" width="22" height="14" rx="3" {...fill} />
+          <rect x="49" y="32" width="22" height="3" rx="1.5" {...solid} />
+          <rect x="49" y="39" width="16" height="3" rx="1.5" {...fill} />
+          <rect x="49" y="52" width="22" height="7" rx="3.5" {...solid} />
+        </>
+      )}
+    </svg>
   );
 }
 
 function PromptDemo() {
   return (
-    <div className="ek-demo ek-glass">
+    <div className="ek-demo">
       <div className="ek-browser-bar">
         <div className="ek-browser-dots" aria-hidden="true"><span /><span /><span /></div>
         <div className="ek-browser-url">ekam.ai · flow</div>
@@ -180,36 +250,31 @@ function PromptDemo() {
         </div>
 
         <div>
-          {[
-            { name: "Planner", status: "spec ready" },
-            { name: "Designer", status: "layout + copy" },
-            { name: "Engineer", status: "frontend + API" },
-            { name: "Deployer", status: "live URL" },
-          ].map((row, i) => (
+          {AGENTS.map((a, i) => (
             <motion.div
-              key={row.name}
+              key={a.key}
               initial={{ opacity: 0, x: -8 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
+              transition={{ delay: 0.3 + i * 0.12, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               className="ek-demo-row"
             >
               <div className="flex items-center gap-2.5">
-                <span className="ek-table-dot" style={{ background: "var(--ek-accent)" }} />
-                <span className="text-xs" style={{ color: "var(--ek-ink)" }}>{row.name}</span>
+                <span className="ek-demo-dot" style={{ background: a.hue }} />
+                <span className="text-xs font-medium" style={{ color: "var(--ek-ink)" }}>{a.name}</span>
               </div>
-              <span className="text-[11px]" style={{ color: "var(--ek-ink-3)" }}>{row.status}</span>
+              <span className="text-[11px]" style={{ color: "var(--ek-ink-3)", fontFamily: "var(--ek-font-mono)" }}>{a.out}</span>
             </motion.div>
           ))}
         </div>
 
         <div
           className="ek-demo-box"
-          style={{ borderColor: "color-mix(in srgb, var(--ek-green) 40%, transparent)" }}
+          style={{ borderColor: "color-mix(in srgb, var(--ek-a6) 45%, transparent)", background: "color-mix(in srgb, var(--ek-a6) 6%, var(--ek-surface))" }}
         >
           <div className="flex items-center gap-2">
-            <Check className="h-3.5 w-3.5" style={{ color: "var(--ek-green)" }} />
-            <span className="text-xs" style={{ color: "var(--ek-green)" }}>live URL ready</span>
+            <Check className="h-3.5 w-3.5" style={{ color: "var(--ek-a6-ink)" }} />
+            <span className="text-xs font-medium" style={{ color: "var(--ek-a6-ink)" }}>live URL ready · scanned clean</span>
           </div>
           <div className="mt-2 text-xs" style={{ color: "var(--ek-ink)" }}>
             https://notes-app.ekamai.in

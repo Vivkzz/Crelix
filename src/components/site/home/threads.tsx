@@ -3,6 +3,9 @@
 import { useEffect, useRef, type RefObject } from "react";
 import { AGENTS } from "@/components/site/home/agents";
 
+type RGB = [number, number, number];
+export type ThreadHue = { rgb: RGB; rgbDark: RGB };
+
 /**
  * Six bundles of fine strands, one per agent hue, that enter from both
  * edges and pass through a single focal point: many threads, one launch.
@@ -16,6 +19,7 @@ export function Threads({
   focusOffset = 0,
   spread = 0.22,
   tone = "auto",
+  palette = AGENTS,
   className = "",
 }: {
   focusRef?: RefObject<HTMLElement | null>;
@@ -24,6 +28,8 @@ export function Threads({
   spread?: number;
   /* "dark" forces additive glow, for threads drawn inside a dark band */
   tone?: "auto" | "dark";
+  /* six bundle colours; defaults to the six agent hues */
+  palette?: ThreadHue[];
   className?: string;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -83,7 +89,7 @@ export function Threads({
       const gapB = (h * spread * k) / 2.5;
       const gapS = Math.max(1.6, h * 0.0052 * k);
 
-      AGENTS.forEach((agent, b) => {
+      palette.forEach((agent, b) => {
         const [r, g, bl] = dark ? agent.rgbDark : agent.rgb;
         /* intro: each bundle streams in from the edges, staggered */
         const intro = reduce ? 1 : Math.min(Math.max((t - 0.15 - b * 0.09) / 1.5, 0), 1);
@@ -210,7 +216,7 @@ export function Threads({
       host.removeEventListener("pointermove", onMove);
       host.removeEventListener("pointerleave", onLeave);
     };
-  }, [focusRef, focusOffset, spread, tone]);
+  }, [focusRef, focusOffset, spread, tone, palette]);
 
   return <canvas ref={canvasRef} className={`ek-threads ${className}`} aria-hidden="true" />;
 }

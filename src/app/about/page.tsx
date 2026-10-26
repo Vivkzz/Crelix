@@ -8,6 +8,7 @@ import { Section, SectionHeader, PageHeader } from "@/components/shared/section"
 import { Reveal } from "@/components/shared/reveal";
 import { FinalCTA } from "@/components/shared/final-cta";
 import { team, values } from "@/lib/data/site";
+import type { CSSProperties } from "react";
 
 const tiro = Tiro_Devanagari_Sanskrit({
   subsets: ["devanagari"],
@@ -49,7 +50,7 @@ export default function AboutPage() {
             <Reveal key={member.name} delay={i * 100}>
               <div style={{ borderTop: "1px solid var(--ek-line)", paddingTop: 28 }}>
                 <div className="flex items-center gap-5">
-                  <span className="ek-monogram">{member.initials}</span>
+                  <span className="ek-monogram" style={{ "--hue": i % 2 ? "var(--ek-a5)" : "var(--ek-a3)" } as CSSProperties}>{member.initials}</span>
                   <div>
                     <div className="text-lg font-medium" style={{ color: "var(--ek-ink)" }}>{member.name}</div>
                     <div className="text-[12px]" style={{ color: "var(--ek-ink-3)" }}>{member.role}</div>
@@ -82,7 +83,7 @@ export default function AboutPage() {
           <div className="ek-numlist">
             {values.map((v, i) => (
               <div key={v.title} className="ek-numlist-item">
-                <span className="n">{["I", "II", "III", "IV"][i]}</span>
+                <span className="n" style={{ color: ["var(--ek-a1-ink)", "var(--ek-a3-ink)", "var(--ek-a5-ink)", "var(--ek-a6-ink)"][i] }}>{["I", "II", "III", "IV"][i]}</span>
                 <span className="t">{v.title}</span>
                 <span className="d">{v.desc}</span>
               </div>

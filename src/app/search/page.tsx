@@ -61,6 +61,7 @@ const searchFAQs = [
 export default function SearchPage() {
   return (
     <SiteLayout>
+      <div className="ek-suite-search">
       <SuiteHero suite={searchSuite} />
 
       <Section id="inside">
@@ -103,7 +104,7 @@ export default function SearchPage() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <div>
-              <Eyebrow dot="var(--ek-accent)">Sample output</Eyebrow>
+              <Eyebrow>Sample output</Eyebrow>
               <h2 className="ek-h2 mt-6">Find the right angle</h2>
               <p className="ek-bodytext mt-5">
                 Turn a rough idea into three grounded positioning angles. Search
@@ -144,13 +145,14 @@ export default function SearchPage() {
         primary={{ label: "Start free trial", href: "/signup" }}
         secondary={{ label: "See pricing", href: "/pricing" }}
       />
+      </div>
     </SiteLayout>
   );
 }
 
 function ResearchDemo() {
   return (
-    <div className="ek-demo ek-glass">
+    <div className="ek-demo">
       <div className="ek-browser-bar">
         <div className="ek-browser-dots" aria-hidden="true"><span /><span /><span /></div>
         <div className="ek-browser-url">ekam.ai · search</div>
@@ -180,19 +182,16 @@ function ResearchDemo() {
               className="ek-demo-row"
             >
               <div className="flex items-center gap-2.5">
-                <span className="ek-table-dot" style={{ background: "var(--ek-accent)" }} />
+                <span className="ek-demo-dot" style={{ background: "var(--ek-a1)" }} />
                 <span className="text-xs" style={{ color: "var(--ek-ink)" }}>{row.name}</span>
               </div>
-              <span className="text-[11px]" style={{ color: "var(--ek-ink-3)" }}>{row.status}</span>
+              <span className="text-[11px]" style={{ color: "var(--ek-ink-3)", fontFamily: "var(--ek-font-mono)" }}>{row.status}</span>
             </motion.div>
           ))}
         </div>
 
-        <div
-          className="ek-demo-box"
-          style={{ borderColor: "color-mix(in srgb, var(--ek-accent) 40%, transparent)" }}
-        >
-          <div className="text-xs" style={{ color: "var(--ek-accent)" }}>strongest angle</div>
+        <div className="ek-demo-box ek-demo-hl">
+          <div className="text-xs font-medium" style={{ color: "var(--ek-a1-ink)" }}>strongest angle</div>
           <div className="mt-2 ek-serif" style={{ fontSize: 19, color: "var(--ek-ink)" }}>
             "Notes that find themselves."
           </div>

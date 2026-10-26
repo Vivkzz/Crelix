@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SiteLayout } from "@/components/shared/site-layout";
 import { Section, SectionHeader, PageHeader } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
@@ -47,19 +48,28 @@ export default function PricingPage() {
               <button
                 key={label}
                 onClick={() => setYearly(label === "Yearly")}
+                aria-pressed={active}
                 className={cn(
-                  "rounded-full px-5 py-1.5 text-[14px] font-medium transition-all",
-                  active
-                    ? "bg-[var(--ek-surface)] text-[var(--ek-ink)] shadow-sm"
-                    : "text-[var(--ek-ink-3)] hover:text-[var(--ek-ink)]"
+                  "relative rounded-full px-5 py-1.5 text-[14px] font-medium transition-colors",
+                  active ? "text-[var(--ek-ink)]" : "text-[var(--ek-ink-3)] hover:text-[var(--ek-ink)]"
                 )}
               >
-                {label}
-                {label === "Yearly" && (
-                  <span className="ml-1.5" style={{ color: active ? "var(--ek-green)" : "var(--ek-ink-3)" }}>
-                    −20%
-                  </span>
+                {active && (
+                  <motion.span
+                    layoutId="billing-pill"
+                    className="absolute inset-0 rounded-full"
+                    style={{ background: "var(--ek-surface)", boxShadow: "0 1px 4px rgba(0,0,0,0.12)" }}
+                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                  />
                 )}
+                <span className="relative">
+                  {label}
+                  {label === "Yearly" && (
+                    <span className="ml-1.5" style={{ color: active ? "var(--ek-a6-ink)" : "var(--ek-ink-3)" }}>
+                      −20%
+                    </span>
+                  )}
+                </span>
               </button>
             );
           })}
@@ -77,19 +87,28 @@ export default function PricingPage() {
                 <div className={cn("ek-tier", tier.featured && "featured")}>
                   <div className="flex items-center justify-between">
                     <h3 className="text-[17px] font-medium" style={{ color: "var(--ek-ink)" }}>{tier.name}</h3>
-                    {tier.featured && (
-                      <span className="text-[12px] font-semibold" style={{ color: "var(--ek-accent)" }}>Most popular</span>
-                    )}
+                    {tier.featured && <span className="ek-pill-pop">Most popular</span>}
                   </div>
                   <div className="ek-tier-price mt-5">
-                    {tier.price === 0 ? "$0" : `$${price}`}
+                    <span className="ek-tier-amount">
+                      <AnimatePresence mode="popLayout" initial={false}>
+                        <motion.span
+                          key={price}
+                          initial={{ y: "60%", opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: "-60%", opacity: 0 }}
+                          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                          style={{ display: "inline-block" }}
+                        >
+                          {tier.price === 0 ? "$0" : `$${price}`}
+                        </motion.span>
+                      </AnimatePresence>
+                    </span>
                     <small> {tier.period}</small>
                   </div>
-                  {yearly && tier.price > 0 && (
-                    <div className="mt-1 text-[12px]" style={{ color: "var(--ek-green)" }}>
-                      Save ${(tier.price - price) * 12}/yr
-                    </div>
-                  )}
+                  <div className="ek-tier-save">
+                    {yearly && tier.price > 0 ? `Save $${(tier.price - price) * 12}/yr` : "\u00a0"}
+                  </div>
                   <p className="mt-3 text-sm" style={{ color: "var(--ek-ink-2)" }}>{tier.description}</p>
                   <Link
                     href="/signup"
@@ -149,7 +168,7 @@ export default function PricingPage() {
                 <tr>
                   <th>Feature</th>
                   {pricingTiers.map((t) => (
-                    <th key={t.name}>{t.name}</th>
+                    <th key={t.name} className={t.featured ? "featured" : undefined}>{t.name}</th>
                   ))}
                 </tr>
               </thead>
@@ -158,7 +177,7 @@ export default function PricingPage() {
                   <tr key={row.label}>
                     <td>{row.label}</td>
                     {row.values.map((v, j) => (
-                      <td key={j}>
+                      <td key={j} className={pricingTiers[j]?.featured ? "featured" : undefined}>
                         {v === "✓" ? (
                           <span className="yes">✓</span>
                         ) : v === "✗" ? (

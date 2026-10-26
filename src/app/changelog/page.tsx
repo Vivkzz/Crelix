@@ -7,6 +7,7 @@ import { Reveal } from "@/components/shared/reveal";
 import { FinalCTA } from "@/components/shared/final-cta";
 import { changelog } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const filters = ["all", "feature", "improvement", "fix", "chore"] as const;
 
@@ -36,14 +37,22 @@ export default function ChangelogPage() {
           title={<>What we ship, when we ship it.</>}
           subtitle="Newest first. Every feature, fix, and chore, straight from the team."
         >
-          <div className="mt-8 inline-flex flex-wrap items-center rounded-full p-1" style={{ background: "var(--ek-bg-2)", border: "1px solid var(--ek-line)" }}>
+          <div className="ek-chlog-filters mt-8 inline-flex max-w-full items-center overflow-x-auto rounded-full p-1" style={{ background: "var(--ek-bg-2)", border: "1px solid var(--ek-line)" }}>
             {filters.map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={cn("ek-chipbtn capitalize", filter === f && "active")}
+                aria-pressed={filter === f}
+                className={cn("ek-chipbtn relative capitalize", filter === f && "active")}
               >
-                {f}
+                {filter === f && (
+                  <motion.span
+                    layoutId="chlog-pill"
+                    className="ek-chipbtn-pill"
+                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                  />
+                )}
+                <span className="relative">{f}</span>
               </button>
             ))}
           </div>
@@ -56,10 +65,10 @@ export default function ChangelogPage() {
           return (
             <div key={month} className="ek-chlog mb-16">
               <div className="ek-chlog-month">{month}</div>
-              <div style={{ borderTop: "1px solid var(--ek-line)" }}>
+              <div className="ek-chlog-list" style={{ borderTop: "1px solid var(--ek-line)" }}>
                 {entries.map((entry, i) => (
                   <Reveal key={entry.title} delay={i * 50}>
-                    <div className="ek-chlog-entry">
+                    <div className="ek-chlog-entry" data-type={entry.type}>
                       <div className="flex flex-wrap items-center gap-3">
                         <span className={`ek-tag ${tagClass[entry.type] ?? "chore"}`}>{tagLabel[entry.type] ?? entry.type}</span>
                         <span className="text-[11px]" style={{ color: "var(--ek-ink-3)" }}>

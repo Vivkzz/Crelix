@@ -8,6 +8,8 @@ import { Section } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
 import { FinalCTA } from "@/components/shared/final-cta";
 import { blogPosts } from "@/lib/data/site";
+import { ThreadCover, categoryHue } from "@/components/site/thread-cover";
+import type { CSSProperties } from "react";
 
 export default function BlogPostPage() {
   const params = useParams<{ slug: string }>();
@@ -31,7 +33,7 @@ export default function BlogPostPage() {
 
           <Reveal delay={80}>
             <div className="ek-meta mt-8">
-              <span className="ek-tag new capitalize">{post.category}</span>
+              <span className="ek-cat capitalize" style={{ "--c": categoryHue(post.category) } as CSSProperties}>{post.category}</span>
               <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{post.date}</span>
               <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{post.readTime}</span>
             </div>
@@ -86,7 +88,13 @@ export default function BlogPostPage() {
             </div>
           </Reveal>
 
-          <Reveal delay={380}>
+          <Reveal delay={360}>
+            <div className="ek-cover-wrap ek-cover-post mt-10" style={{ "--c": categoryHue(post.category) } as CSSProperties}>
+              <ThreadCover seed={post.slug} category={post.category} />
+            </div>
+          </Reveal>
+
+          <Reveal delay={420}>
             <div className="ek-prose mt-10">
               {post.content.split("\n\n").map((para, i) => {
                 if (para.startsWith("## ")) {

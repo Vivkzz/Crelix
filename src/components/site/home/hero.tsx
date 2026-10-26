@@ -195,7 +195,7 @@ export function WorkspaceWindow({
 }
 
 /* runs the six agents in sequence on a timer; `run` bumps to replay */
-function useAgentRun(enabled: boolean) {
+export function useAgentRun(enabled: boolean) {
   const [stage, setStage] = useState(0);
   const [run, setRun] = useState(0);
   useEffect(() => {
