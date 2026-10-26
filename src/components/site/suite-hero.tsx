@@ -110,13 +110,13 @@ function HeroVisual({ slug }: { slug: string }) {
     offset: ["start end", "start 0.3"],
   });
   const p = useSpring(scrollYProgress, { stiffness: 110, damping: 24, mass: 0.7 });
-  const rotateX = useTransform(p, [0, 1], [14, 0]);
-  const scale = useTransform(p, [0, 1], [0.9, 1]);
+  const y = useTransform(p, [0, 1], [36, 0]);
+  const scale = useTransform(p, [0, 1], [0.96, 1]);
   return (
     <div className="ek-suitehero-scene" ref={ref}>
       <motion.div
         className="ek-suitehero-tilt"
-        style={{ rotateX, scale, transformPerspective: 1600 }}
+        style={{ y, scale }}
       >
         {slug === "flow" && <WorkspaceWindow stage={6} />}
         {slug === "pentest" && <PentestVisual />}

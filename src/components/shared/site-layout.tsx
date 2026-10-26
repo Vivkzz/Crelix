@@ -2,6 +2,7 @@
 
 import { useEffect, type ReactNode } from "react";
 import Lenis from "lenis";
+import { MotionConfig } from "framer-motion";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
 
@@ -22,10 +23,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="ek-body relative min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="ek-body relative min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
+    </MotionConfig>
   );
 }

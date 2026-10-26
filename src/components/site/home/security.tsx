@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { useReducedMotionSafe } from "@/components/shared/use-reduced-motion";
 import { Section, Eyebrow } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
 import { owaspClasses } from "@/lib/data/site";
@@ -32,6 +34,7 @@ const findings = [
 ];
 
 export function FindingsReport() {
+  const reduce = useReducedMotionSafe();
   return (
     <div className="ek-report ek-glass">
       <div className="ek-report-head">
@@ -40,14 +43,21 @@ export function FindingsReport() {
         <span>12 agents</span>
         <span>4m 12s</span>
       </div>
-      {findings.map((f) => (
-        <div key={f.title} className="ek-report-row">
+      {findings.map((f, i) => (
+        <motion.div
+          key={f.title}
+          className="ek-report-row"
+          initial={reduce ? false : { opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ delay: 0.15 + i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <span className={`ek-chip ${f.sev}`}>{f.label}</span>
           <div>
             <div className="ek-report-title">{f.title}</div>
             <div className="ek-report-ev">{f.ev}</div>
           </div>
-        </div>
+        </motion.div>
       ))}
       <div className="ek-report-foot">
         <span aria-hidden="true">✓</span> 11 vulnerability classes checked
@@ -62,7 +72,7 @@ export function Security() {
       <Section id="security">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <Eyebrow>Before go-live</Eyebrow>
+            <Eyebrow><span className="ek-security-eyebrow">Before go-live</span></Eyebrow>
             <h2 className="ek-h2 mt-6">
               Ship it. Then let it be seen.
             </h2>

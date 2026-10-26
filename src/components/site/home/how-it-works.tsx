@@ -3,25 +3,34 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, useScroll, useMotionValueEvent, useSpring, AnimatePresence } from "framer-motion";
 import { Eyebrow } from "@/components/shared/section";
+import { useReducedMotionSafe } from "@/components/shared/use-reduced-motion";
 
 const steps = [
   {
     idx: "Step 1",
+    hue: "var(--ek-a1)",
+    ink: "var(--ek-a1-ink)",
     title: "Describe",
     desc: "Tell the agents what you're building, who it's for, and the angle. Drop references, copy fragments, brand colours, no setup marathon.",
   },
   {
     idx: "Step 2",
+    hue: "var(--ek-a3)",
+    ink: "var(--ek-a3-ink)",
     title: "Build",
     desc: "Six specialists plan, design, write and assemble the real thing (frontend, backend, copy) while you watch it come together.",
   },
   {
     idx: "Step 3",
+    hue: "var(--ek-a5)",
+    ink: "var(--ek-a5-ink)",
     title: "Scan",
     desc: "Twelve security specialists run an authorized pre-launch scan across the OWASP classes. Findings come back with evidence and fixes.",
   },
   {
     idx: "Step 4",
+    hue: "var(--ek-a6)",
+    ink: "var(--ek-a6-ink)",
     title: "Go live",
     desc: "One click and it's on a URL you own, already scanned and validated. Every project ships with its launch check done.",
   },
@@ -280,7 +289,7 @@ function PageFooter({ assemble }: { assemble?: boolean }) {
 export function MiniPage({ assemble = false }: { assemble?: boolean }) {
   return (
     <ScaledCanvas>
-      <div style={{ background: "#FFFFFF", height: "100%", display: "flex", flexDirection: "column", color: "#1D1D1F" }}>
+      <div className="ek-minipage" style={{ background: "#FFFFFF", height: "100%", display: "flex", flexDirection: "column" }}>
         <PageNav assemble={assemble} />
         <PageHero assemble={assemble} />
         <PageCards assemble={assemble} />
@@ -290,68 +299,59 @@ export function MiniPage({ assemble = false }: { assemble?: boolean }) {
   );
 }
 
+const PROMPT = "A booking site for a physiotherapy clinic in Pune. Calm, trustworthy, online scheduling in Hindi and English.";
+
+function useTypewriter(text: string, speed = 26, delay = 350) {
+  const reduce = useReducedMotionSafe();
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (reduce) {
+      const id = window.setTimeout(() => setN(text.length), 0);
+      return () => window.clearTimeout(id);
+    }
+    let i = 0;
+    let id = 0;
+    const start = window.setTimeout(() => {
+      id = window.setInterval(() => {
+        i += 1;
+        setN(i);
+        if (i >= text.length) window.clearInterval(id);
+      }, speed);
+    }, delay);
+    return () => {
+      window.clearTimeout(start);
+      window.clearInterval(id);
+    };
+  }, [text, speed, delay, reduce]);
+  return text.slice(0, n);
+}
+
 function FrameDescribe() {
+  const typed = useTypewriter(PROMPT);
+  const done = typed.length === PROMPT.length;
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-6" aria-hidden="true">
-      {/* prompt composer */}
-      <div
-        className="ek-glass w-full"
-        style={{ borderRadius: 18, padding: "14px 16px", maxWidth: 520 }}
-      >
-        <div className="flex items-center justify-between gap-3">
-          <span style={{ fontSize: 15, color: "var(--ek-ink)", minWidth: 0, overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>
-            A booking site for a physiotherapy clinic in Pune. Calm, trustworthy…
-            <span className="ek-promptbar-caret" aria-hidden="true" />
-          </span>
-          <span
-            style={{
-              flex: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 5,
-              fontSize: 12,
-              color: "var(--ek-ink-2)",
-              border: `1px solid ${line}`,
-              borderRadius: 999,
-              padding: "4px 10px",
-              background: "var(--ek-surface)",
-            }}
-          >
-            Flow + Pentest
-          </span>
-          <span
-            style={{
-              flex: "none",
-              width: 34,
-              height: 34,
-              borderRadius: 999,
-              background: "var(--ek-accent)",
-              color: "#fff",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 16,
-            }}
-          >
-            ↑
-          </span>
+    <div className="ek-compose-wrap" aria-hidden="true">
+      <div className="ek-compose">
+        <div className="ek-compose-text">
+          {typed}
+          <span className="ek-promptbar-caret" />
+        </div>
+        <div className="ek-compose-row">
+          <span className="ek-compose-chip">＋ Reference</span>
+          <span className="ek-compose-chip">Flow + Pentest</span>
+          <span className={`ek-compose-send${done ? " ready" : ""}`}>↑</span>
         </div>
       </div>
-      <div className="flex gap-2.5">
-        {["Add pricing page", "Match this reference", "Hindi + English"].map((c) => (
-          <span
+      <div className="ek-compose-suggest">
+        {["Add pricing page", "Match this reference", "Brand: calm blues"].map((c, i) => (
+          <motion.span
             key={c}
-            style={{
-              fontSize: 12.5,
-              color: "var(--ek-ink-2)",
-              border: `1px solid ${line}`,
-              borderRadius: 999,
-              padding: "6px 12px",
-              background: "var(--ek-surface)",
-            }}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 + i * 0.12, duration: 0.45, ease: EASE }}
           >
             {c}
-          </span>
+          </motion.span>
         ))}
       </div>
     </div>
@@ -374,83 +374,35 @@ function SevChip({
   delay: number;
 }) {
   return (
-    <div style={{ position: "absolute", top, left }}>
-      {/* leader line to the finding point */}
-      <div
-        style={{
-          position: "absolute",
-          top: 8,
-          left: -34,
-          width: 34,
-          height: 1,
-          background: "var(--ek-line-strong)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: 5,
-          left: -38,
-          width: 7,
-          height: 7,
-          borderRadius: 999,
-          background: `var(--ek-${sev === "high" ? "red" : sev === "medium" ? "orange" : "indigo"})`,
-        }}
-      />
-      <motion.div
+    <div className="ek-sevchip" style={{ top, left }}>
+      <span className={`ek-sevchip-dot ${sev}`} />
+      <motion.span
+        className="ek-sevchip-pill"
         initial={{ opacity: 0, scale: 0.7, y: 4 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ delay, duration: 0.35, ease: EASE }}
-        className={`ek-chip ${sev}`}
-        style={{
-          background: "var(--ek-surface)",
-          border: `1px solid var(--ek-line)`,
-          borderRadius: 8,
-          padding: "5px 10px",
-          fontSize: 12,
-          fontWeight: 600,
-          whiteSpace: "nowrap",
-          boxShadow: "0 6px 20px -6px rgba(0,0,0,0.18)",
-        }}
       >
-        {text}
-      </motion.div>
-      <motion.div
+        <span className={`ek-chip ${sev}`}>{text.split(" · ")[0]}</span>
+        {text.split(" · ")[1]}
+      </motion.span>
+      <motion.span
+        className="ek-sevchip-pill fixed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: delay + 1.8, duration: 0.3 }}
-        style={{ position: "absolute", inset: 0 }}
+        transition={{ delay: delay + 1.6, duration: 0.3 }}
       >
-        <span
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "var(--ek-surface)",
-            border: `1px solid var(--ek-line)`,
-            borderRadius: 8,
-            display: "flex",
-            alignItems: "center",
-            padding: "5px 10px",
-            fontSize: 12,
-            fontWeight: 600,
-            color: "var(--ek-green)",
-            whiteSpace: "nowrap",
-            boxShadow: "0 6px 20px -6px rgba(0,0,0,0.18)",
-          }}
-        >
-          Fixed ✓
-        </span>
-      </motion.div>
+        Fixed ✓
+      </motion.span>
     </div>
   );
 }
 
 function FrameScan() {
   return (
-    <div className="relative h-full" aria-hidden="true">
+    <div className="relative h-full ek-minipage" aria-hidden="true">
       <MiniPage />
       <div className="ek-scanline" />
-      <SevChip sev="high" text="High · XSS" top="12%" left="14%" delay={0.9} />
+      <SevChip sev="high" text="High · XSS" top="12%" left="16%" delay={0.9} />
       <SevChip sev="medium" text="Medium · Rate limit" top="44%" left="62%" delay={1.5} />
       <SevChip sev="low" text="Low · Headers" top="72%" left="30%" delay={2.1} />
     </div>
@@ -459,44 +411,18 @@ function FrameScan() {
 
 function FrameLive() {
   return (
-    <div className="relative h-full" aria-hidden="true">
+    <div className="relative h-full ek-minipage" aria-hidden="true">
       <MiniPage />
       <motion.div
-        initial={{ opacity: 0, y: -18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.5, ease: EASE }}
-        className="ek-glass"
-        style={{
-          position: "absolute",
-          right: 14,
-          top: 14,
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-          borderRadius: 14,
-          padding: "10px 14px",
-          boxShadow: "0 16px 40px -12px rgba(0,0,0,0.2)",
-        }}
+        initial={{ opacity: 0, y: -18, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ delay: 0.5, duration: 0.6, ease: EASE }}
+        className="ek-deployed"
       >
-        <span
-          style={{
-            width: 22,
-            height: 22,
-            borderRadius: 999,
-            background: "var(--ek-green)",
-            color: "#fff",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 13,
-            fontWeight: 700,
-          }}
-        >
-          ✓
-        </span>
+        <span className="ek-deployed-ico">✓</span>
         <span>
-          <span style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--ek-ink)", lineHeight: 1.2 }}>Deployed</span>
-          <span style={{ display: "block", fontSize: 12, color: "var(--ek-ink-2)", lineHeight: 1.3 }}>yourbrand.ekamai.app · 47s</span>
+          <span className="ek-deployed-t">Deployed · scanned clean</span>
+          <span className="ek-deployed-s">yourbrand.ekamai.app · 47s</span>
         </span>
       </motion.div>
     </div>
@@ -515,7 +441,7 @@ export function HomeHowItWorks() {
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     setActive(Math.min(3, Math.floor(v * 4)));
   });
-  const scrollYSpring = useSpring(scrollYProgress, { stiffness: 140, damping: 30 });
+  const rail = useSpring(scrollYProgress, { stiffness: 140, damping: 30 });
 
   return (
     <div className="ek-hiw" id="how-it-works">
@@ -523,49 +449,63 @@ export function HomeHowItWorks() {
         <div className="ek-hiw-sticky">
           <div className="ek-container" style={{ width: "100%" }}>
             <Eyebrow>How it works</Eyebrow>
-            <div className="ek-hiw-grid mt-10">
+            <h2 className="ek-h2 ek-hiw-title">From a sentence to a scanned launch.</h2>
+            <div className="ek-hiw-grid">
               <div className="ek-hiw-steps">
-                <motion.div
-                  className="ek-hiw-rail"
-                  style={{ scaleY: scrollYSpring }}
-                  aria-hidden="true"
-                />
+                <motion.div className="ek-hiw-rail" style={{ scaleY: rail }} aria-hidden="true" />
                 {steps.map((s, i) => (
-                  <div key={s.idx} className={`ek-hiw-step ${active === i ? "active" : ""}`}>
+                  <div
+                    key={s.idx}
+                    className={`ek-hiw-step${active === i ? " active" : ""}${active > i ? " past" : ""}`}
+                    style={{ "--hue": s.hue, "--hue-ink": s.ink } as CSSProperties}
+                  >
+                    <span className="ek-hiw-node" aria-hidden="true" />
                     <span className="ek-hiw-step-idx">{s.idx}</span>
                     <h3 className="ek-hiw-step-title">{s.title}</h3>
-                    <p className="ek-hiw-step-desc">{s.desc}</p>
+                    <div className="ek-hiw-step-body">
+                      <div><p className="ek-hiw-step-desc">{s.desc}</p></div>
+                    </div>
                   </div>
                 ))}
               </div>
-              <div className="ek-browser ek-glass">
-                <div className="ek-browser-bar">
-                  <div className="ek-browser-dots" aria-hidden="true">
-                    <span /><span /><span />
+              <div className="ek-hiw-stage">
+                {steps.map((s, i) => (
+                  <span
+                    key={s.idx}
+                    className={`ek-hiw-glow${active === i ? " on" : ""}`}
+                    style={{ "--hue": s.hue } as CSSProperties}
+                    aria-hidden="true"
+                  />
+                ))}
+                <div className="ek-browser ek-hiw-browser">
+                  <div className="ek-browser-bar">
+                    <div className="ek-browser-dots" aria-hidden="true">
+                      <span /><span /><span />
+                    </div>
+                    <div className="ek-browser-url">
+                      {active === 3 && <span className="live-dot" aria-hidden="true" />}
+                      {active === 0 ? "ekam.ai/new" : "yourbrand.ekamai.app"}
+                    </div>
+                    <span style={{ width: 40 }} />
                   </div>
-                  <div className="ek-browser-url">
-                    {active === 3 && <span className="live-dot" aria-hidden="true" />}
-                    yourbrand.ekamai.app
+                  <div className="ek-browser-body">
+                    <AnimatePresence mode="wait">
+                      {frames.map((Frame, i) =>
+                        active === i ? (
+                          <motion.div
+                            key={i}
+                            className="ek-browser-frame"
+                            initial={{ opacity: 0, scale: 0.985 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+                            transition={{ duration: 0.5, ease: EASE }}
+                          >
+                            <Frame />
+                          </motion.div>
+                        ) : null
+                      )}
+                    </AnimatePresence>
                   </div>
-                  <span style={{ width: 40 }} />
-                </div>
-                <div className="ek-browser-body">
-                  <AnimatePresence mode="wait">
-                    {frames.map((Frame, i) =>
-                      active === i ? (
-                        <motion.div
-                          key={i}
-                          className="ek-browser-frame"
-                          initial={{ opacity: 0, scale: 0.98 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.5, ease: EASE }}
-                        >
-                          <Frame />
-                        </motion.div>
-                      ) : null
-                    )}
-                  </AnimatePresence>
                 </div>
               </div>
             </div>
@@ -576,15 +516,16 @@ export function HomeHowItWorks() {
       <div className="lg:hidden" style={{ padding: "72px 0" }}>
         <div className="ek-container">
           <Eyebrow>How it works</Eyebrow>
-          <div className="mt-8" />
+          <h2 className="ek-h2 mt-5">From a sentence to a scanned launch.</h2>
+          <div className="mt-10" />
           {steps.map((s, i) => {
             const Frame = frames[i];
             return (
-              <div key={s.idx} className="ek-hiw-step" style={{ opacity: 1 }}>
+              <div key={s.idx} className="ek-hiw-mstep" style={{ "--hue": s.hue, "--hue-ink": s.ink } as CSSProperties}>
                 <span className="ek-hiw-step-idx">{s.idx}</span>
                 <h3 className="ek-hiw-step-title">{s.title}</h3>
                 <p className="ek-hiw-step-desc">{s.desc}</p>
-                <div className="ek-browser ek-glass mt-5">
+                <div className="ek-browser ek-hiw-browser mt-5">
                   <div className="ek-browser-bar">
                     <div className="ek-browser-dots" aria-hidden="true"><span /><span /><span /></div>
                     <div className="ek-browser-url">yourbrand.ekamai.app</div>

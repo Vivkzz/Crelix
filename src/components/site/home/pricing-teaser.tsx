@@ -20,7 +20,7 @@ export function PricingTeaser() {
               <div className="flex items-center justify-between">
                 <span className="text-[15px] font-semibold" style={{ color: "var(--ek-ink)" }}>{t.name}</span>
                 {t.featured && (
-                  <span className="text-[11px] font-semibold" style={{ color: "var(--ek-accent)" }}>Most popular</span>
+                  <span className="ek-pill-pop">Most popular</span>
                 )}
               </div>
               <div className="mt-3 text-[30px] font-semibold tracking-tight" style={{ color: "var(--ek-ink)", letterSpacing: "-0.02em" }}>
