@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, OG_IMAGES } from "@/lib/site";
 
 const title = "About";
 const ogTitle = "About EKAM AI";
@@ -12,12 +12,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   keywords: ["about EKAM AI", "EKAM INNOVATIONS", "AI startup India"],
   openGraph: {
+    images: OG_IMAGES,
     type: "website",
     url: `${SITE_URL}/about`,
     title: ogTitle,
     description,
   },
-  twitter: { card: "summary_large_image", title: ogTitle, description },
+  twitter: { card: "summary_large_image", images: OG_IMAGES.map((i) => i.url), title: ogTitle, description },
 };
 
 export default function AboutLayout({

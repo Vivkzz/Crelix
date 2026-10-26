@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, OG_IMAGES } from "@/lib/site";
 
 const title = "Changelog";
 const ogTitle = "Changelog · EKAM AI";
@@ -12,12 +12,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/changelog" },
   keywords: ["EKAM AI changelog", "product updates", "release notes"],
   openGraph: {
+    images: OG_IMAGES,
     type: "website",
     url: `${SITE_URL}/changelog`,
     title: ogTitle,
     description,
   },
-  twitter: { card: "summary_large_image", title: ogTitle, description },
+  twitter: { card: "summary_large_image", images: OG_IMAGES.map((i) => i.url), title: ogTitle, description },
 };
 
 export default function ChangelogLayout({

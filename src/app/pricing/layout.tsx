@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, OG_IMAGES } from "@/lib/site";
 
 const title = "Pricing: Start free, scale when it works";
 const description =
@@ -11,12 +11,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/pricing" },
   keywords: ["EKAM AI pricing", "AI website builder pricing", "SaaS pricing"],
   openGraph: {
+    images: OG_IMAGES,
     type: "website",
     url: `${SITE_URL}/pricing`,
     title,
     description,
   },
-  twitter: { card: "summary_large_image", title, description },
+  twitter: { card: "summary_large_image", images: OG_IMAGES.map((i) => i.url), title, description },
 };
 
 export default function PricingLayout({

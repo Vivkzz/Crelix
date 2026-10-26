@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL, blogJsonLd } from "@/lib/site";
+import { SITE_URL, blogJsonLd, OG_IMAGES } from "@/lib/site";
 
 const title = "Blog";
 const ogTitle = "Blog · EKAM AI";
@@ -12,12 +12,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
   keywords: ["EKAM AI blog", "AI launch guide", "no-code", "pre-launch security"],
   openGraph: {
+    images: OG_IMAGES,
     type: "website",
     url: `${SITE_URL}/blog`,
     title: ogTitle,
     description,
   },
-  twitter: { card: "summary_large_image", title: ogTitle, description },
+  twitter: { card: "summary_large_image", images: OG_IMAGES.map((i) => i.url), title: ogTitle, description },
 };
 
 export default function BlogLayout({

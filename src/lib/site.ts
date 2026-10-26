@@ -5,10 +5,12 @@
  * company registration numbers. Only city/region/country are published.
  */
 
+/* Canonical origin. www is canonical; the apex and the previous domain
+   301 here (see redirects in next.config.ts). */
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.SITE_URL ||
-  "https://ekamai.in"
+  "https://www.crelixai.com"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "EKAM AI";
@@ -18,6 +20,12 @@ export const SITE_DESCRIPTION =
   "EKAM AI is an AI software platform (SaaS): describe your idea and AI agents plan, design, and build your website or app, with an authorized security scan before every launch. No coding required.";
 
 export const SITE_TAGLINE = "Build with AI. Scan before go-live.";
+
+/* Default social card. Page-level openGraph/twitter objects replace the
+   root ones rather than merging, so each page spreads these in. */
+export const OG_IMAGES = [
+  { url: "/og-image.png", width: 1200, height: 630, alt: "EKAM AI: Build with AI. Scan before go-live." },
+];
 
 /** Resolve a site-relative path to an absolute URL. */
 export function url(path: string = "/"): string {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL, softwareAppJsonLd } from "@/lib/site";
+import { SITE_URL, softwareAppJsonLd, OG_IMAGES } from "@/lib/site";
 
 const title = "Search Suite: Market research for your launch";
 const description =
@@ -17,12 +17,13 @@ export const metadata: Metadata = {
     "audience research",
   ],
   openGraph: {
+    images: OG_IMAGES,
     type: "website",
     url: `${SITE_URL}/search`,
     title,
     description,
   },
-  twitter: { card: "summary_large_image", title, description },
+  twitter: { card: "summary_large_image", images: OG_IMAGES.map((i) => i.url), title, description },
 };
 
 export default function SearchLayout({
