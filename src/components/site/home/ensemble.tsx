@@ -290,12 +290,25 @@ function BodyDeployer() {
 
 /* ---------- timeline pieces ---------- */
 
-/* clips shorter than this (run seconds) carry their label outside, to the right */
-const SHORT = 4.2;
+/* rough width of an 11px semibold label, plus the clip's side padding */
+const labelPx = (text: string) => text.length * 6.6 + 18;
 
-function ClipBar({ clip, t }: { clip: Clip; t: MotionValue<number> }) {
+/* where a clip's label fits at the current lane width: inside the bar,
+   in the gap to its right (before the next clip on that lane, or the
+   launch line), or nowhere; the artifact viewer still names it */
+function labelPlacement(index: number, w: number): "inside" | "outside" | "none" {
+  const clip = CLIPS[index];
+  const px = (s: number) => (s / TOTAL) * w;
+  const need = labelPx(clip.label);
+  if (px(clip.end - clip.start) >= need) return "inside";
+  const next = CLIPS.find((c, i) => i !== index && c.agent === clip.agent && c.start >= clip.end);
+  const room = px((next ? next.start : RUN_END) - clip.end) - 14;
+  return room >= need - 18 ? "outside" : "none";
+}
+
+function ClipBar({ clip, index, t, w }: { clip: Clip; index: number; t: MotionValue<number>; w: number }) {
   const a = AGENTS[clip.agent];
-  const short = clip.end - clip.start < SHORT;
+  const place = w > 0 ? labelPlacement(index, w) : "none";
   const clipPath = useTransform(t, (v) => {
     const p = Math.min(Math.max((v - clip.start) / (clip.end - clip.start), 0), 1);
     return `inset(0 ${(1 - p) * 100}% 0 0 round 7px)`;
@@ -304,15 +317,16 @@ function ClipBar({ clip, t }: { clip: Clip; t: MotionValue<number> }) {
   return (
     <div
       className="ek-clip-wrap"
+      title={clip.label}
       style={{ left: pct(clip.start), width: pct(clip.end - clip.start), "--hue": a.hue, "--hue-ink": a.ink } as CSSProperties}
     >
       <div className="ek-clip">
-        {!short && <span className="ek-clip-label">{clip.label}</span>}
+        {place === "inside" && <span className="ek-clip-label">{clip.label}</span>}
         <motion.span className="ek-clip-fill" style={{ clipPath }} aria-hidden="true">
-          {!short && <span className="ek-clip-label">{clip.label}</span>}
+          {place === "inside" && <span className="ek-clip-label">{clip.label}</span>}
         </motion.span>
       </div>
-      {short && <motion.span className="ek-clip-outside" style={{ opacity: labelOpacity }}>{clip.label}</motion.span>}
+      {place === "outside" && <motion.span className="ek-clip-outside" style={{ opacity: labelOpacity }}>{clip.label}</motion.span>}
     </div>
   );
 }
@@ -572,7 +586,7 @@ export function Ensemble() {
                   )}
                   {CLIPS.map((c, i) => (
                     <div key={i} className="ek-score-clip-lane" style={{ top: `${(c.agent / AGENTS.length) * 100}%`, height: `${100 / AGENTS.length}%` }}>
-                      <ClipBar clip={c} t={t} />
+                      <ClipBar clip={c} index={i} t={t} w={size.w} />
                     </div>
                   ))}
                   <motion.div className="ek-score-playhead" style={{ left: playhead }} />

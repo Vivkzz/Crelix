@@ -79,7 +79,7 @@ export default function PricingPage() {
 
       {/* tiers */}
       <Section className="!pt-0">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {pricingTiers.map((tier, i) => {
             const price = yearly && tier.price > 0 ? Math.round(tier.price * 0.8) : tier.price;
             return (

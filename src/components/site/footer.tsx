@@ -46,8 +46,8 @@ export function Footer() {
   return (
     <footer className="ek-footer mt-auto">
       <div className="ek-container">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-12">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-1">
             <Logo />
             <p className="ek-bodytext mt-5 max-w-xs" style={{ fontSize: 14.5 }}>
               The AI platform that builds sites and apps from a prompt, scanned
