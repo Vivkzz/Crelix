@@ -15,7 +15,7 @@ export async function* runLLMAgent(opts: {
       role: "system",
       content:
         opts.systemPrompt ||
-        "You are EKAM AI, an autonomous agent. Use the available tools to accomplish the user's goal. Be concise. When finished, reply with a short summary.",
+        "You are Crelix AI, an autonomous agent. Use the available tools to accomplish the user's goal. Be concise. When finished, reply with a short summary.",
     },
     { role: "user", content: opts.input },
   ];

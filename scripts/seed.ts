@@ -1,14 +1,14 @@
 import { db } from "../src/lib/db";
 
 async function main() {
-  const adminEmail = (process.env.ADMIN_EMAIL || "admin@ekamai.in").toLowerCase().trim();
+  const adminEmail = (process.env.ADMIN_EMAIL || "admin@crelixai.com").toLowerCase().trim();
 
   const admin = await db.user.upsert({
     where: { email: adminEmail },
     update: { role: "ADMIN", status: "ACTIVE" },
     create: {
       email: adminEmail,
-      name: "EKAM Admin",
+      name: "Crelix Admin",
       role: "ADMIN",
       plan: "ENTERPRISE",
       credits: 1000,
@@ -39,7 +39,7 @@ async function main() {
     update: {},
     create: {
       id: "welcome",
-      title: "Welcome to EKAM AI",
+      title: "Welcome to Crelix AI",
       body: "Your dashboard is ready. Create a project, run a scan, or research a market.",
       level: "info",
       active: false,

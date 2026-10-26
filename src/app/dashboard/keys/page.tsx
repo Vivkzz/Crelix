@@ -89,7 +89,7 @@ export default function KeysPage() {
       <Toaster richColors position="bottom-right" />
       <PageHeader
         title="API keys"
-        description="Create keys to access the EKAM AI API programmatically."
+        description="Create keys to access the Crelix AI API programmatically."
       />
 
       <SectionCard

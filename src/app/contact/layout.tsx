@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { SITE_URL, OG_IMAGES } from "@/lib/site";
 
 const title = "Contact";
-const ogTitle = "Contact EKAM AI";
+const ogTitle = "Contact Crelix AI";
 const description =
-  "Get in touch with the EKAM AI team: support, sales, agency partnerships, and education or non-profit discounts.";
+  "Get in touch with the Crelix AI team: support, sales, agency partnerships, and education or non-profit discounts.";
 
 export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/contact" },
-  keywords: ["contact EKAM AI", "EKAM AI support", "EKAM AI sales"],
+  keywords: ["contact Crelix AI", "Crelix AI support", "Crelix AI sales"],
   openGraph: {
     images: OG_IMAGES,
     type: "website",

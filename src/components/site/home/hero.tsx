@@ -74,7 +74,7 @@ function AgentIcon({ state }: { state: "done" | "running" | "idle" }) {
 }
 
 /**
- * The ekam workspace: prompt, the six agents in hue, and a live preview
+ * The Crelix workspace: prompt, the six agents in hue, and a live preview
  * that follows them (wireframe → palette → assembled page → checks →
  * scan → live). `stage` = number of finished agents (0–6).
  * `demo` animates transitions; without it the window renders a still state.
@@ -148,7 +148,7 @@ export function WorkspaceWindow({
         <div className="ek-window-preview">
           <div className="ek-window-preview-label">
             <span className={`ek-window-live${live ? " on" : ""}`} />
-            yourbrand.ekamai.app
+            yourbrand.crelixai.com
             <span className="ek-window-preview-state">
               {live ? "Live" : stage === 5 ? "Deploying" : built ? "Preview" : "Drafting"}
             </span>
@@ -236,7 +236,7 @@ export function HomeHero() {
             <span className="ek-hue-dots" aria-hidden="true">
               {AGENTS.map((a) => <i key={a.key} style={{ background: a.hue }} />)}
             </span>
-            EKAM AI
+            Crelix AI
           </div>
         </Reveal>
         <SplitReveal

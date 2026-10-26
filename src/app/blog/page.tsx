@@ -19,7 +19,7 @@ export default function BlogPage() {
         <PageHeader
           eyebrow="Newsroom"
           title={<>Build notes and deep dives.</>}
-          subtitle="From the EKAM AI team: technical deep-dives, launch playbooks, and product thinking."
+          subtitle="From the Crelix AI team: technical deep-dives, launch playbooks, and product thinking."
         />
       </div>
 

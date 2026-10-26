@@ -60,7 +60,7 @@ export default function ProfilePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-8 lg:px-8 space-y-8">
       <Toaster richColors position="bottom-right" />
-      <PageHeader title="Profile" description="How you appear across EKAM AI." />
+      <PageHeader title="Profile" description="How you appear across Crelix AI." />
 
       {isLoading ? (
         <div className="flex items-center gap-2 text-sm text-muted-foreground">

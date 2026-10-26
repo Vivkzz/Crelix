@@ -46,7 +46,7 @@ export default function SignupPage() {
 
   return (
     <AuthCard
-      title="Create your EKAM AI account"
+      title="Create your Crelix AI account"
       subtitle={sent ? "Check your inbox for the verification link." : "Start free. 5 generations, every suite, no card required."}
       footer={
         <>

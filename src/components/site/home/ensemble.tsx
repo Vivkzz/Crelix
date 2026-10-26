@@ -267,7 +267,7 @@ function BodyDeployer() {
   const rows = [
     ["12:04:11", "build ✓ 34s"],
     ["12:04:41", "edge deploy · 18 regions ✓"],
-    ["12:04:43", "dns → yourbrand.ekamai.app"],
+    ["12:04:43", "dns → yourbrand.crelixai.com"],
     ["12:04:45", "ssl ✓ · hsts on"],
   ];
   return (
@@ -282,7 +282,7 @@ function BodyDeployer() {
         style={{ marginTop: 12, display: "inline-flex", alignItems: "center", gap: 8, color: "var(--ek-a6-ink)", fontWeight: 600, fontFamily: "var(--ek-font-sans)", fontSize: 13 }}
       >
         <span className="ek-live-ping" aria-hidden="true" />
-        Live · yourbrand.ekamai.app
+        Live · yourbrand.crelixai.com
       </motion.div>
     </div>
   );
@@ -386,7 +386,7 @@ function Viewer({ clipIndex, t }: { clipIndex: number; t: number }) {
       >
         <div className="ek-browser-bar">
           <div className="ek-browser-dots" aria-hidden="true"><span /><span /><span /></div>
-          <div className="ek-browser-url"><span className="live-dot" aria-hidden="true" />yourbrand.ekamai.app</div>
+          <div className="ek-browser-url"><span className="live-dot" aria-hidden="true" />yourbrand.crelixai.com</div>
           <span style={{ width: 40 }} />
         </div>
         <div className="ek-score-final-body ek-minipage"><MiniPage /></div>

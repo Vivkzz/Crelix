@@ -15,7 +15,7 @@ export const suites: Suite[] = [
   {
     slug: "flow",
     name: "Flow",
-    fullName: "EKAM AI Flow",
+    fullName: "Crelix AI Flow",
     tagline: "Pages and apps, built from a prompt",
     description:
       "From a prompt to a live launch page or a full app in minutes. Design, copy, structure, frontend, and backend, built by AI agents and ready to publish.",
@@ -35,7 +35,7 @@ export const suites: Suite[] = [
   {
     slug: "pentest",
     name: "Pentest Suite",
-    fullName: "EKAM AI Pentest",
+    fullName: "Crelix AI Pentest",
     tagline: "Pre-launch security scan",
     description:
       "Run a structured pre-launch security scan on a target you own or are authorized to test. Reports findings with evidence, severity, and remediation guidance.",
@@ -55,7 +55,7 @@ export const suites: Suite[] = [
   {
     slug: "search",
     name: "Search Suite",
-    fullName: "EKAM AI Search",
+    fullName: "Crelix AI Search",
     tagline: "Market research for your launch",
     description:
       "Free market research that feeds your launch. Surface competitors, positioning angles, and audience language before you commit to a message.",
@@ -110,7 +110,7 @@ export const pricingTiers: PricingTier[] = [
     description: "Ship one polished landing site or small MVP per month.",
     cta: "Start with Starter",
     features: [
-      "EKAM AI Flow access",
+      "Crelix AI Flow access",
       "75 credits / month",
       "2 team members",
       "Custom domain",
@@ -127,7 +127,7 @@ export const pricingTiers: PricingTier[] = [
     cta: "Start with Pro",
     featured: true,
     features: [
-      "EKAM AI Flow: pages and apps",
+      "Crelix AI Flow: pages and apps",
       "350 credits / month",
       "10 team members",
       "Deploy to production",
@@ -175,14 +175,14 @@ export const team: TeamMember[] = [
   {
     name: "Bhargav Vyas",
     role: "Co-Founder & CEO",
-    bio: "Co-founder of EKAM AI, focused on product direction and go-to-market. Believes the best launch tool is one that ships and secures in the same motion.",
+    bio: "Co-founder of Crelix AI, focused on product direction and go-to-market. Believes the best launch tool is one that ships and secures in the same motion.",
     companies: [],
     initials: "BV",
   },
   {
     name: "Meet Savaliya",
     role: "Co-Founder & CTO",
-    bio: "Co-founder of EKAM AI, leading engineering and the agent orchestration behind Flow, Pentest, and Search.",
+    bio: "Co-founder of Crelix AI, leading engineering and the agent orchestration behind Flow, Pentest, and Search.",
     companies: [],
     initials: "MS",
   },
@@ -196,7 +196,7 @@ export const values = [
   },
   {
     title: "AI as infrastructure",
-    desc: "We orchestrate the best models into execution workflows, not another chatbot wrapper. EKAM AI is the execution layer, not a model.",
+    desc: "We orchestrate the best models into execution workflows, not another chatbot wrapper. Crelix AI is the execution layer, not a model.",
     icon: "cpu",
   },
   {
@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
     slug: "free-mobile-app-builder-idea-to-launch-with-ai",
     title: "Free Mobile App Builder: Idea to Launch With AI",
     excerpt:
-      "Build and launch a mobile app for free with EKAM AI's AI-powered builder. No code needed. Includes pre-launch security scanning.",
+      "Build and launch a mobile app for free with Crelix AI's AI-powered builder. No code needed. Includes pre-launch security scanning.",
     category: "guide",
     tags: ["mobile", "no-code", "launch"],
     date: "Jul 2, 2026",
@@ -238,15 +238,15 @@ export const blogPosts: BlogPost[] = [
     featured: true,
     content: `Mobile app development has traditionally been a slow, expensive process. You needed designers, frontend engineers, backend engineers, and a deployment pipeline, and that was before you got to security review.
 
-EKAM AI Flow changes that. Describe your app, share a few references, and the agent team plans the structure, generates the code, designs the UI, writes the copy, and deploys it. In this post, we walk through the full workflow, from idea to a live, scanned mobile app.
+Crelix AI Flow changes that. Describe your app, share a few references, and the agent team plans the structure, generates the code, designs the UI, writes the copy, and deploys it. In this post, we walk through the full workflow, from idea to a live, scanned mobile app.
 
 ## Step 1: Describe your app
 
-Start with a prompt. The more specific you are about audience, core flows, and the feeling you want, the better the first pass. EKAM AI Flow handles the rest.
+Start with a prompt. The more specific you are about audience, core flows, and the feeling you want, the better the first pass. Crelix AI Flow handles the rest.
 
 ## Step 2: Add references
 
-Drop in screenshots of apps you love. EKAM AI matches the structure and voice, without a setup marathon.
+Drop in screenshots of apps you love. Crelix AI matches the structure and voice, without a setup marathon.
 
 ## Step 3: Generate and preview
 
@@ -266,43 +266,43 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     date: "Jun 30, 2026",
     readTime: "7 min read",
     author: "Meet Savaliya",
-    content: `The fastest web page creator online for founders and indie hackers is one that doesn't make you choose between speed and quality. EKAM AI Flow gives you both, plus a pre-launch security scan so you ship with confidence.`,
+    content: `The fastest web page creator online for founders and indie hackers is one that doesn't make you choose between speed and quality. Crelix AI Flow gives you both, plus a pre-launch security scan so you ship with confidence.`,
   },
   {
     slug: "ai-website-design-tools-no-code-sites-2026",
     title: "AI Website Design Tools: No-Code Sites (2026)",
     excerpt:
-      "Compare the best AI website design tools in 2026. See how EKAM AI stacks up against Relume, Wix, and Webflow for founders.",
+      "Compare the best AI website design tools in 2026. See how Crelix AI stacks up against Relume, Wix, and Webflow for founders.",
     category: "compare",
     tags: ["website builder", "design", "launch"],
     date: "Jun 27, 2026",
     readTime: "10 min read",
     author: "Meet Savaliya",
-    content: `In 2026, the AI website design landscape is more crowded than ever. We compare EKAM AI against Relume, Wix, and Webflow, and show why pairing generation with a pre-launch security scan matters.`,
+    content: `In 2026, the AI website design landscape is more crowded than ever. We compare Crelix AI against Relume, Wix, and Webflow, and show why pairing generation with a pre-launch security scan matters.`,
   },
   {
     slug: "ai-landing-page-builder-prompt-to-live-page",
     title: "AI Landing Page Builder: Prompt to Live Page",
     excerpt:
-      "Build a high-converting landing page with AI in minutes. EKAM AI generates, optimizes, and security-scans your launch page, no code needed.",
+      "Build a high-converting landing page with AI in minutes. Crelix AI generates, optimizes, and security-scans your launch page, no code needed.",
     category: "product",
     tags: ["landing pages", "website builder", "launch"],
     date: "Jun 24, 2026",
     readTime: "9 min read",
     author: "Bhargav Vyas",
-    content: `A high-converting landing page needs three things: clear copy, a credible design, and a fast deploy. EKAM AI Flow delivers all three from a single prompt.`,
+    content: `A high-converting landing page needs three things: clear copy, a credible design, and a fast deploy. Crelix AI Flow delivers all three from a single prompt.`,
   },
   {
     slug: "ai-powered-website-builder-free-no-code",
     title: "AI-Powered Website Builder: Free & No-Code",
     excerpt:
-      "Build a stunning website with AI in minutes, no coding needed. EKAM AI generates pages, copy, and layouts instantly. Free to start.",
+      "Build a stunning website with AI in minutes, no coding needed. Crelix AI generates pages, copy, and layouts instantly. Free to start.",
     category: "product",
     tags: ["website builder", "no-code", "launch"],
     date: "Jun 20, 2026",
     readTime: "10 min read",
     author: "Meet Savaliya",
-    content: `A free, no-code website builder that actually produces production-grade output. Here's how EKAM AI Flow does it.`,
+    content: `A free, no-code website builder that actually produces production-grade output. Here's how Crelix AI Flow does it.`,
   },
   {
     slug: "2026-launch-stack-solo-founders",
@@ -326,7 +326,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     date: "Jun 18, 2026",
     readTime: "5 min read",
     author: "Bhargav Vyas",
-    content: `Most AI landing pages look identical because they share the same template assets. Here's how to break out of that pattern with EKAM AI Flow.`,
+    content: `Most AI landing pages look identical because they share the same template assets. Here's how to break out of that pattern with Crelix AI Flow.`,
   },
   {
     slug: "how-to-pentest-your-web-app-before-launch",
@@ -456,7 +456,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The Pentest suite found three high-severity findings before we announced. That alone paid for a year of EKAM AI.",
+      "The Pentest suite found three high-severity findings before we announced. That alone paid for a year of Crelix AI.",
     author: "Sara Okafor",
     role: "CTO, Sentinel Ops",
     initials: "SO",
@@ -472,7 +472,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "I run an agency. EKAM AI replaced four tools in our stack: design, copy, deploy, and security. My clients are happier and my margins are up.",
+      "I run an agency. Crelix AI replaced four tools in our stack: design, copy, deploy, and security. My clients are happier and my margins are up.",
     author: "Priya Nair",
     role: "Founder, Slate Studio",
     initials: "PN",
@@ -495,16 +495,16 @@ export type FAQ = {
 
 export const generalFAQs: FAQ[] = [
   {
-    q: "What is EKAM AI?",
-    a: "EKAM AI is an AI platform that turns a prompt into a deployed launch page, then runs an authorized pre-launch security scan so you ship with confidence. It's not a model; it's an execution layer that orchestrates specialized AI agents as one team.",
+    q: "What is Crelix AI?",
+    a: "Crelix AI is an AI platform that turns a prompt into a deployed launch page, then runs an authorized pre-launch security scan so you ship with confidence. It's not a model; it's an execution layer that orchestrates specialized AI agents as one team.",
   },
   {
-    q: "Is EKAM AI free to try?",
+    q: "Is Crelix AI free to try?",
     a: "Yes. The 14-day free trial gives you full access to every suite (Flow, Pentest, and Search) with 5 generations. No credit card required.",
   },
   {
     q: "Do I need to know how to code?",
-    a: "No. EKAM AI Flow handles design, copy, structure, frontend, backend, and deploy from a single prompt. You describe what you want and the agents handle the rest.",
+    a: "No. Crelix AI Flow handles design, copy, structure, frontend, backend, and deploy from a single prompt. You describe what you want and the agents handle the rest.",
   },
   {
     q: "Can I run Pentest on any site?",
@@ -512,7 +512,7 @@ export const generalFAQs: FAQ[] = [
   },
   {
     q: "Where is my data stored?",
-    a: "EKAM AI is operated by EKAM INNOVATIONS LLP, based in GIFT City, Gandhinagar, India. Data is processed in India. See our Privacy Policy and Security pages for the full picture, including subprocessors and encryption.",
+    a: "Crelix AI is operated by EKAM INNOVATIONS LLP, based in GIFT City, Gandhinagar, India. Data is processed in India. See our Privacy Policy and Security pages for the full picture, including subprocessors and encryption.",
   },
   {
     q: "Can I cancel anytime?",
@@ -539,7 +539,7 @@ export const pricingFAQs: FAQ[] = [
   },
   {
     q: "What about education or non-profit discounts?",
-    a: "We offer discounted Pro plans for students, educators and registered non-profits. Email contact@ekamai.in from your institutional address.",
+    a: "We offer discounted Pro plans for students, educators and registered non-profits. Email contact@crelixai.com from your institutional address.",
   },
 ];
 
@@ -608,5 +608,5 @@ export const navLinks = [
     { label: "Alternatives", href: "/blog" },
   ]},
   { label: "How it works", href: "/#how-it-works" },
-  { label: "Why EKAM AI?", href: "/#why" },
+  { label: "Why Crelix AI?", href: "/#why" },
 ];

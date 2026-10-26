@@ -1,5 +1,5 @@
 /* ============================================================
-   EKAM AI — "Bindu" marketing design system
+   Crelix AI — "Bindu" marketing design system
    Namespace: --ek-* (marketing only; shadcn tokens untouched)
    ============================================================ */
 
@@ -1286,8 +1286,8 @@ a:hover > .ek-tile, .ek-tile.big:hover, .ek-tile.small:hover {
   white-space: nowrap;
 }
 .ek-viz-map-dot i { width: 6px; height: 6px; border-radius: 999px; background: var(--ek-ink-3); opacity: 0.6; }
-.ek-viz-map-dot.ekam { font-weight: 600; color: var(--ek-a1-ink); font-size: 12px; }
-.ek-viz-map-dot.ekam i {
+.ek-viz-map-dot.self { font-weight: 600; color: var(--ek-a1-ink); font-size: 12px; }
+.ek-viz-map-dot.self i {
   width: 10px; height: 10px; opacity: 1; background: var(--ek-a1);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--ek-a1) 22%, transparent);
 }
@@ -2085,20 +2085,22 @@ a:hover > .ek-tile, .ek-tile.big:hover, .ek-tile.small:hover {
 .ek-reason:focus-visible { outline: 2px solid var(--ek-accent); outline-offset: 2px; }
 
 /* about page */
-.ek-devanagari {
-  font-family: var(--font-devanagari), var(--ek-font-display), serif;
-  font-size: clamp(120px, 16vw, 240px);
-  line-height: 1.2;
-  padding: 0 0.1em;
+.ek-watermark {
+  font-family: var(--ek-font-display);
+  font-weight: 600;
+  font-size: clamp(120px, 18vw, 260px);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  padding: 0 0.06em 0.08em;
   user-select: none;
-  /* the Sanskrit "one", faintly carrying all six agent hues */
+  /* the wordmark, faintly carrying all six agent hues */
   background: var(--ek-spectrum);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   opacity: 0.12;
 }
-.dark .ek-devanagari { opacity: 0.2; }
+.dark .ek-watermark { opacity: 0.2; }
 .ek-monogram {
   width: 56px;
   height: 56px;
@@ -3218,8 +3220,8 @@ a:hover .ek-cover-threads { transform: scale(1.04); }
   width: 7px; height: 7px; border-radius: 999px;
   background: var(--ek-ink-3); opacity: 0.55;
 }
-.ek-research-ekam { font-weight: 600; color: var(--ek-a1-ink); }
-.ek-research-ekam span {
+.ek-research-self { font-weight: 600; color: var(--ek-a1-ink); }
+.ek-research-self span {
   background: var(--ek-a1); opacity: 1; width: 10px; height: 10px;
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--ek-a1) 22%, transparent);
 }

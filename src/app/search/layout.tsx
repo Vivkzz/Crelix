@@ -3,7 +3,7 @@ import { SITE_URL, softwareAppJsonLd, OG_IMAGES } from "@/lib/site";
 
 const title = "Search Suite: Market research for your launch";
 const description =
-  "Free market research that feeds your launch. EKAM AI Search surfaces competitors, positioning angles, and audience language before you commit to a message.";
+  "Free market research that feeds your launch. Crelix AI Search surfaces competitors, positioning angles, and audience language before you commit to a message.";
 
 export const metadata: Metadata = {
   title,
@@ -39,7 +39,7 @@ export default function SearchLayout({
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             softwareAppJsonLd({
-              name: "EKAM AI Search Suite",
+              name: "Crelix AI Search Suite",
               applicationCategory: "BusinessApplication",
               description,
               path: "/search",

@@ -14,7 +14,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug) ?? blogPosts[0];
   return {
-    title: { absolute: `${post.title} · EKAM AI` },
+    title: { absolute: `${post.title} · Crelix AI` },
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
     keywords: post.tags,

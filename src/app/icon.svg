@@ -7,6 +7,6 @@
       .dt { fill: #2997FF; }
     }
   </style>
-  <path class="st" d="M13 32H51A19 19 0 1 0 45.4 45.4" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle class="dt" cx="52.5" cy="52.5" r="4.8"/>
+  <path class="st" d="M44.4 18.6A19 19 0 1 0 44.4 45.4" fill="none" stroke-width="8" stroke-linecap="round"/>
+  <circle class="dt" cx="51.5" cy="52.5" r="4.8"/>
 </svg>

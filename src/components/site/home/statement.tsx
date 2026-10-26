@@ -23,7 +23,7 @@ function TwelveDots() {
 }
 
 const TOKENS: (string | { node: ReactNode })[] = [
-  ..."EKAM isn't one model answering prompts. It's six specialists".split(" "),
+  ..."Crelix isn't one model answering prompts. It's six specialists".split(" "),
   { node: <SixDots /> },
   ..."that plan, design, build and deploy your idea, and twelve more".split(" "),
   { node: <TwelveDots /> },

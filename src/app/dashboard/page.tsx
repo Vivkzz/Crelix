@@ -69,7 +69,7 @@ export default function DashboardOverviewPage() {
     <div className="mx-auto w-full max-w-6xl px-4 py-8 lg:px-8 space-y-8">
       <PageHeader
         title="Overview"
-        description="Your EKAM AI workspace at a glance."
+        description="Your Crelix AI workspace at a glance."
       />
 
       {isLoading ? (
@@ -258,7 +258,7 @@ export default function DashboardOverviewPage() {
               <EmptyState
                 icon={Activity}
                 title="No recent activity"
-                description="Credit movements will appear here once you start using EKAM AI."
+                description="Credit movements will appear here once you start using Crelix AI."
               />
             )}
           </SectionCard>

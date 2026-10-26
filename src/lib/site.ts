@@ -1,5 +1,5 @@
 /**
- * Central SEO config + JSON-LD builders for EKAM AI.
+ * Central SEO config + JSON-LD builders for Crelix AI.
  *
  * Security note: structured data intentionally omits street address and
  * company registration numbers. Only city/region/country are published.
@@ -13,18 +13,18 @@ export const SITE_URL = (
   "https://www.crelixai.com"
 ).replace(/\/$/, "");
 
-export const SITE_NAME = "EKAM AI";
+export const SITE_NAME = "Crelix AI";
 export const SITE_LEGAL_NAME = "EKAM INNOVATIONS LLP";
 
 export const SITE_DESCRIPTION =
-  "EKAM AI is an AI software platform (SaaS): describe your idea and AI agents plan, design, and build your website or app, with an authorized security scan before every launch. No coding required.";
+  "Crelix AI is an AI software platform (SaaS): describe your idea and AI agents plan, design, and build your website or app, with an authorized security scan before every launch. No coding required.";
 
 export const SITE_TAGLINE = "Build with AI. Scan before go-live.";
 
 /* Default social card. Page-level openGraph/twitter objects replace the
    root ones rather than merging, so each page spreads these in. */
 export const OG_IMAGES = [
-  { url: "/og-image.png", width: 1200, height: 630, alt: "EKAM AI: Build with AI. Scan before go-live." },
+  { url: "/og-image.png", width: 1200, height: 630, alt: "Crelix AI: Build with AI. Scan before go-live." },
 ];
 
 /** Resolve a site-relative path to an absolute URL. */
@@ -93,7 +93,7 @@ export function blogJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "EKAM AI Blog",
+    name: "Crelix AI Blog",
     url: url("/blog"),
     publisher: { "@type": "Organization", name: SITE_LEGAL_NAME, url: SITE_URL },
   };

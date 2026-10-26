@@ -48,7 +48,7 @@ export default function AdminOverviewPage() {
 
       <SectionCard
         title="Pitch deck"
-        description="Latest EKAM AI pitch deck — admin download only."
+        description="Latest Crelix AI pitch deck — admin download only."
       >
         <div className="flex flex-wrap items-center gap-3">
           <a

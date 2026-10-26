@@ -143,7 +143,7 @@ export default function BlogPostPage() {
       )}
 
       <FinalCTA
-        title="Build with EKAM AI,"
+        title="Build with Crelix AI,"
         subtitle="from prompt to live."
         primary={{ label: "Start free trial", href: "/signup" }}
         secondary={{ label: "See pricing", href: "/pricing" }}

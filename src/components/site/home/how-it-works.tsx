@@ -422,7 +422,7 @@ function FrameLive() {
         <span className="ek-deployed-ico">✓</span>
         <span>
           <span className="ek-deployed-t">Deployed · scanned clean</span>
-          <span className="ek-deployed-s">yourbrand.ekamai.app · 47s</span>
+          <span className="ek-deployed-s">yourbrand.crelixai.com · 47s</span>
         </span>
       </motion.div>
     </div>
@@ -484,7 +484,7 @@ export function HomeHowItWorks() {
                     </div>
                     <div className="ek-browser-url">
                       {active === 3 && <span className="live-dot" aria-hidden="true" />}
-                      {active === 0 ? "ekam.ai/new" : "yourbrand.ekamai.app"}
+                      {active === 0 ? "crelixai.com/new" : "yourbrand.crelixai.com"}
                     </div>
                     <span style={{ width: 40 }} />
                   </div>
@@ -528,7 +528,7 @@ export function HomeHowItWorks() {
                 <div className="ek-browser ek-hiw-browser mt-5">
                   <div className="ek-browser-bar">
                     <div className="ek-browser-dots" aria-hidden="true"><span /><span /><span /></div>
-                    <div className="ek-browser-url">yourbrand.ekamai.app</div>
+                    <div className="ek-browser-url">yourbrand.crelixai.com</div>
                     <span style={{ width: 40 }} />
                   </div>
                   <div className="ek-browser-body">

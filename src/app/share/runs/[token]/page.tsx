@@ -110,7 +110,7 @@ export default function SharedRunPage() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Share2 className="h-5 w-5 text-[var(--color-3)]" />
-          <span className="text-sm font-semibold tracking-tight">Shared run · EKAM AI</span>
+          <span className="text-sm font-semibold tracking-tight">Shared run · Crelix AI</span>
         </div>
         <Button asChild variant="link" size="sm" className="h-auto p-0 text-muted-foreground">
           <Link href="/">
@@ -133,7 +133,7 @@ export default function SharedRunPage() {
           description="This shared link is invalid or has been revoked."
           action={
             <Button asChild>
-              <Link href="/">Go to EKAM AI</Link>
+              <Link href="/">Go to Crelix AI</Link>
             </Button>
           }
         />

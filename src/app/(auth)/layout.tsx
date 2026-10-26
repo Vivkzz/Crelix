@@ -11,7 +11,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-background">
       <Link href="/" className="mb-8 text-lg font-semibold tracking-tight">
-        EKAM AI
+        Crelix AI
       </Link>
       <Suspense fallback={null}>{children}</Suspense>
       <p className="mt-10 text-xs text-muted-foreground">

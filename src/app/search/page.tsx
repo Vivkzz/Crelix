@@ -38,7 +38,7 @@ const workflow = [
 const searchFAQs = [
   {
     q: "Is Search really free?",
-    a: "Search is free for all EKAM AI users on any paid plan. Free trial users get 3 Search runs. The output is yours to keep and use however you like.",
+    a: "Search is free for all Crelix AI users on any paid plan. Free trial users get 3 Search runs. The output is yours to keep and use however you like.",
   },
   {
     q: "What sources does Search use?",
@@ -155,7 +155,7 @@ function ResearchDemo() {
     <div className="ek-demo">
       <div className="ek-browser-bar">
         <div className="ek-browser-dots" aria-hidden="true"><span /><span /><span /></div>
-        <div className="ek-browser-url">ekam.ai · search</div>
+        <div className="ek-browser-url">crelixai.com · search</div>
         <span style={{ width: 40 }} />
       </div>
       <div className="ek-demo-body space-y-4">

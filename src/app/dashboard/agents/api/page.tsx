@@ -84,7 +84,7 @@ export default function ProgrammaticApiPage() {
 
           <div className="space-y-1">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">Example request (curl)</p>
-            <pre className="overflow-auto rounded-lg bg-muted p-3 text-xs">{`curl -X POST "$EKAMAI_URL/api/v1/agents/{agent_id}/run" \\
+            <pre className="overflow-auto rounded-lg bg-muted p-3 text-xs">{`curl -X POST "$CRELIX_URL/api/v1/agents/{agent_id}/run" \\
   -H "Authorization: Bearer eai_..." \\
   -H "Content-Type: application/json" \\
   -d '{"input":"Research the market for AI note apps"}'`}</pre>

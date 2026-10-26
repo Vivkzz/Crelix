@@ -2,7 +2,6 @@
 
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Tiro_Devanagari_Sanskrit } from "next/font/google";
 import { SiteLayout } from "@/components/shared/site-layout";
 import { Section, SectionHeader, PageHeader } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
@@ -10,31 +9,20 @@ import { FinalCTA } from "@/components/shared/final-cta";
 import { team, values } from "@/lib/data/site";
 import type { CSSProperties } from "react";
 
-const tiro = Tiro_Devanagari_Sanskrit({
-  subsets: ["devanagari"],
-  weight: ["400"],
-  variable: "--font-devanagari",
-});
-
 export default function AboutPage() {
   return (
     <SiteLayout>
-      <div className={`${tiro.variable} relative overflow-hidden`}>
-        <div className="ek-devanagari absolute top-16 left-1/2 -translate-x-1/2 select-none" aria-hidden="true">
-          एकम्
+      <div className="relative overflow-hidden">
+        <div className="ek-watermark absolute top-16 left-1/2 -translate-x-1/2 select-none" aria-hidden="true">
+          crelix
         </div>
         <div className="ek-pagehead relative pt-56 sm:pt-64">
           <PageHeader
             align="center"
             eyebrow="About"
             title={<>Built by engineers who ship.</>}
-            subtitle="EKAM AI is built by a team of engineers and entrepreneurs based in GIFT City, Gandhinagar, India, who've shipped products across AI, fintech, and enterprise systems. We're not building another AI wrapper. We're building the execution layer."
+            subtitle="Crelix AI is built by a team of engineers and entrepreneurs based in GIFT City, Gandhinagar, India, who've shipped products across AI, fintech, and enterprise systems. We're not building another AI wrapper. We're building the execution layer."
           />
-          <Reveal delay={360}>
-            <p className="mt-8 text-center text-[12px]" style={{ color: "var(--ek-ink-3)" }}>
-              एकम् · ekam · Sanskrit, "one"
-            </p>
-          </Reveal>
         </div>
       </div>
 
@@ -98,15 +86,15 @@ export default function AboutPage() {
         <Reveal className="mt-14">
           <div className="grid gap-8 lg:grid-cols-2">
             <p className="ek-bodytext" style={{ maxWidth: "48ch" }}>
-              The company behind EKAM AI. Based in GIFT City, Gandhinagar,
-              India. EKAM AI is the platform we wished we had.
+              The company behind Crelix AI. Based in GIFT City, Gandhinagar,
+              India. Crelix AI is the platform we wished we had.
             </p>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { label: "Headquarters", value: "GIFT City, Gandhinagar, India" },
                 { label: "Country", value: "India" },
-                { label: "Email", value: "contact@ekamai.in" },
-                { label: "Social", value: "@ekam_ai" },
+                { label: "Email", value: "contact@crelixai.com" },
+                { label: "Website", value: "crelixai.com" },
               ].map((item) => (
                 <div key={item.label} className="ek-info-tile">
                   <div className="k">{item.label}</div>
@@ -126,7 +114,7 @@ export default function AboutPage() {
 
       <FinalCTA
         title="Create your account and"
-        subtitle="start using EKAM AI today."
+        subtitle="start using Crelix AI today."
         primary={{ label: "Create account", href: "/signup" }}
         secondary={{ label: "Contact us", href: "/contact" }}
       />

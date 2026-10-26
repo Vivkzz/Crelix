@@ -13,9 +13,9 @@ import { pricingTiers, creditPacks, pricingFAQs } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
 
 const COMPARE_ROWS = [
-  { label: "EKAM AI Flow", values: ["✓", "✓", "✓", "✓"] },
-  { label: "EKAM AI Pentest", values: ["✗", "✗", "Beta", "✓"] },
-  { label: "EKAM AI Search", values: ["✓", "✓", "✓", "✓"] },
+  { label: "Crelix AI Flow", values: ["✓", "✓", "✓", "✓"] },
+  { label: "Crelix AI Pentest", values: ["✗", "✗", "Beta", "✓"] },
+  { label: "Crelix AI Search", values: ["✓", "✓", "✓", "✓"] },
   { label: "Monthly credits", values: ["5 gen", "75", "350", "1,200"] },
   { label: "Team seats", values: ["1", "2", "10", "Unlimited"] },
   { label: "Custom domains", values: ["✗", "1", "5", "Unlimited"] },

@@ -83,7 +83,7 @@ export default function SupportPage() {
       <Toaster richColors position="bottom-right" />
       <PageHeader
         title="Support"
-        description="Get help or share feedback with the EKAM AI team."
+        description="Get help or share feedback with the Crelix AI team."
       />
 
       <Tabs defaultValue="support">
@@ -234,7 +234,7 @@ export default function SupportPage() {
                 {t.reply && (
                   <div className="mt-2 rounded-md border border-border bg-muted/40 p-3 text-sm">
                     <div className="text-xs font-medium text-muted-foreground">
-                      Reply from EKAM AI
+                      Reply from Crelix AI
                     </div>
                     <p className="mt-1 whitespace-pre-wrap">{t.reply}</p>
                   </div>

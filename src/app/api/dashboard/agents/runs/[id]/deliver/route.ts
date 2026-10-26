@@ -43,14 +43,14 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const artifacts = parseArr<{ title?: string; type?: string }>(run.artifacts);
     const html = `
 <div style="font-family:Inter,Arial,sans-serif;max-width:600px;margin:auto;color:#0a0a0a">
-  <h2 style="margin-bottom:4px">Your EKAM AI run result</h2>
+  <h2 style="margin-bottom:4px">Your Crelix AI run result</h2>
   <p style="color:#666;margin-top:0">Run <code>${escapeHtml(run.id)}</code> &middot; ${escapeHtml(run.status)}</p>
   ${run.finalMessage ? `<h3>Final answer</h3><div style="white-space:pre-wrap;border-left:3px solid #eee;padding-left:12px;margin-bottom:16px">${escapeHtml(run.finalMessage)}</div>` : ""}
   ${artifacts.length ? `<h3>Artifacts</h3><ul style="padding-left:18px">${artifacts.map((a) => `<li>${escapeHtml(a.title || a.type || "artifact")}</li>`).join("")}</ul>` : ""}
-  <p style="margin-top:24px;color:#999;font-size:12px">Sent via EKAM AI</p>
+  <p style="margin-top:24px;color:#999;font-size:12px">Sent via Crelix AI</p>
 </div>`;
 
-    const ok = await sendEmail(email, "Your EKAM AI run result", html);
+    const ok = await sendEmail(email, "Your Crelix AI run result", html);
     return NextResponse.json({ ok, delivered: ok });
   }
 

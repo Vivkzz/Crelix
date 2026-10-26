@@ -111,7 +111,7 @@ A landing page titled "${page?.title || "Untitled"}" was generated (${page?.html
 ## Recommended next steps
 1. Review the market research above and refine your positioning.
 2. Edit the landing page copy to match your brand voice.
-3. Run a security scan on the deployed page (EKAM AI \u2192 Scans).
+3. Run a security scan on the deployed page (Crelix AI \u2192 Scans).
 4. Set up a custom domain with HTTPS.
 5. Announce the launch and track conversions.
 `;

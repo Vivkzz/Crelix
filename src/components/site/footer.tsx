@@ -74,14 +74,14 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between" style={{ borderColor: "var(--ek-line)" }}>
           <p className="text-[12px]" style={{ color: "var(--ek-ink-3)" }}>
-            एकम्, Sanskrit for “one”. Many agents, one launch.
+            Many agents. One launch.
           </p>
           <p className="text-[12px]" style={{ color: "var(--ek-ink-3)" }}>
-            EKAM INNOVATIONS LLP · GIFT City, Gandhinagar · India
+            A product of EKAM INNOVATIONS LLP · GIFT City, Gandhinagar · India
           </p>
         </div>
         <p className="mt-2 text-[12px]" style={{ color: "var(--ek-ink-3)" }}>
-          © 2026 EKAM AI. All listed company names are trademarks ™ or registered
+          © 2026 Crelix AI. All listed company names are trademarks ™ or registered
           trademarks ® of their respective holders.
         </p>
       </div>

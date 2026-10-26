@@ -32,7 +32,7 @@ export const AGENTS: Agent[] = [
   { key: "engineer", name: "Engineer", role: "Frontend & API", file: "BookingForm.tsx", out: "42 files · 9 routes", doing: "building routes", hue: "var(--ek-a3)", ink: "var(--ek-a3-ink)", rgb: [122, 92, 255], rgbDark: [140, 115, 255], icon: Code2 },
   { key: "tester", name: "Tester", role: "QA & a11y", file: "qa-report", out: "28 checks passed", doing: "running checks", hue: "var(--ek-a4)", ink: "var(--ek-a4-ink)", rgb: [28, 140, 255], rgbDark: [58, 155, 255], icon: FlaskConical },
   { key: "security", name: "Security", role: "Pre-launch scan", file: "scan.json", out: "11 classes · 0 open", doing: "probing 11 classes", hue: "var(--ek-a5)", ink: "var(--ek-a5-ink)", rgb: [15, 181, 174], rgbDark: [28, 207, 198], icon: ShieldCheck },
-  { key: "deployer", name: "Deployer", role: "Ship & DNS", file: "deploy.log", out: "yourbrand.ekamai.app", doing: "shipping to edge", hue: "var(--ek-a6)", ink: "var(--ek-a6-ink)", rgb: [47, 191, 91], rgbDark: [61, 212, 110], icon: Rocket },
+  { key: "deployer", name: "Deployer", role: "Ship & DNS", file: "deploy.log", out: "yourbrand.crelixai.com", doing: "shipping to edge", hue: "var(--ek-a6)", ink: "var(--ek-a6-ink)", rgb: [47, 191, 91], rgbDark: [61, 212, 110], icon: Rocket },
 ];
 
 /* Six small dots in agent order. Used inline in copy and eyebrows. */

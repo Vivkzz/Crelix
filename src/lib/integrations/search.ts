@@ -1,4 +1,4 @@
-// EKAM AI Search — keyless market research. Wikipedia REST + DuckDuckGo
+// Crelix AI Search — keyless market research. Wikipedia REST + DuckDuckGo
 // Instant Answer + Hacker News (Algolia). No API keys required.
 
 export type ResearchResult = {

@@ -38,7 +38,7 @@ function VizFlow() {
       >
         <div className="ek-browser-bar">
           <div className="ek-browser-dots"><span /><span /><span /></div>
-          <div className="ek-browser-url"><span className="live-dot" />yourbrand.ekamai.app</div>
+          <div className="ek-browser-url"><span className="live-dot" />yourbrand.crelixai.com</div>
           <span style={{ width: 40 }} />
         </div>
         <MiniPage />
@@ -129,7 +129,7 @@ function VizSearch() {
         </motion.span>
       ))}
       <motion.span
-        className="ek-viz-map-dot ekam"
+        className="ek-viz-map-dot self"
         style={{ left: "84%", top: "16%" }}
         initial={{ opacity: 0, scale: 0 }}
         animate={on ? { opacity: 1, scale: 1 } : undefined}
@@ -251,7 +251,7 @@ const TILES: Tile[] = [
     key: "flow",
     size: "big",
     hue: "var(--ek-a3)",
-    title: <><b>EKAM AI Flow.</b> Pages and full apps from a prompt. Plan, design, build, deploy.</>,
+    title: <><b>Crelix AI Flow.</b> Pages and full apps from a prompt. Plan, design, build, deploy.</>,
     link: { label: "Explore Flow", href: "/flow" },
     viz: <VizFlow />,
   },
@@ -260,7 +260,7 @@ const TILES: Tile[] = [
     size: "big",
     dark: true,
     hue: "var(--ek-a5)",
-    title: <><b>EKAM AI Pentest.</b> Twelve security specialists try to break it before anyone sees it.</>,
+    title: <><b>Crelix AI Pentest.</b> Twelve security specialists try to break it before anyone sees it.</>,
     link: { label: "Explore Pentest", href: "/pentest" },
     viz: <VizPentest />,
   },
@@ -268,7 +268,7 @@ const TILES: Tile[] = [
     key: "search",
     size: "small",
     hue: "var(--ek-a1)",
-    title: <><b>EKAM AI Search.</b> Market research that feeds your launch.</>,
+    title: <><b>Crelix AI Search.</b> Market research that feeds your launch.</>,
     link: { label: "Explore Search", href: "/search" },
     viz: <VizSearch />,
   },

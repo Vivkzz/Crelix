@@ -48,7 +48,7 @@ export default function SettingsPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-8 lg:px-8 space-y-8">
       <Toaster richColors position="bottom-right" />
-      <PageHeader title="Settings" description="Preferences for your EKAM AI workspace." />
+      <PageHeader title="Settings" description="Preferences for your Crelix AI workspace." />
 
       {isLoading ? (
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -81,7 +81,7 @@ export default function SettingsPage() {
               <div className="space-y-1">
                 <Label htmlFor="productUpdates">Product updates</Label>
                 <p className="text-sm text-muted-foreground">
-                  Hear about new EKAM AI features and improvements.
+                  Hear about new Crelix AI features and improvements.
                 </p>
               </div>
               <Switch

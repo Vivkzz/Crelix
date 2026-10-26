@@ -124,13 +124,13 @@ function SearchVisual() {
           </motion.div>
         ))}
         <motion.div
-          className="ek-research-dot ek-research-ekam"
+          className="ek-research-dot ek-research-self"
           style={{ left: "74%", top: "16%" }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.3, type: "spring", stiffness: 300, damping: 18 }}
         >
-          <span />EKAM AI
+          <span />Crelix AI
         </motion.div>
       </div>
       <div className="ek-research-side">
@@ -205,7 +205,7 @@ export function SuiteHero({
         <Reveal>
           <div className="ek-hero3-eyebrow">
             <span className="ek-suite-dot" style={{ background: hue }} aria-hidden="true" />
-            EKAM AI {suite.name.replace(" Suite", "")}
+            Crelix AI {suite.name.replace(" Suite", "")}
           </div>
         </Reveal>
         <SplitReveal

@@ -21,7 +21,7 @@ const runLog: { t: string; agent: number; msg: string; cls?: string }[] = [
   { t: "00:31.0", agent: 4, msg: "11 classes scanned · 3 findings", cls: "warn" },
   { t: "00:35.4", agent: 2, msg: "3 fixes patched" },
   { t: "00:38.7", agent: 4, msg: "rescan clean · 0 open", cls: "ok" },
-  { t: "00:47.2", agent: 5, msg: "live at yourbrand.ekamai.app", cls: "ok" },
+  { t: "00:47.2", agent: 5, msg: "live at yourbrand.crelixai.com", cls: "ok" },
 ];
 
 function RunLog() {

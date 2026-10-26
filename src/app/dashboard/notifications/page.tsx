@@ -81,7 +81,7 @@ export default function NotificationsPage() {
       <Toaster richColors position="bottom-right" />
       <PageHeader
         title="Notifications"
-        description="Updates from your EKAM AI workspace."
+        description="Updates from your Crelix AI workspace."
         action={
           <Button
             variant="outline"

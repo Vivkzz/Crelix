@@ -89,7 +89,7 @@ export default function CreditsPage() {
               label="Available credits"
               value={balance}
               accent="var(--color-1)"
-              hint="Updated in real time as you use EKAM AI."
+              hint="Updated in real time as you use Crelix AI."
             />
             <StatCard
               label="Current plan"

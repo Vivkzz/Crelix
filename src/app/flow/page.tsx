@@ -56,7 +56,7 @@ const flowFAQs = [
   },
   {
     q: "Can I edit the generated code?",
-    a: "Yes. Every project is exportable as clean React + TypeScript. You can also iterate inside EKAM AI using natural language; describe the change, and the engineer agent applies it as a versioned diff.",
+    a: "Yes. Every project is exportable as clean React + TypeScript. You can also iterate inside Crelix AI using natural language; describe the change, and the engineer agent applies it as a versioned diff.",
   },
   {
     q: "What stacks does Flow support?",
@@ -236,7 +236,7 @@ function PromptDemo() {
     <div className="ek-demo">
       <div className="ek-browser-bar">
         <div className="ek-browser-dots" aria-hidden="true"><span /><span /><span /></div>
-        <div className="ek-browser-url">ekam.ai · flow</div>
+        <div className="ek-browser-url">crelixai.com · flow</div>
         <span style={{ width: 40 }} />
       </div>
       <div className="ek-demo-body space-y-4">
@@ -277,7 +277,7 @@ function PromptDemo() {
             <span className="text-xs font-medium" style={{ color: "var(--ek-a6-ink)" }}>live URL ready · scanned clean</span>
           </div>
           <div className="mt-2 text-xs" style={{ color: "var(--ek-ink)" }}>
-            https://notes-app.ekamai.in
+            https://notes-app.crelixai.com
           </div>
           <div className="mt-1 text-[11px]" style={{ color: "var(--ek-ink-3)" }}>
             Generated in 47 seconds · 1 credit used

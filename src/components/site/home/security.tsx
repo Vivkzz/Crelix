@@ -38,7 +38,7 @@ export function FindingsReport() {
   return (
     <div className="ek-report ek-glass">
       <div className="ek-report-head">
-        <span>target: yourbrand.ekamai.app</span>
+        <span>target: yourbrand.crelixai.com</span>
         <span>2026-10-25</span>
         <span>12 agents</span>
         <span>4m 12s</span>

@@ -42,8 +42,8 @@ function signLink(rawToken: string) {
 function emailHtml(link: string) {
   return `<!doctype html><html><head><meta charset="utf-8"/></head><body style="margin:0;background:#f2f1f1">
 <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:560px;margin:0 auto;padding:32px 24px;color:#13121f">
-  <div style="font-weight:700;letter-spacing:-0.02em;font-size:20px;margin-bottom:24px">EKAM AI</div>
-  <h1 style="font-size:24px;letter-spacing:-0.02em;margin:0 0 12px">Sign in to EKAM AI</h1>
+  <div style="font-weight:700;letter-spacing:-0.02em;font-size:20px;margin-bottom:24px">Crelix AI</div>
+  <h1 style="font-size:24px;letter-spacing:-0.02em;margin:0 0 12px">Sign in to Crelix AI</h1>
   <p style="color:#444;line-height:1.6;margin:0 0 24px">Click the button below to sign in. This link expires in 15 minutes and can be used only once.</p>
   <a href="${link}" style="display:inline-block;background:linear-gradient(90deg,#91e500,#12bcff);color:#13121f;font-weight:600;text-decoration:none;padding:14px 30px;border-radius:999px;font-size:15px">Sign in</a>
   <p style="color:#7f7f7f;font-size:13px;margin:24px 0 0;line-height:1.6">If the button doesn't work, copy and paste this link into your browser:<br/><a href="${link}" style="color:#2f44ff;word-break:break-all">${link}</a></p>
@@ -57,7 +57,7 @@ function emailHtml(link: string) {
 /** Deliver via Resend's HTTP API (no extra dependency). Returns true on success (2xx). */
 async function sendViaResend(to: string, rawToken: string): Promise<boolean> {
   const link = signLink(rawToken);
-  const from = process.env.EMAIL_FROM || "EKAM AI <noreply@ekamai.in>";
+  const from = process.env.EMAIL_FROM || "Crelix AI <noreply@crelixai.com>";
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -68,7 +68,7 @@ async function sendViaResend(to: string, rawToken: string): Promise<boolean> {
       body: JSON.stringify({
         from,
         to,
-        subject: "Your EKAM AI sign-in link",
+        subject: "Your Crelix AI sign-in link",
         html: emailHtml(link),
       }),
     });
@@ -113,9 +113,9 @@ export async function sendMagicLink(email: string, rawToken: string): Promise<{
         auth: { user: process.env.EMAIL_SMTP_USER!, pass: process.env.EMAIL_SMTP_PASS! },
       });
       await transporter.sendMail({
-        from: process.env.EMAIL_FROM || "EKAM AI <no-reply@ekamai.in>",
+        from: process.env.EMAIL_FROM || "Crelix AI <no-reply@crelixai.com>",
         to: email,
-        subject: "Your EKAM AI sign-in link",
+        subject: "Your Crelix AI sign-in link",
         html: emailHtml(link),
       });
       return { delivered: true, demoToken: null };

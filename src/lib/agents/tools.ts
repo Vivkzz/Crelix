@@ -130,13 +130,13 @@ export async function executeTool(name: string, args: any): Promise<any> {
         const query = String(args?.query ?? "");
         const ddg = await fetch(
           `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1`,
-          { headers: { "User-Agent": "EKAMAI/1.0" } }
+          { headers: { "User-Agent": "CrelixAI/1.0" } }
         );
         const dj: any = ddg.ok ? await ddg.json() : {};
         const results = flattenTopics(dj.RelatedTopics || []);
         const hn = await fetch(
           `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story`,
-          { headers: { "User-Agent": "EKAMAI/1.0" } }
+          { headers: { "User-Agent": "CrelixAI/1.0" } }
         );
         const hj: any = hn.ok ? await hn.json() : {};
         const news = (hj.hits || []).slice(0, 5).map((h: any) => ({
@@ -154,7 +154,7 @@ export async function executeTool(name: string, args: any): Promise<any> {
         const url = String(args?.url ?? "");
         const res = await fetch(url, {
           redirect: "follow",
-          headers: { "User-Agent": "EKAMAI/1.0" },
+          headers: { "User-Agent": "CrelixAI/1.0" },
         });
         const content = (await res.text()).slice(0, 4000);
         return { url, status: res.status, content };
@@ -190,7 +190,7 @@ export async function executeTool(name: string, args: any): Promise<any> {
         const url = String(args?.url ?? "");
         const res = await fetch(url, {
           redirect: "follow",
-          headers: { "User-Agent": "EKAMAI/1.0" },
+          headers: { "User-Agent": "CrelixAI/1.0" },
         });
         return {
           status: res.status,

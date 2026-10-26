@@ -45,7 +45,7 @@ export default function LoginPage() {
 
   return (
     <AuthCard
-      title="Log in to EKAM AI"
+      title="Log in to Crelix AI"
       subtitle={sent ? "Check your inbox for the sign-in link." : "We'll email you a secure link. No password needed."}
       footer={
         <>

@@ -153,7 +153,7 @@ function AppShell({
           href={homeHref}
           className="flex h-14 items-center gap-2 px-5 text-base font-semibold tracking-tight"
         >
-          EKAM AI
+          Crelix AI
           {badge && (
             <span className="ml-1 rounded bg-foreground px-1.5 py-0.5 text-[10px] font-medium text-background">
               {badge}
@@ -182,7 +182,7 @@ function AppShell({
                 className="flex h-14 items-center px-5 text-base font-semibold tracking-tight"
                 onClick={() => setOpen(false)}
               >
-                EKAM AI
+                Crelix AI
                 {badge && (
                   <span className="ml-1 rounded bg-foreground px-1.5 py-0.5 text-[10px] font-medium text-background">
                     {badge}

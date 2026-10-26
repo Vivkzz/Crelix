@@ -41,7 +41,7 @@ export default function ContactPage() {
             <Reveal delay={280}>
               <div className="mt-10" style={{ borderTop: "1px solid var(--ek-line)" }}>
                 {[
-                  { label: "Email", value: "contact@ekamai.in", href: "mailto:contact@ekamai.in" },
+                  { label: "Email", value: "contact@crelixai.com", href: "mailto:contact@crelixai.com" },
                   { label: "Office", value: "GIFT City, Gandhinagar, India" },
                   { label: "Response", value: "Within 24 hours, Mon–Fri" },
                 ].map((c) => (
@@ -50,7 +50,7 @@ export default function ContactPage() {
                       {c.label}
                     </span>
                     {c.href ? (
-                      <a href={c.href} className="t" style={{ color: "var(--ek-accent)" }}>{c.value}</a>
+                      <a href={c.href} className="t" style={{ color: "var(--ek-accent)", overflowWrap: "anywhere" }}>{c.value}</a>
                     ) : (
                       <span className="t">{c.value}</span>
                     )}

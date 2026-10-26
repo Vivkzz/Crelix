@@ -300,7 +300,7 @@ model BlogPost {
 }
 
 // ---------------------------------------------------------------------------
-// EKAM AI Agents (our own agent runtime; playbook = keyless, LLM = BYO key)
+// Crelix AI Agents (our own agent runtime; playbook = keyless, LLM = BYO key)
 // ---------------------------------------------------------------------------
 
 model Agent {
@@ -367,7 +367,7 @@ model UserKey {
 }
 
 // ---------------------------------------------------------------------------
-// EKAM AI Agents — extra surfaces (templates, prompts, notes, secrets, schedules)
+// Crelix AI Agents — extra surfaces (templates, prompts, notes, secrets, schedules)
 // ---------------------------------------------------------------------------
 
 // Admin-curated, reusable agent configurations (gallery + clone).
