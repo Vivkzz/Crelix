@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SITE_URL, softwareAppJsonLd } from "@/lib/site";
 
-const title = "Search Suite — Market research for your launch";
+const title = "Search Suite: Market research for your launch";
 const description =
   "Free market research that feeds your launch. EKAM AI Search surfaces competitors, positioning angles, and audience language before you commit to a message.";
 

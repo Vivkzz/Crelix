@@ -25,7 +25,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "EKAM AI — AI website & app builder with built-in security scanning",
+    default: "EKAM AI: AI website & app builder with built-in security scanning",
     template: "%s · EKAM AI",
   },
   description: SITE_DESCRIPTION,
@@ -65,20 +65,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "EKAM AI",
-    title: "EKAM AI — AI website & app builder with built-in security scanning",
+    title: "EKAM AI: AI website & app builder with built-in security scanning",
     description: SITE_DESCRIPTION,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "EKAM AI — Build with AI. Scan before go-live.",
+        alt: "EKAM AI: Build with AI. Scan before go-live.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EKAM AI — AI website & app builder with built-in security scanning",
+    title: "EKAM AI: AI website & app builder with built-in security scanning",
     description: SITE_DESCRIPTION,
     images: ["/og-image.png"],
   },
@@ -97,10 +97,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${mono.variable} antialiased bg-background text-foreground`}
-      >
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${mono.variable}`}
+    >
+      <body className="antialiased bg-background text-foreground">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}

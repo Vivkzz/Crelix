@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SITE_URL, blogJsonLd } from "@/lib/site";
 
 const title = "Blog";
-const ogTitle = "Blog — EKAM AI";
+const ogTitle = "Blog · EKAM AI";
 const description =
-  "Guides and stories on launching with AI — building pages and apps with Flow, pre-launch security with Pentest, and market research with Search.";
+  "Guides and stories on launching with AI: building pages and apps with Flow, pre-launch security with Pentest, and market research with Search.";
 
 export const metadata: Metadata = {
   title,

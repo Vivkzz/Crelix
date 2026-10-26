@@ -1,24 +1,137 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Reveal } from "@/components/shared/reveal";
-import { AnimatedBackground } from "@/components/shared/animated-background";
-import { VicharLogo } from "@/components/site/vichar-logo";
+import Link from "next/link";
+import { useRef, useState, type CSSProperties } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { Reveal, SplitReveal } from "@/components/shared/reveal";
+import { WorkspaceWindow } from "@/components/site/home/hero";
+import { FindingsReport } from "@/components/site/home/security";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.08, ease: [0.3, 0.045, 0.35, 1] as const },
-  }),
+const TAGS: Record<string, string[]> = {
+  flow: ["Launch page", "SaaS app", "Dashboard", "Portfolio", "API"],
+  pentest: ["Authorized targets", "Pre-launch checks", "Live scan feed"],
+  search: ["Audience signals", "Competitor map", "Launch angles"],
 };
+
+const CTA: Record<string, string> = {
+  flow: "Build my site",
+  pentest: "Run scan",
+  search: "Run research",
+};
+
+function SevFloat({ text, color, style }: { text: string; color: string; style?: CSSProperties }) {
+  return (
+    <div
+      className="ek-suitehero-float"
+      style={{ ...style, borderColor: `color-mix(in srgb, ${color} 40%, var(--ek-line))`, color }}
+    >
+      {text}
+    </div>
+  );
+}
+
+function PentestVisual() {
+  const [tilt, setTilt] = useState<[number, number]>([0, 0]);
+  return (
+    <div
+      className="relative"
+      onPointerMove={(e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        setTilt([(e.clientX / r.width - 0.5) * 12, (e.clientY / r.height - 0.5) * 12]);
+      }}
+      onPointerLeave={() => setTilt([0, 0])}
+    >
+      <div className="ek-suitehero-panel"><FindingsReport /><div className="ek-scanline" aria-hidden="true" /></div>
+      <SevFloat
+        text="High · XSS"
+        color="var(--ek-red)"
+        style={{ left: -24, top: "8%", transform: `translate(${tilt[0]}px, ${tilt[1]}px)` }}
+      />
+      <SevFloat
+        text="Medium · Rate limit"
+        color="var(--ek-orange)"
+        style={{ right: -24, top: "30%", transform: `translate(${tilt[0] * -0.7}px, ${tilt[1] * -0.7}px)` }}
+      />
+    </div>
+  );
+}
+
+function SearchVisual() {
+  const dots = [
+    { n: "Framer", x: 68, y: 62 },
+    { n: "Webflow", x: 78, y: 38 },
+    { n: "Wix", x: 24, y: 30 },
+    { n: "Relume", x: 55, y: 78 },
+    { n: "Durable", x: 20, y: 68 },
+  ];
+  return (
+    <div className="ek-research" aria-hidden="true">
+      {/* positioning map */}
+      <div className="ek-research-map">
+        <div className="ek-research-axis-y">Price</div>
+        <div className="ek-research-axis-x">Built-in security →</div>
+        <div className="ek-research-vline" /><div className="ek-research-hline" />
+        {dots.map((d) => (
+          <div key={d.n} className="ek-research-dot" style={{ left: `${d.x}%`, top: `${d.y}%` }}>
+            <span />{d.n}
+          </div>
+        ))}
+        <div className="ek-research-dot ek-research-ekam" style={{ left: "82%", top: "14%" }}>
+          <span />EKAM AI
+        </div>
+      </div>
+      {/* quotes + angles */}
+      <div className="ek-research-side">
+        {[
+          ["\"I'd pay double if it scanned before launch.\"", "r/SaaS"],
+          ["\"Building is fast. Knowing it won't get hacked is slower.\"", "Indie Hackers"],
+          ["\"We spent two weeks on positioning alone.\"", "G2 review"],
+        ].map(([q, src]) => (
+          <div key={src} className="ek-research-quote">
+            <div style={{ fontSize: 14, color: "var(--ek-ink-2)", lineHeight: 1.5 }}>{q}</div>
+            <div style={{ fontSize: 12, color: "var(--ek-ink-3)", marginTop: 6 }}>{src}</div>
+          </div>
+        ))}
+        <div className="ek-research-angles">
+          <div style={{ fontSize: 12, fontWeight: 600, color: "var(--ek-ink-3)", marginBottom: 6 }}>Launch angles</div>
+          {["Security-first builder", "Agencies shipping client sites", "Prompt-to-production"].map((a) => (
+            <div key={a} className="ek-research-angle"><span />{a}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HeroVisual({ slug }: { slug: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "start 0.3"],
+  });
+  const p = useSpring(scrollYProgress, { stiffness: 110, damping: 24, mass: 0.7 });
+  const rotateX = useTransform(p, [0, 1], [14, 0]);
+  const scale = useTransform(p, [0, 1], [0.9, 1]);
+  return (
+    <div className="ek-suitehero-scene" ref={ref}>
+      <motion.div
+        className="ek-suitehero-tilt"
+        style={{ rotateX, scale, transformPerspective: 1600 }}
+      >
+        {slug === "flow" && <WorkspaceWindow stage={6} />}
+        {slug === "pentest" && <PentestVisual />}
+        {slug === "search" && <SearchVisual />}
+      </motion.div>
+    </div>
+  );
+}
 
 export function SuiteHero({
   suite,
 }: {
   suite: {
     slug: string;
+    name: string;
     fullName: string;
     tagline: string;
     description: string;
@@ -26,90 +139,36 @@ export function SuiteHero({
   };
 }) {
   return (
-    <section
-      id="top"
-      data-suite={suite.slug}
-      className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20"
-    >
-      <AnimatedBackground variant="default" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <motion.div
-            custom={0}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur"
-          >
-            <VicharLogo active={suite.slug as any} size={20} />
-            <span className="font-mono">EKAM AI · {suite.slug}</span>
-            <span className="text-foreground/80">· {suite.fullName}</span>
-          </motion.div>
-
-          <motion.h1
-            custom={1}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mt-6 font-semibold tracking-tight"
-            style={{ fontSize: "clamp(40px, 3.5vw + 28px, 80px)", lineHeight: 1.05 }}
-          >
-            <span className="block">{suite.tagline}</span>
-          </motion.h1>
-
-          <motion.p
-            custom={2}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mx-auto mt-6 max-w-2xl text-pretty text-muted-foreground"
-            style={{ fontSize: "clamp(16px, 1vw + 13px, 20px)", lineHeight: 1.5 }}
-          >
+    <section className="ek-suitehero">
+      <div className="ek-container text-center">
+        <Reveal>
+          <div className="ek-eyebrow">EKAM AI {suite.name.replace(" Suite", "")}</div>
+        </Reveal>
+        <SplitReveal
+          as="h1"
+          className="ek-h1-page mt-4 mx-auto"
+          lines={[suite.tagline]}
+        />
+        <Reveal delay={200}>
+          <p className="ek-hero2-sub mx-auto mt-5" style={{ maxWidth: "58ch" }}>
             {suite.description}
-          </motion.p>
-
-          <motion.div
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mt-8 flex flex-wrap items-center justify-center gap-2"
-          >
-            {suite.slug === "flow" && ["Launch page", "SaaS app", "Dashboard", "Portfolio", "API"].map((t) => (
-              <span key={t} className="rounded-full border border-border bg-white/80 px-3 py-1 text-xs text-muted-foreground">
-                {t}
-              </span>
+          </p>
+        </Reveal>
+        <Reveal delay={300}>
+          <div className="ek-hero2-ctas">
+            <Link href="/signup" className="ek-btn">{CTA[suite.slug] ?? "Start free"}</Link>
+            <a href="#inside" className="ek-link" style={{ fontSize: 17 }}>Learn more</a>
+          </div>
+        </Reveal>
+        <Reveal delay={380}>
+          <div className="ek-suite-tags mt-7" style={{ justifyContent: "center" }}>
+            {(TAGS[suite.slug] ?? []).map((t) => (
+              <span key={t} className="ek-suite-tag">{t}</span>
             ))}
-            {suite.slug === "pentest" && ["Authorized targets", "Pre-launch checks", "Live scan feed"].map((t) => (
-              <span key={t} className="rounded-full border border-border bg-white/80 px-3 py-1 text-xs text-muted-foreground">
-                {t}
-              </span>
-            ))}
-            {suite.slug === "search" && ["Audience signals", "Competitor map", "Launch angles"].map((t) => (
-              <span key={t} className="rounded-full border border-border bg-white/80 px-3 py-1 text-xs text-muted-foreground">
-                {t}
-              </span>
-            ))}
-          </motion.div>
-
-          <motion.div
-            custom={4}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
-          >
-            <a href="#get-started" className="btn-pill w-full sm:w-auto">
-              {suite.slug === "flow" && "Build my site"}
-              {suite.slug === "pentest" && "Run scan"}
-              {suite.slug === "search" && "Run research"}
-            </a>
-            <a href="#inside" className="btn-pill-outline w-full sm:w-auto">
-              Learn more
-            </a>
-          </motion.div>
-        </div>
+          </div>
+        </Reveal>
       </div>
+      <HeroVisual slug={suite.slug} />
     </section>
   );
 }

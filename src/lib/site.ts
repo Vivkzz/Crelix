@@ -15,7 +15,7 @@ export const SITE_NAME = "EKAM AI";
 export const SITE_LEGAL_NAME = "EKAM INNOVATIONS LLP";
 
 export const SITE_DESCRIPTION =
-  "EKAM AI is an AI software platform (SaaS): describe your idea and AI agents plan, design, and build your website or app — with an authorized security scan before every launch. No coding required.";
+  "EKAM AI is an AI software platform (SaaS): describe your idea and AI agents plan, design, and build your website or app, with an authorized security scan before every launch. No coding required.";
 
 export const SITE_TAGLINE = "Build with AI. Scan before go-live.";
 

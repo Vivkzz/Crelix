@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 
 const title = "Changelog";
-const ogTitle = "Changelog — EKAM AI";
+const ogTitle = "Changelog · EKAM AI";
 const description =
-  "What's new in EKAM AI — new features, improvements, and fixes across Flow, Pentest, and Search.";
+  "What's new in EKAM AI: new features, improvements, and fixes across Flow, Pentest, and Search.";
 
 export const metadata: Metadata = {
   title,

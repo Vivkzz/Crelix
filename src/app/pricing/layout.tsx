@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 
-const title = "Pricing — Start free, scale when it works";
+const title = "Pricing: Start free, scale when it works";
 const description =
   "EKAM AI pricing: start free for 14 days with every suite included, then scale from Starter to Enterprise as your launches grow. No card required to start.";
 

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { SITE_URL, softwareAppJsonLd } from "@/lib/site";
 
-const title = "Flow — Pages and apps, built from a prompt";
+const title = "Flow: Pages and apps, built from a prompt";
 const description =
-  "EKAM AI Flow is an AI builder: describe the page or app you want and AI agents plan, design, and build it — ready to publish in minutes. Design, copy, structure, frontend, and backend included.";
+  "EKAM AI Flow is an AI builder: describe the page or app you want and AI agents plan, design, and build it, ready to publish in minutes. Design, copy, structure, frontend, and backend included.";
 
 export const metadata: Metadata = {
   title,

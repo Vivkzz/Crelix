@@ -8,7 +8,6 @@ import { Section } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
 import { FinalCTA } from "@/components/shared/final-cta";
 import { blogPosts } from "@/lib/data/site";
-import { AnimatedBackground } from "@/components/shared/animated-background";
 
 export default function BlogPostPage() {
   const params = useParams<{ slug: string }>();
@@ -17,22 +16,22 @@ export default function BlogPostPage() {
 
   return (
     <SiteLayout>
-      <article className="relative overflow-hidden pt-32 pb-12 sm:pt-40">
-        <AnimatedBackground variant="soft" />
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <article className="ek-pagehead">
+        <div className="ek-container" style={{ maxWidth: 760 }}>
           <Reveal>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-1.5 text-[12px] no-underline"
+              style={{ color: "var(--ek-ink-3)" }}
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
+              <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
               Back to blog
             </Link>
           </Reveal>
 
           <Reveal delay={80}>
-            <div className="mt-6 flex items-center gap-3 text-xs text-muted-foreground">
-              <span className="rounded-full bg-[#f2f1f1] px-2 py-0.5 font-mono uppercase tracking-wider">{post.category}</span>
+            <div className="ek-meta mt-8">
+              <span className="ek-tag new capitalize">{post.category}</span>
               <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{post.date}</span>
               <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{post.readTime}</span>
             </div>
@@ -40,73 +39,74 @@ export default function BlogPostPage() {
 
           <Reveal delay={160}>
             <h1
-              className="mt-4 font-semibold tracking-tight"
-              style={{ fontSize: "clamp(28px, 2.4vw + 18px, 44px)", lineHeight: 1.15 }}
+              className="ek-serif mt-6"
+              style={{ fontSize: "clamp(34px, 2.8vw + 18px, 52px)", lineHeight: 1.08, color: "var(--ek-ink)" }}
             >
               {post.title}
             </h1>
           </Reveal>
 
           <Reveal delay={240}>
-            <p className="mt-4 text-lg text-muted-foreground">{post.excerpt}</p>
+            <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--ek-ink-2)" }}>{post.excerpt}</p>
           </Reveal>
 
           <Reveal delay={320}>
-            <div className="mt-6 flex items-center justify-between border-y border-border py-4">
+            <div
+              className="mt-8 flex items-center justify-between"
+              style={{ borderTop: "1px solid var(--ek-line)", borderBottom: "1px solid var(--ek-line)", padding: "16px 0" }}
+            >
               <div className="flex items-center gap-3">
-                <div
-                  className="flex h-10 w-10 items-center justify-center rounded-full text-white font-mono text-xs font-semibold"
-                  style={{ background: "var(--gradient-linear-3)" }}
+                <span
+                  className="flex h-10 w-10 items-center justify-center rounded-full ek-serif text-sm"
+                  style={{ border: "1px solid var(--ek-line-strong)", color: "var(--ek-ink)" }}
                 >
-                  {post.author.split(" ").map(n => n[0]).join("")}
-                </div>
+                  {post.author.split(" ").map((n) => n[0]).join("")}
+                </span>
                 <div>
-                  <div className="text-sm font-medium">{post.author}</div>
-                  <div className="text-xs text-muted-foreground">Author</div>
+                  <div className="text-sm font-medium" style={{ color: "var(--ek-ink)" }}>{post.author}</div>
+                  <div className="text-[11px]" style={{ color: "var(--ek-ink-3)" }}>Author</div>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-white text-muted-foreground hover:text-foreground transition-colors" aria-label="Share on X">
-                  <Twitter className="h-3.5 w-3.5" />
-                </button>
-                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-white text-muted-foreground hover:text-foreground transition-colors" aria-label="Share on LinkedIn">
-                  <Linkedin className="h-3.5 w-3.5" />
-                </button>
-                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-white text-muted-foreground hover:text-foreground transition-colors" aria-label="Share">
-                  <Share2 className="h-3.5 w-3.5" />
-                </button>
+                {[
+                  { icon: Twitter, label: "Share on X" },
+                  { icon: Linkedin, label: "Share on LinkedIn" },
+                  { icon: Share2, label: "Share" },
+                ].map(({ icon: Icon, label }) => (
+                  <button
+                    key={label}
+                    aria-label={label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full transition-colors"
+                    style={{ border: "1px solid var(--ek-line)", color: "var(--ek-ink-3)" }}
+                  >
+                    <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                  </button>
+                ))}
               </div>
             </div>
           </Reveal>
 
-          <Reveal delay={400}>
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/90">
+          <Reveal delay={380}>
+            <div className="ek-prose mt-10">
               {post.content.split("\n\n").map((para, i) => {
                 if (para.startsWith("## ")) {
-                  return (
-                    <h2 key={i} className="mt-10 text-2xl font-semibold tracking-tight">
-                      {para.replace(/^##\s+/, "")}
-                    </h2>
-                  );
+                  return <h2 key={i}>{para.replace(/^##\s+/, "")}</h2>;
                 }
                 if (para.startsWith("### ")) {
-                  return (
-                    <h3 key={i} className="mt-8 text-xl font-semibold tracking-tight">
-                      {para.replace(/^###\s+/, "")}
-                    </h3>
-                  );
+                  return <h3 key={i}>{para.replace(/^###\s+/, "")}</h3>;
                 }
-                return <p key={i} className="text-muted-foreground">{para}</p>;
+                return <p key={i}>{para}</p>;
               })}
             </div>
           </Reveal>
 
           <Reveal>
-            <div className="mt-10 flex flex-wrap items-center gap-2 border-t border-border pt-6">
+            <div
+              className="mt-10 flex flex-wrap items-center gap-2"
+              style={{ borderTop: "1px solid var(--ek-line)", paddingTop: 24 }}
+            >
               {post.tags.map((t) => (
-                <span key={t} className="rounded-full border border-border bg-white/80 px-3 py-1 text-xs text-muted-foreground">
-                  #{t}
-                </span>
+                <span key={t} className="ek-suite-tag">#{t}</span>
               ))}
             </div>
           </Reveal>
@@ -115,24 +115,19 @@ export default function BlogPostPage() {
 
       {related.length > 0 && (
         <Section className="!pt-0">
-          <div className="mx-auto max-w-3xl">
+          <div className="ek-container" style={{ maxWidth: 760 }}>
             <Reveal>
-              <h2 className="text-xl font-semibold tracking-tight">Related articles</h2>
+              <h2 className="ek-serif text-3xl" style={{ color: "var(--ek-ink)" }}>Related articles</h2>
             </Reveal>
-            <div className="mt-6 space-y-3">
-              {related.map((p, i) => (
-                <Reveal key={p.slug} delay={i * 60}>
-                  <Link
-                    href={`/blog/${p.slug}`}
-                    className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-white/80 p-5 hover:border-foreground/15 transition-all"
-                  >
-                    <div>
-                      <div className="text-xs text-muted-foreground">{p.date} · {p.readTime}</div>
-                      <div className="mt-1 text-base font-semibold tracking-tight">{p.title}</div>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all" />
-                  </Link>
-                </Reveal>
+            <div className="mt-8" style={{ borderTop: "1px solid var(--ek-line)" }}>
+              {related.map((p) => (
+                <Link key={p.slug} href={`/blog/${p.slug}`} className="ek-post-row" style={{ gridTemplateColumns: "1fr auto" }}>
+                  <span>
+                    <span className="ek-post-tag">{p.date} · {p.readTime}</span>
+                    <span className="t mt-1 block" style={{ fontSize: 22 }}>{p.title}</span>
+                  </span>
+                  <ArrowRight className="arr h-5 w-5" aria-hidden="true" />
+                </Link>
               ))}
             </div>
           </div>
@@ -140,9 +135,9 @@ export default function BlogPostPage() {
       )}
 
       <FinalCTA
-        title="Build with EKAM AI —"
+        title="Build with EKAM AI,"
         subtitle="from prompt to live."
-        primary={{ label: "Start free trial", href: "/#get-started" }}
+        primary={{ label: "Start free trial", href: "/signup" }}
         secondary={{ label: "See pricing", href: "/pricing" }}
       />
     </SiteLayout>

@@ -1,10 +1,15 @@
 "use client";
 
 import { SiteLayout } from "@/components/shared/site-layout";
-import { Hero } from "@/components/site/hero";
-import { Architecture } from "@/components/site/architecture";
-import { HowItWorks } from "@/components/site/how-it-works";
-import { Portfolio } from "@/components/site/portfolio";
+import { HomeHero } from "@/components/site/home/hero";
+import { ModelsStrip } from "@/components/site/home/models-strip";
+import { Statement } from "@/components/site/home/statement";
+import { Ensemble } from "@/components/site/home/ensemble";
+import { HomeHowItWorks } from "@/components/site/home/how-it-works";
+import { Suites } from "@/components/site/home/suites";
+import { Security } from "@/components/site/home/security";
+import { Numbers } from "@/components/site/home/numbers";
+import { PricingTeaser } from "@/components/site/home/pricing-teaser";
 import { FinalCTA } from "@/components/shared/final-cta";
 import { FAQAccordion } from "@/components/shared/faq";
 import { Section } from "@/components/shared/section";
@@ -13,14 +18,22 @@ import { generalFAQs } from "@/lib/data/site";
 export default function Home() {
   return (
     <SiteLayout>
-      <Hero />
-      <Architecture />
-      <HowItWorks />
-      <Portfolio />
-      <Section>
-        <FAQAccordion items={generalFAQs} />
+      <HomeHero />
+      <ModelsStrip />
+      <Statement />
+      <Ensemble />
+      <HomeHowItWorks />
+      <Suites />
+      <Security />
+      <Numbers />
+      <PricingTeaser />
+      <Section id="faq">
+        <FAQAccordion items={generalFAQs} eyebrow="Questions" />
       </Section>
-      <FinalCTA />
+      <FinalCTA
+        title="Describe it today."
+        subtitle="Launch it scanned tomorrow."
+      />
     </SiteLayout>
   );
 }

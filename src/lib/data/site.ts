@@ -15,10 +15,10 @@ export const suites: Suite[] = [
   {
     slug: "flow",
     name: "Flow",
-    fullName: "EKAM AI — Flow",
+    fullName: "EKAM AI Flow",
     tagline: "Pages and apps, built from a prompt",
     description:
-      "From a prompt to a live launch page or a full app in minutes. Design, copy, structure, frontend, and backend — built by AI agents, ready to publish.",
+      "From a prompt to a live launch page or a full app in minutes. Design, copy, structure, frontend, and backend, built by AI agents and ready to publish.",
     color: "#12bcff",
     colorVar: "var(--color-2)",
     icon: "sparkles",
@@ -35,7 +35,7 @@ export const suites: Suite[] = [
   {
     slug: "pentest",
     name: "Pentest Suite",
-    fullName: "EKAM AI — Pentest Suite",
+    fullName: "EKAM AI Pentest",
     tagline: "Pre-launch security scan",
     description:
       "Run a structured pre-launch security scan on a target you own or are authorized to test. Reports findings with evidence, severity, and remediation guidance.",
@@ -55,7 +55,7 @@ export const suites: Suite[] = [
   {
     slug: "search",
     name: "Search Suite",
-    fullName: "EKAM AI — Search Suite",
+    fullName: "EKAM AI Search",
     tagline: "Market research for your launch",
     description:
       "Free market research that feeds your launch. Surface competitors, positioning angles, and audience language before you commit to a message.",
@@ -127,7 +127,7 @@ export const pricingTiers: PricingTier[] = [
     cta: "Start with Pro",
     featured: true,
     features: [
-      "EKAM AI Flow — pages and apps",
+      "EKAM AI Flow: pages and apps",
       "350 credits / month",
       "10 team members",
       "Deploy to production",
@@ -191,12 +191,12 @@ export const team: TeamMember[] = [
 export const values = [
   {
     title: "Ship to production",
-    desc: "Every feature we build is designed to deliver real outcomes — not demos or prototypes. We build for the launch moment, not the demo moment.",
+    desc: "Every feature we build is designed to deliver real outcomes, not demos or prototypes. We build for the launch moment, not the demo moment.",
     icon: "rocket",
   },
   {
     title: "AI as infrastructure",
-    desc: "We orchestrate the best models into execution workflows — not another chatbot wrapper. EKAM AI is the execution layer, not a model.",
+    desc: "We orchestrate the best models into execution workflows, not another chatbot wrapper. EKAM AI is the execution layer, not a model.",
     icon: "cpu",
   },
   {
@@ -206,7 +206,7 @@ export const values = [
   },
   {
     title: "Scale from day one",
-    desc: "Built on enterprise patterns — from Kubernetes to distributed systems — because startups deserve enterprise-grade tools.",
+    desc: "Built on enterprise patterns, from Kubernetes to distributed systems, because startups deserve enterprise-grade tools.",
     icon: "layers",
   },
 ];
@@ -227,7 +227,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "free-mobile-app-builder-idea-to-launch-with-ai",
-    title: "Free Mobile App Builder — Idea to Launch With AI",
+    title: "Free Mobile App Builder: Idea to Launch With AI",
     excerpt:
       "Build and launch a mobile app for free with EKAM AI's AI-powered builder. No code needed. Includes pre-launch security scanning.",
     category: "guide",
@@ -236,9 +236,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     author: "Bhargav Vyas",
     featured: true,
-    content: `Mobile app development has traditionally been a slow, expensive process. You needed designers, frontend engineers, backend engineers, and a deployment pipeline — and that was before you got to security review.
+    content: `Mobile app development has traditionally been a slow, expensive process. You needed designers, frontend engineers, backend engineers, and a deployment pipeline, and that was before you got to security review.
 
-EKAM AI Flow changes that. Describe your app, share a few references, and the agent team plans the structure, generates the code, designs the UI, writes the copy, and deploys it. In this post, we walk through the full workflow — from idea to a live, scanned mobile app.
+EKAM AI Flow changes that. Describe your app, share a few references, and the agent team plans the structure, generates the code, designs the UI, writes the copy, and deploys it. In this post, we walk through the full workflow, from idea to a live, scanned mobile app.
 
 ## Step 1: Describe your app
 
@@ -246,7 +246,7 @@ Start with a prompt. The more specific you are about audience, core flows, and t
 
 ## Step 2: Add references
 
-Drop in screenshots of apps you love. EKAM AI matches the structure and voice — without a setup marathon.
+Drop in screenshots of apps you love. EKAM AI matches the structure and voice, without a setup marathon.
 
 ## Step 3: Generate and preview
 
@@ -254,23 +254,23 @@ Flow generates the app in seconds. Preview it, iterate on copy and visuals, and 
 
 ## Step 4: Ship
 
-One click. Your project goes live on a public URL you own — ready to share.`,
+One click. Your project goes live on a public URL you own, ready to share.`,
   },
   {
     slug: "web-page-creator-online-no-code-site-builder",
-    title: "Web Page Creator Online — No-Code Site Builder",
+    title: "Web Page Creator Online: No-Code Site Builder",
     excerpt:
-      "The fastest web page creator online for founders & indie hackers. Build, secure, and launch your site in minutes — no coding required.",
+      "The fastest web page creator online for founders & indie hackers. Build, secure, and launch your site in minutes, no coding required.",
     category: "product",
     tags: ["website builder", "no-code", "launch"],
     date: "Jun 30, 2026",
     readTime: "7 min read",
     author: "Meet Savaliya",
-    content: `The fastest web page creator online for founders and indie hackers is one that doesn't make you choose between speed and quality. EKAM AI Flow gives you both — plus a pre-launch security scan so you ship with confidence.`,
+    content: `The fastest web page creator online for founders and indie hackers is one that doesn't make you choose between speed and quality. EKAM AI Flow gives you both, plus a pre-launch security scan so you ship with confidence.`,
   },
   {
     slug: "ai-website-design-tools-no-code-sites-2026",
-    title: "AI Website Design Tools — No-Code Sites (2026)",
+    title: "AI Website Design Tools: No-Code Sites (2026)",
     excerpt:
       "Compare the best AI website design tools in 2026. See how EKAM AI stacks up against Relume, Wix, and Webflow for founders.",
     category: "compare",
@@ -278,13 +278,13 @@ One click. Your project goes live on a public URL you own — ready to share.`,
     date: "Jun 27, 2026",
     readTime: "10 min read",
     author: "Meet Savaliya",
-    content: `In 2026, the AI website design landscape is more crowded than ever. We compare EKAM AI against Relume, Wix, and Webflow — and show why pairing generation with a pre-launch security scan matters.`,
+    content: `In 2026, the AI website design landscape is more crowded than ever. We compare EKAM AI against Relume, Wix, and Webflow, and show why pairing generation with a pre-launch security scan matters.`,
   },
   {
     slug: "ai-landing-page-builder-prompt-to-live-page",
-    title: "AI Landing Page Builder — Prompt to Live Page",
+    title: "AI Landing Page Builder: Prompt to Live Page",
     excerpt:
-      "Build a high-converting landing page with AI in minutes. EKAM AI generates, optimizes, and security-scans your launch page — no code needed.",
+      "Build a high-converting landing page with AI in minutes. EKAM AI generates, optimizes, and security-scans your launch page, no code needed.",
     category: "product",
     tags: ["landing pages", "website builder", "launch"],
     date: "Jun 24, 2026",
@@ -294,9 +294,9 @@ One click. Your project goes live on a public URL you own — ready to share.`,
   },
   {
     slug: "ai-powered-website-builder-free-no-code",
-    title: "AI-Powered Website Builder — Free & No-Code",
+    title: "AI-Powered Website Builder: Free & No-Code",
     excerpt:
-      "Build a stunning website with AI in minutes — no coding needed. EKAM AI generates pages, copy, and layouts instantly. Free to start.",
+      "Build a stunning website with AI in minutes, no coding needed. EKAM AI generates pages, copy, and layouts instantly. Free to start.",
     category: "product",
     tags: ["website builder", "no-code", "launch"],
     date: "Jun 20, 2026",
@@ -314,7 +314,7 @@ One click. Your project goes live on a public URL you own — ready to share.`,
     date: "Jun 18, 2026",
     readTime: "7 min read",
     author: "Meet Savaliya",
-    content: `Launching solo in 2026 is easier than ever — if you have the right stack. This is the end-to-end map we recommend to every founder who asks.`,
+    content: `Launching solo in 2026 is easier than ever if you have the right stack. This is the end-to-end map we recommend to every founder who asks.`,
   },
   {
     slug: "how-to-build-landing-page-with-ai-that-doesnt-look-ai-generated",
@@ -344,13 +344,13 @@ One click. Your project goes live on a public URL you own — ready to share.`,
     slug: "owasp-top-10-explained-for-founders",
     title: "The OWASP Top 10, explained for founders (with real examples)",
     excerpt:
-      "A plain-English walk through the OWASP Top 10 web security risks for founders — what each one is, how it bites you.",
+      "A plain-English walk through the OWASP Top 10 web security risks for founders: what each one is, how it bites you.",
     category: "guide",
     tags: ["pentest", "security", "guide"],
     date: "Jun 15, 2026",
     readTime: "11 min read",
     author: "Meet Savaliya",
-    content: `A plain-English walk through the OWASP Top 10 web security risks for founders — what each one is, how it bites you, and the single most important thing to do about it.`,
+    content: `A plain-English walk through the OWASP Top 10 web security risks for founders: what each one is, how it bites you, and the single most important thing to do about it.`,
   },
 ];
 
@@ -375,7 +375,7 @@ export const changelog: ChangelogEntry[] = [
     date: "May 9, 2026",
     title: "Analytics rebuilt around GA4",
     description:
-      "GA4 page_view events now fire on SPA route changes — accurate funnels across the app. Ads conversion tracking running side-by-side with GA4.",
+      "GA4 page_view events now fire on SPA route changes, giving accurate funnels across the app. Ads conversion tracking running side-by-side with GA4.",
     type: "chore",
     month: "May 2026",
   },
@@ -383,13 +383,13 @@ export const changelog: ChangelogEntry[] = [
     date: "May 5, 2026",
     title: "Studio: faster session switching and live state",
     description:
-      "Per-session message cache — switching between chats is instant. WebSocket is now the single state writer; SSE falls back automatically when sockets are blocked.",
+      "Per-session message cache: switching between chats is instant. WebSocket is now the single state writer; SSE falls back automatically when sockets are blocked.",
     type: "feature",
     month: "May 2026",
   },
   {
     date: "Apr 28, 2026",
-    title: "Pentest — 3 new vulnerability classes",
+    title: "Pentest: 3 new vulnerability classes",
     description:
       "Added SSRF, race conditions, and business-logic checks. Scan reports now include request/response evidence for every finding.",
     type: "feature",
@@ -397,7 +397,7 @@ export const changelog: ChangelogEntry[] = [
   },
   {
     date: "Apr 21, 2026",
-    title: "Flow — custom fonts and brand kits",
+    title: "Flow: custom fonts and brand kits",
     description:
       "Upload your own font files and brand colors. Flow applies them consistently across generated pages and apps.",
     type: "feature",
@@ -405,7 +405,7 @@ export const changelog: ChangelogEntry[] = [
   },
   {
     date: "Apr 14, 2026",
-    title: "Search — competitor positioning drafts",
+    title: "Search: competitor positioning drafts",
     description:
       "Search now generates three positioning drafts you can hand directly to Flow as a starting prompt.",
     type: "improvement",
@@ -440,7 +440,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "We shipped our launch page in an afternoon and ran a pre-launch scan before announcing. Zero criticals at launch — that's the only reason we slept that night.",
+      "We shipped our launch page in an afternoon and ran a pre-launch scan before announcing. Zero criticals at launch, which is the only reason we slept that night.",
     author: "Anya Petrova",
     role: "Founder, Northwind Labs",
     initials: "AP",
@@ -472,7 +472,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "I run an agency. EKAM AI replaced four tools in our stack — design, copy, deploy, and security. My clients are happier and my margins are up.",
+      "I run an agency. EKAM AI replaced four tools in our stack: design, copy, deploy, and security. My clients are happier and my margins are up.",
     author: "Priya Nair",
     role: "Founder, Slate Studio",
     initials: "PN",
@@ -496,15 +496,15 @@ export type FAQ = {
 export const generalFAQs: FAQ[] = [
   {
     q: "What is EKAM AI?",
-    a: "EKAM AI is an AI platform that turns a prompt into a deployed launch page — then runs an authorized pre-launch security scan so you ship with confidence. It's not a model — it's an execution layer that orchestrates specialized AI agents as one team.",
+    a: "EKAM AI is an AI platform that turns a prompt into a deployed launch page, then runs an authorized pre-launch security scan so you ship with confidence. It's not a model; it's an execution layer that orchestrates specialized AI agents as one team.",
   },
   {
     q: "Is EKAM AI free to try?",
-    a: "Yes. The 14-day free trial gives you full access to every suite — Flow, Pentest, and Search — with 5 generations. No credit card required.",
+    a: "Yes. The 14-day free trial gives you full access to every suite (Flow, Pentest, and Search) with 5 generations. No credit card required.",
   },
   {
     q: "Do I need to know how to code?",
-    a: "No. EKAM AI Flow handles design, copy, structure, frontend, backend, and deploy from a single prompt. You describe what you want — the agents handle the rest.",
+    a: "No. EKAM AI Flow handles design, copy, structure, frontend, backend, and deploy from a single prompt. You describe what you want and the agents handle the rest.",
   },
   {
     q: "Can I run Pentest on any site?",
@@ -527,15 +527,15 @@ export const pricingFAQs: FAQ[] = [
   },
   {
     q: "Do unused credits roll over?",
-    a: "Monthly subscription credits don't roll over — they reset on each renewal. One-time credit packs you purchase on top of a subscription stay on your account until used.",
+    a: "Monthly subscription credits don't roll over; they reset on each renewal. One-time credit packs you purchase on top of a subscription stay on your account until used.",
   },
   {
     q: "Is Pentest available on Pro?",
-    a: "Pentest is included on Enterprise. We're rolling it out to Pro on a beta basis — join the Pentest waitlist from your dashboard or contact us for early access.",
+    a: "Pentest is included on Enterprise. We're rolling it out to Pro on a beta basis; join the Pentest waitlist from your dashboard or contact us for early access.",
   },
   {
     q: "Do you offer agency or volume pricing?",
-    a: "Yes. If you ship client work, run more than 10 seats, or need a tailored credit allocation, contact us — we have an agency partner plan.",
+    a: "Yes. If you ship client work, run more than 10 seats, or need a tailored credit allocation, contact us about our agency partner plan.",
   },
   {
     q: "What about education or non-profit discounts?",

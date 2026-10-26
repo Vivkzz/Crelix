@@ -2,15 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Mail, MessageSquare, Building2, Clock, ArrowRight, Check, Send } from "lucide-react";
+import { Mail, MessageSquare, Building2, ArrowRight, Check, Send } from "lucide-react";
 import { SiteLayout } from "@/components/shared/site-layout";
-import { Section } from "@/components/shared/section";
-import { Reveal } from "@/components/shared/reveal";
-import { AnimatedBackground } from "@/components/shared/animated-background";
+import { Section, Eyebrow } from "@/components/shared/section";
+import { Reveal, SplitReveal } from "@/components/shared/reveal";
 
 const reasons = [
-  { id: "sales", label: "Sales — pricing, plans, demos", icon: Mail },
-  { id: "support", label: "Support — help with a project", icon: MessageSquare },
+  { id: "sales", label: "Sales, pricing, plans, demos", icon: Mail },
+  { id: "support", label: "Support, help with a project", icon: MessageSquare },
   { id: "agency", label: "Agency / partner program", icon: Building2 },
   { id: "other", label: "Something else", icon: ArrowRight },
 ];
@@ -21,55 +20,74 @@ export default function ContactPage() {
 
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden pt-32 pb-12 sm:pt-40 sm:pb-16">
-        <AnimatedBackground variant="default" />
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--gradient-linear-3)" }} />
-              Contact
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1
-              className="mt-4 font-semibold tracking-tight"
-              style={{ fontSize: "clamp(40px, 3.5vw + 28px, 64px)", lineHeight: 1.05 }}
-            >
-              <span className="text-spectrum-animated">Let's talk.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-5 text-pretty text-muted-foreground text-lg">
-              Sales, support, partnerships, or just curious — we read every message.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <Section className="!pt-[160px]">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+          {/* Left: title + direct details */}
+          <div>
+            <Reveal>
+              <Eyebrow>Contact</Eyebrow>
+            </Reveal>
+            <SplitReveal
+              as="h1"
+              className="ek-h1-page mt-6"
+              lines={["Tell us what you're", "building."]}
+            />
+            <Reveal delay={200}>
+              <p className="ek-lead mt-6" style={{ maxWidth: "40ch" }}>
+                Sales, support, partnerships, or just curious. We read every
+                message.
+              </p>
+            </Reveal>
+            <Reveal delay={280}>
+              <div className="mt-10" style={{ borderTop: "1px solid var(--ek-line)" }}>
+                {[
+                  { label: "Email", value: "contact@ekamai.in", href: "mailto:contact@ekamai.in" },
+                  { label: "Office", value: "GIFT City, Gandhinagar, India" },
+                  { label: "Response", value: "Within 24 hours, Mon–Fri" },
+                ].map((c) => (
+                  <div key={c.label} className="ek-numlist-item" style={{ gridTemplateColumns: "110px 1fr" }}>
+                    <span className="text-[14px] font-semibold" style={{ color: "var(--ek-ink-2)" }}>
+                      {c.label}
+                    </span>
+                    {c.href ? (
+                      <a href={c.href} className="t" style={{ color: "var(--ek-accent)" }}>{c.value}</a>
+                    ) : (
+                      <span className="t">{c.value}</span>
+                    )}
+                    <span />
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+            <Reveal delay={360}>
+              <p className="mt-8 text-[13px] leading-relaxed" style={{ color: "var(--ek-ink-3)" }}>
+                Existing project? Use the{" "}
+                <Link href="/dashboard" style={{ color: "var(--ek-ink)", textDecoration: "underline" }}>
+                  in-app chat
+                </Link>{" "}
+                Most issues get a first response in under 2 hours.
+              </p>
+            </Reveal>
+          </div>
 
-      <Section className="!pt-0">
-        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-          {/* Form */}
-          <Reveal>
-            <div className="rounded-2xl border border-border bg-white/80 p-6 sm:p-8 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.06)]">
+          {/* Right: form in glass panel — same fields/validation/submit as before, restyled */}
+          <Reveal delay={160}>
+            <div className="ek-glass p-6 sm:p-9" style={{ borderRadius: "var(--ek-r-lg)" }}>
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <div
-                    className="flex h-16 w-16 items-center justify-center rounded-full text-white"
-                    style={{
-                      background: "var(--gradient-linear-3)",
-                      backgroundSize: "200% auto",
-                      animation: "spectrum-pan 6s linear infinite",
-                    }}
+                    className="flex h-16 w-16 items-center justify-center rounded-full"
+                    style={{ border: "1px solid var(--ek-line-strong)" }}
                   >
-                    <Check className="h-7 w-7" />
+                    <Check className="h-7 w-7" style={{ color: "var(--ek-green)" }} />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight">Message sent</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <h3 className="ek-serif mt-6 text-3xl" style={{ color: "var(--ek-ink)" }}>Message sent</h3>
+                  <p className="mt-2 text-sm" style={{ color: "var(--ek-ink-2)" }}>
                     Thanks for reaching out. We'll get back to you within 24 hours.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="btn-pill-outline mt-6"
+                    className="ek-btn-ghost mt-7"
                   >
                     Send another
                   </button>
@@ -80,114 +98,47 @@ export default function ContactPage() {
                     e.preventDefault();
                     setSubmitted(true);
                   }}
-                  className="space-y-5"
                 >
-                  <div>
-                    <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                      What's this about?
-                    </label>
-                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                      {reasons.map((r) => (
-                        <button
-                          key={r.id}
-                          type="button"
-                          onClick={() => setReason(r.id)}
-                          className={
-                            "flex items-center gap-2 rounded-xl border p-3 text-left text-sm transition-all " +
-                            (reason === r.id
-                              ? "border-foreground/15 bg-white shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)]"
-                              : "border-border bg-white/60 hover:border-foreground/15")
-                          }
-                        >
-                          <r.icon className="h-4 w-4 text-muted-foreground" />
-                          <span>{r.label}</span>
-                        </button>
-                      ))}
-                    </div>
+                  <div className="ek-cap">What's this about?</div>
+                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                    {reasons.map((r) => (
+                      <button
+                        key={r.id}
+                        type="button"
+                        onClick={() => setReason(r.id)}
+                        className={"ek-reason" + (reason === r.id ? " active" : "")}
+                      >
+                        <r.icon className="h-4 w-4" style={{ color: "var(--ek-ink-3)" }} aria-hidden="true" />
+                        <span>{r.label}</span>
+                      </button>
+                    ))}
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="mt-7 grid gap-x-8 gap-y-2 sm:grid-cols-2">
                     <Field label="Name" name="name" placeholder="Jane Doe" required />
                     <Field label="Email" name="email" type="email" placeholder="jane@company.com" required />
                   </div>
 
-                  <Field label="Company (optional)" name="company" placeholder="Acme Inc." />
+                  <div className="mt-2">
+                    <Field label="Company (optional)" name="company" placeholder="Acme Inc." />
+                  </div>
 
-                  <div>
-                    <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                      Message
-                    </label>
+                  <div className="ek-field mt-2">
                     <textarea
                       required
                       rows={5}
+                      name="message"
                       placeholder="Tell us what you're working on..."
-                      className="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20"
                     />
+                    <label>Message</label>
                   </div>
 
-                  <button type="submit" className="btn-pill w-full">
+                  <button type="submit" className="ek-btn mt-8 w-full" style={{ justifyContent: "center" }}>
                     Send message
-                    <Send className="h-4 w-4" />
+                    <Send className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </form>
               )}
-            </div>
-          </Reveal>
-
-          {/* Contact info */}
-          <Reveal delay={120}>
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-border bg-white/80 p-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-white text-foreground">
-                    <Mail className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">Email us</div>
-                    <a href="mailto:contact@ekamai.in" className="text-sm font-medium hover:text-foreground/80">
-                      contact@ekamai.in
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-border bg-white/80 p-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-white text-foreground">
-                    <Building2 className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">Office</div>
-                    <div className="text-sm font-medium">GIFT City, Gandhinagar, India</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-border bg-white/80 p-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-white text-foreground">
-                    <Clock className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">Response time</div>
-                    <div className="text-sm font-medium">Within 24 hours, Mon–Fri</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-border bg-gradient-to-br from-white to-[#f2f1f1]/60 p-6">
-                <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                  Looking for support?
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  For faster help with an existing project, use the in-app chat.
-                  Most issues get a first response in under 2 hours.
-                </p>
-                <Link href="/dashboard" className="btn-pill-outline mt-4 w-full">
-                  Open dashboard
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
             </div>
           </Reveal>
         </div>
@@ -210,17 +161,14 @@ function Field({
   required?: boolean;
 }) {
   return (
-    <div>
-      <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-        {label}
-      </label>
+    <div className="ek-field">
       <input
         type={type}
         name={name}
         required={required}
         placeholder={placeholder}
-        className="mt-2 w-full rounded-xl border border-border bg-white px-4 py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20"
       />
+      <label>{label}</label>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { SITE_URL } from "@/lib/site";
 const title = "Contact";
 const ogTitle = "Contact EKAM AI";
 const description =
-  "Get in touch with the EKAM AI team — support, sales, agency partnerships, and education or non-profit discounts.";
+  "Get in touch with the EKAM AI team: support, sales, agency partnerships, and education or non-profit discounts.";
 
 export const metadata: Metadata = {
   title,
