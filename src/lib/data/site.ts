@@ -170,6 +170,8 @@ export type TeamMember = {
   companies: string[];
   initials: string;
   linkedin?: string;
+  /* square headshot in /public, e.g. "/team/dhruv-chaniyara.jpg"; initials show until set */
+  photo?: string;
 };
 
 export const team: TeamMember[] = [

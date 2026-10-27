@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { SiteLayout } from "@/components/shared/site-layout";
 import { Section, SectionHeader, PageHeader } from "@/components/shared/section";
@@ -41,7 +41,13 @@ export default function AboutPage() {
             <Reveal key={member.name} delay={i * 100}>
               <div style={{ borderTop: "1px solid var(--ek-line)", paddingTop: 28 }}>
                 <div className="flex items-center gap-5">
-                  <span className="ek-monogram" style={{ "--hue": MONOGRAM_HUES[i % MONOGRAM_HUES.length] } as CSSProperties}>{member.initials}</span>
+                  <span className="ek-monogram" style={{ "--hue": MONOGRAM_HUES[i % MONOGRAM_HUES.length] } as CSSProperties}>
+                    {member.photo ? (
+                      <img src={member.photo} alt={member.name} width={56} height={56} className="ek-monogram-photo" />
+                    ) : (
+                      member.initials
+                    )}
+                  </span>
                   <div className="min-w-0">
                     <div className="text-lg font-medium" style={{ color: "var(--ek-ink)" }}>{member.name}</div>
                     <div className="text-[12px]" style={{ color: "var(--ek-ink-3)" }}>{member.role}</div>
@@ -53,8 +59,9 @@ export default function AboutPage() {
                       rel="noopener noreferrer"
                       className="ek-social-link ml-auto"
                       aria-label={`${member.name} on LinkedIn`}
+                      title={`${member.name} on LinkedIn`}
                     >
-                      <Linkedin className="h-4 w-4" aria-hidden="true" />
+                      <img src="/img/linkedin.svg" alt="" width={28} height={28} />
                     </a>
                   )}
                 </div>

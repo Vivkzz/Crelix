@@ -2105,6 +2105,8 @@ a:hover > .ek-tile, .ek-tile.big:hover, .ek-tile.small:hover {
   width: 56px;
   height: 56px;
   border-radius: 999px;
+  overflow: hidden;
+  flex: none;
   background: color-mix(in srgb, var(--hue, var(--ek-ink)) 9%, var(--ek-surface));
   box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--hue, var(--ek-ink)) 45%, transparent), 0 0 0 6px color-mix(in srgb, var(--hue, var(--ek-ink)) 8%, transparent);
   display: flex;
@@ -2116,24 +2118,23 @@ a:hover > .ek-tile, .ek-tile.big:hover, .ek-tile.small:hover {
   letter-spacing: -0.01em;
   color: var(--ek-ink);
 }
+/* founder LinkedIn link: the LinkedIn logo itself is the button */
 .ek-social-link {
   flex: none;
-  width: 36px;
-  height: 36px;
   display: grid;
   place-items: center;
-  border-radius: 999px;
-  color: var(--ek-ink-2);
-  box-shadow: inset 0 0 0 1px var(--ek-line);
-  transition: color 200ms var(--ek-ease), background 200ms var(--ek-ease), box-shadow 200ms var(--ek-ease);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  transition: transform 250ms var(--ek-ease-io), background 200ms var(--ek-ease);
 }
-.ek-social-link:hover {
-  color: #0A66C2;
-  background: color-mix(in srgb, #0A66C2 8%, transparent);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, #0A66C2 35%, transparent);
+.ek-social-link img { display: block; border-radius: 4px; }
+@media (hover: hover) {
+  .ek-social-link:hover { transform: translateY(-1px); background: color-mix(in srgb, #0A66C2 9%, transparent); }
 }
-.dark .ek-social-link:hover { color: #70B5F9; }
+.ek-social-link:active { transform: scale(0.94); }
 .ek-social-link:focus-visible { outline: 2px solid var(--ek-accent); outline-offset: 2px; }
+.ek-monogram-photo { width: 100%; height: 100%; border-radius: 999px; object-fit: cover; }
 .ek-info-tile {
   border: 1px solid var(--ek-line);
   border-radius: var(--ek-r-sm);
