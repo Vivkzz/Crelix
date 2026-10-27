@@ -181,6 +181,7 @@ export const team: TeamMember[] = [
     companies: [],
     initials: "DC",
     linkedin: "https://www.linkedin.com/in/dhruv-chaniyara-b60aa2247/",
+    photo: "/team/dhruv-chaniyara.jpg",
   },
   {
     name: "Madhav Wadhwana",
@@ -188,6 +189,7 @@ export const team: TeamMember[] = [
     companies: [],
     initials: "MW",
     linkedin: "https://www.linkedin.com/in/madhav-wadhwana/",
+    photo: "/team/madhav-wadhwana.jpg",
   },
 ];
 
