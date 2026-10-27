@@ -15,7 +15,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       </Link>
       <Suspense fallback={null}>{children}</Suspense>
       <p className="mt-10 text-xs text-muted-foreground">
-        EKAM INNOVATIONS LLP · GIFT City, Gandhinagar, India
+        CRELIX INNOVATIONS LLP · GIFT City, Gandhinagar, India
       </p>
     </div>
   );

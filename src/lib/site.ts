@@ -14,7 +14,7 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "Crelix AI";
-export const SITE_LEGAL_NAME = "EKAM INNOVATIONS LLP";
+export const SITE_LEGAL_NAME = "CRELIX INNOVATIONS LLP";
 
 export const SITE_DESCRIPTION =
   "Crelix AI is an AI software platform (SaaS): describe your idea and AI agents plan, design, and build your website or app, with an authorized security scan before every launch. No coding required.";

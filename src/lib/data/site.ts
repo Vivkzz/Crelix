@@ -512,7 +512,7 @@ export const generalFAQs: FAQ[] = [
   },
   {
     q: "Where is my data stored?",
-    a: "Crelix AI is operated by EKAM INNOVATIONS LLP, based in GIFT City, Gandhinagar, India. Data is processed in India. See our Privacy Policy and Security pages for the full picture, including subprocessors and encryption.",
+    a: "Crelix AI is operated by CRELIX INNOVATIONS LLP, based in GIFT City, Gandhinagar, India. Data is processed in India. See our Privacy Policy and Security pages for the full picture, including subprocessors and encryption.",
   },
   {
     q: "Can I cancel anytime?",

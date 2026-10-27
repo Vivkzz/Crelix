@@ -2,7 +2,7 @@ import { createCipheriv, createDecipheriv, createHash, randomBytes } from "crypt
 
 function key(): Buffer {
   return createHash("sha256")
-    .update(process.env.ENCRYPTION_KEY || process.env.NEXTAUTH_SECRET || "ekamai-dev-key")
+    .update(process.env.ENCRYPTION_KEY || process.env.NEXTAUTH_SECRET || "crelixai-dev-key")
     .digest();
 }
 

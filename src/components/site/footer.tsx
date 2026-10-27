@@ -77,7 +77,7 @@ export function Footer() {
             Many agents. One launch.
           </p>
           <p className="text-[12px]" style={{ color: "var(--ek-ink-3)" }}>
-            A product of EKAM INNOVATIONS LLP · GIFT City, Gandhinagar · India
+            A product of CRELIX INNOVATIONS LLP · GIFT City, Gandhinagar · India
           </p>
         </div>
         <p className="mt-2 text-[12px]" style={{ color: "var(--ek-ink-3)" }}>

@@ -49,7 +49,7 @@ function emailHtml(link: string) {
   <p style="color:#7f7f7f;font-size:13px;margin:24px 0 0;line-height:1.6">If the button doesn't work, copy and paste this link into your browser:<br/><a href="${link}" style="color:#2f44ff;word-break:break-all">${link}</a></p>
   <p style="color:#9a9a9a;font-size:12px;margin-top:24px">If you didn't request this link, you can safely ignore this email.</p>
   <hr style="border:none;border-top:1px solid #e3e3e3;margin:28px 0"/>
-  <p style="color:#9a9a9a;font-size:12px">EKAM INNOVATIONS LLP &middot; GIFT City, Gandhinagar, India</p>
+  <p style="color:#9a9a9a;font-size:12px">CRELIX INNOVATIONS LLP &middot; GIFT City, Gandhinagar, India</p>
 </div>
 </body></html>`;
 }

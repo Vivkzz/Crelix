@@ -1,6 +1,6 @@
 # Deployment backup
 
-Production snapshot for redeploying EKAM AI. **Private repo only — contains secrets and live user data.**
+Production snapshot for redeploying Crelix AI. **Private repo only — contains secrets and live user data.**
 
 - `custom.db` — SQLite database snapshot (users, agents, runs, credits, templates, audit log)
 - `.env` — production environment variables (NEXTAUTH_SECRET, RESEND_API_KEY, CRON_SECRET, DATABASE_URL, …)
@@ -18,3 +18,14 @@ Production snapshot for redeploying EKAM AI. **Private repo only — contains se
 - The snapshot was taken with SQLite's online-backup API (consistent even under writes).
 - Secrets in git history are permanent. If this repo is ever made public or shared,
   rotate NEXTAUTH_SECRET, RESEND_API_KEY, and CRON_SECRET immediately.
+
+## Crelix rename on the live database
+
+This snapshot already has the EKAM → Crelix rename applied. To apply the same
+to the live database (back it up first; the script is safe to re-run):
+
+    bun scripts/rebrand-db.ts /var/www/ekamai/db/custom.db            # preview
+    bun scripts/rebrand-db.ts /var/www/ekamai/db/custom.db --apply    # write
+
+The admin account's email becomes admin@crelixai.com (its ADMIN role is kept),
+so that mailbox must receive sign-in links before you apply it.

@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 // so ../.. resolves back to the app root regardless of where it is deployed.
 const DECK_PATH =
   process.env.PITCH_DECK_PATH ||
-  path.resolve(process.cwd(), "..", "..", "data", "EKAM-AI-Pitch.pptx");
+  path.resolve(process.cwd(), "..", "..", "data", "Crelix-AI-Pitch.pptx");
 
 const MIME =
   "application/vnd.openxmlformats-officedocument.presentationml.presentation";
@@ -35,7 +35,7 @@ export async function GET() {
     status: 200,
     headers: {
       "Content-Type": MIME,
-      "Content-Disposition": 'attachment; filename="EKAM-AI-Pitch.pptx"',
+      "Content-Disposition": 'attachment; filename="Crelix-AI-Pitch.pptx"',
       "Content-Length": String(file.length),
       "Cache-Control": "no-store",
     },

@@ -82,7 +82,7 @@ export default function AboutPage() {
 
       {/* Company */}
       <Section>
-        <SectionHeader eyebrow="The company" title={<>EKAM INNOVATIONS LLP.</>} />
+        <SectionHeader eyebrow="The company" title={<>CRELIX INNOVATIONS LLP.</>} />
         <Reveal className="mt-14">
           <div className="grid gap-8 lg:grid-cols-2">
             <p className="ek-bodytext" style={{ maxWidth: "48ch" }}>

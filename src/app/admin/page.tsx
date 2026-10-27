@@ -57,7 +57,7 @@ export default function AdminOverviewPage() {
             className="inline-flex items-center gap-2 rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:opacity-90"
           >
             <FileDown className="h-4 w-4" />
-            Download EKAM-AI-Pitch.pptx
+            Download Crelix-AI-Pitch.pptx
           </a>
           <span className="text-xs text-muted-foreground">
             10 slides · 16:9 · apple-design build
