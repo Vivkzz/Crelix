@@ -166,25 +166,26 @@ export const creditPacks = [
 export type TeamMember = {
   name: string;
   role: string;
-  bio: string;
+  bio?: string;
   companies: string[];
   initials: string;
+  linkedin?: string;
 };
 
 export const team: TeamMember[] = [
   {
-    name: "Bhargav Vyas",
-    role: "Co-Founder & CEO",
-    bio: "Co-founder of Crelix AI, focused on product direction and go-to-market. Believes the best launch tool is one that ships and secures in the same motion.",
+    name: "Dhruv Chaniyara",
+    role: "Co-Founder",
     companies: [],
-    initials: "BV",
+    initials: "DC",
+    linkedin: "https://www.linkedin.com/in/dhruv-chaniyara-b60aa2247/",
   },
   {
-    name: "Meet Savaliya",
-    role: "Co-Founder & CTO",
-    bio: "Co-founder of Crelix AI, leading engineering and the agent orchestration behind Flow, Pentest, and Search.",
+    name: "Madhav Wadhwana",
+    role: "Co-Founder",
     companies: [],
-    initials: "MS",
+    initials: "MW",
+    linkedin: "https://www.linkedin.com/in/madhav-wadhwana/",
   },
 ];
 
@@ -234,7 +235,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["mobile", "no-code", "launch"],
     date: "Jul 2, 2026",
     readTime: "9 min read",
-    author: "Bhargav Vyas",
+    author: "Crelix Team",
     featured: true,
     content: `Mobile app development has traditionally been a slow, expensive process. You needed designers, frontend engineers, backend engineers, and a deployment pipeline, and that was before you got to security review.
 
@@ -265,7 +266,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["website builder", "no-code", "launch"],
     date: "Jun 30, 2026",
     readTime: "7 min read",
-    author: "Meet Savaliya",
+    author: "Crelix Team",
     content: `The fastest web page creator online for founders and indie hackers is one that doesn't make you choose between speed and quality. Crelix AI Flow gives you both, plus a pre-launch security scan so you ship with confidence.`,
   },
   {
@@ -277,7 +278,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["website builder", "design", "launch"],
     date: "Jun 27, 2026",
     readTime: "10 min read",
-    author: "Meet Savaliya",
+    author: "Crelix Team",
     content: `In 2026, the AI website design landscape is more crowded than ever. We compare Crelix AI against Relume, Wix, and Webflow, and show why pairing generation with a pre-launch security scan matters.`,
   },
   {
@@ -289,7 +290,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["landing pages", "website builder", "launch"],
     date: "Jun 24, 2026",
     readTime: "9 min read",
-    author: "Bhargav Vyas",
+    author: "Crelix Team",
     content: `A high-converting landing page needs three things: clear copy, a credible design, and a fast deploy. Crelix AI Flow delivers all three from a single prompt.`,
   },
   {
@@ -301,7 +302,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["website builder", "no-code", "launch"],
     date: "Jun 20, 2026",
     readTime: "10 min read",
-    author: "Meet Savaliya",
+    author: "Crelix Team",
     content: `A free, no-code website builder that actually produces production-grade output. Here's how Crelix AI Flow does it.`,
   },
   {
@@ -313,7 +314,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["flow", "guide", "launch"],
     date: "Jun 18, 2026",
     readTime: "7 min read",
-    author: "Meet Savaliya",
+    author: "Crelix Team",
     content: `Launching solo in 2026 is easier than ever if you have the right stack. This is the end-to-end map we recommend to every founder who asks.`,
   },
   {
@@ -325,7 +326,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["flow", "landing-pages", "guide"],
     date: "Jun 18, 2026",
     readTime: "5 min read",
-    author: "Bhargav Vyas",
+    author: "Crelix Team",
     content: `Most AI landing pages look identical because they share the same template assets. Here's how to break out of that pattern with Crelix AI Flow.`,
   },
   {
@@ -337,7 +338,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["pentest", "security", "guide"],
     date: "Jun 18, 2026",
     readTime: "5 min read",
-    author: "Meet Savaliya",
+    author: "Crelix Team",
     content: `A practical pre-launch security pass for founders. What a real pentest checks, how to run one on your own app in minutes, and how to read and fix the findings.`,
   },
   {
@@ -349,7 +350,7 @@ One click. Your project goes live on a public URL you own, ready to share.`,
     tags: ["pentest", "security", "guide"],
     date: "Jun 15, 2026",
     readTime: "11 min read",
-    author: "Meet Savaliya",
+    author: "Crelix Team",
     content: `A plain-English walk through the OWASP Top 10 web security risks for founders: what each one is, how it bites you, and the single most important thing to do about it.`,
   },
 ];

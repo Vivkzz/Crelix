@@ -2116,6 +2116,24 @@ a:hover > .ek-tile, .ek-tile.big:hover, .ek-tile.small:hover {
   letter-spacing: -0.01em;
   color: var(--ek-ink);
 }
+.ek-social-link {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--ek-ink-2);
+  box-shadow: inset 0 0 0 1px var(--ek-line);
+  transition: color 200ms var(--ek-ease), background 200ms var(--ek-ease), box-shadow 200ms var(--ek-ease);
+}
+.ek-social-link:hover {
+  color: #0A66C2;
+  background: color-mix(in srgb, #0A66C2 8%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #0A66C2 35%, transparent);
+}
+.dark .ek-social-link:hover { color: #70B5F9; }
+.ek-social-link:focus-visible { outline: 2px solid var(--ek-accent); outline-offset: 2px; }
 .ek-info-tile {
   border: 1px solid var(--ek-line);
   border-radius: var(--ek-r-sm);

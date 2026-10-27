@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { SiteLayout } from "@/components/shared/site-layout";
 import { Section, SectionHeader, PageHeader } from "@/components/shared/section";
@@ -8,6 +8,8 @@ import { Reveal } from "@/components/shared/reveal";
 import { FinalCTA } from "@/components/shared/final-cta";
 import { team, values } from "@/lib/data/site";
 import type { CSSProperties } from "react";
+
+const MONOGRAM_HUES = ["var(--ek-a3)", "var(--ek-a5)", "var(--ek-a2)", "var(--ek-a6)"];
 
 export default function AboutPage() {
   return (
@@ -35,18 +37,32 @@ export default function AboutPage() {
         />
         <div className="mt-14 grid gap-10 md:grid-cols-2">
           {team.map((member, i) => (
+            /* each founder gets one of the agent hues for their monogram ring */
             <Reveal key={member.name} delay={i * 100}>
               <div style={{ borderTop: "1px solid var(--ek-line)", paddingTop: 28 }}>
                 <div className="flex items-center gap-5">
-                  <span className="ek-monogram" style={{ "--hue": i % 2 ? "var(--ek-a5)" : "var(--ek-a3)" } as CSSProperties}>{member.initials}</span>
-                  <div>
+                  <span className="ek-monogram" style={{ "--hue": MONOGRAM_HUES[i % MONOGRAM_HUES.length] } as CSSProperties}>{member.initials}</span>
+                  <div className="min-w-0">
                     <div className="text-lg font-medium" style={{ color: "var(--ek-ink)" }}>{member.name}</div>
                     <div className="text-[12px]" style={{ color: "var(--ek-ink-3)" }}>{member.role}</div>
                   </div>
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ek-social-link ml-auto"
+                      aria-label={`${member.name} on LinkedIn`}
+                    >
+                      <Linkedin className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  )}
                 </div>
-                <p className="mt-5 text-[15px] leading-relaxed" style={{ color: "var(--ek-ink-2)", maxWidth: "52ch" }}>
-                  {member.bio}
-                </p>
+                {member.bio && (
+                  <p className="mt-5 text-[15px] leading-relaxed" style={{ color: "var(--ek-ink-2)", maxWidth: "52ch" }}>
+                    {member.bio}
+                  </p>
+                )}
                 {member.companies.length > 0 && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {member.companies.map((c) => (

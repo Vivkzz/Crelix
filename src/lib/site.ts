@@ -1,3 +1,5 @@
+import { team } from "@/lib/data/site";
+
 /**
  * Central SEO config + JSON-LD builders for Crelix AI.
  *
@@ -34,6 +36,12 @@ export function url(path: string = "/"): string {
 }
 
 export function organizationJsonLd() {
+  const founder = team.map((m) => ({
+    "@type": "Person",
+    name: m.name,
+    jobTitle: m.role,
+    ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
+  }));
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -42,6 +50,7 @@ export function organizationJsonLd() {
     url: SITE_URL,
     logo: url("/logo.svg"),
     description: SITE_DESCRIPTION,
+    founder,
     knowsAbout: [
       "Artificial intelligence",
       "AI software development",
@@ -115,7 +124,10 @@ export function blogPostingJsonLd(post: {
     description: post.excerpt,
     datePublished: iso,
     dateModified: iso,
-    author: { "@type": "Person", name: post.author },
+    author:
+      post.author === "Crelix Team"
+        ? { "@type": "Organization", name: SITE_NAME, url: SITE_URL }
+        : { "@type": "Person", name: post.author },
     publisher: {
       "@type": "Organization",
       name: SITE_LEGAL_NAME,
